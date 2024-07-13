@@ -29,7 +29,7 @@ var (
 func Init() {
 
 	log.Println("Initialising WS Server")
-	go redispubsub.SubscribeToRedisChannel(RedisClient, &GameIdConnectionIdMap, &ConnectionIdConnectionMap)
+	go redispubsub.SubscribeToRedisChannel(RedisClient, GameIdConnectionIdMap, ConnectionIdConnectionMap)
 
 	http.HandleFunc("/ws", HandleConnections)
 	log.Println("HTTP server started on :8080")

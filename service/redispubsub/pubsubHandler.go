@@ -15,7 +15,7 @@ var (
 	redisChannel = "rpubsub"
 )
 
-func SubscribeToRedisChannel(redisClient *redis.Client, gameIdConnectionIdMap *map[string][]string, connectionIdConnectionMap *map[string]*websocket.Conn) {
+func SubscribeToRedisChannel(redisClient *redis.Client, gameIdConnectionIdMap map[string][]string, connectionIdConnectionMap map[string]*websocket.Conn) {
 	// subscribe to channel = redisChannel
 	pubsub := redisClient.Subscribe(redisChannel)
 
@@ -28,7 +28,7 @@ func SubscribeToRedisChannel(redisClient *redis.Client, gameIdConnectionIdMap *m
 			log.Printf("Error converting msg payload in format \n")
 		}
 		gamedata.Mu.Lock()
-		connectionIds, ok := (*gameIdConnectionIdMap)[message.GameId]
+		connectionIds, ok := gameIdConnectionIdMap[message.GameId]
 		gamedata.Mu.Unlock()
 		if !ok {
 			log.Printf("Invalid gameid received in pubsub %s", message.GameId)
@@ -47,8 +47,8 @@ func PublishToRedisChannel(redisClient *redis.Client, msg []byte) {
 		log.Printf("Error publishing message to Redis: msg = %v err = %v", msg, err)
 	}
 }
-func handleMessageWithWSConnection(connectionId string, connectionIdConnectionMap *map[string]*websocket.Conn, message dto.MessageFromClient) {
-	conn, ok := (*connectionIdConnectionMap)[connectionId]
+func handleMessageWithWSConnection(connectionId string, connectionIdConnectionMap map[string]*websocket.Conn, message dto.MessageFromClient) {
+	conn, ok := connectionIdConnectionMap[connectionId]
 	if !ok {
 		log.Printf("Invalid ConnectionId %v", connectionId)
 		return

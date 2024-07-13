@@ -2,10 +2,13 @@ package testcases
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
+	"math/rand"
 	"multiplayer_game/controller/websocketserver"
 	"multiplayer_game/dto"
 	"multiplayer_game/service/redispubsub"
+	"multiplayer_game/util"
 	"net/http"
 	"net/http/httptest"
 	"regexp"
@@ -17,16 +20,17 @@ import (
 )
 
 const (
-	numGames = 100
+	numGames   = 100
+	joinFactor = 10
 )
 
 var (
-	gameIdWsClientMap map[string]*websocket.Conn
+	gameIdWsClientMap = make(map[string][]*websocket.Conn)
 	mu                sync.Mutex
 )
 
 func TestWebsocketMessageFlow(t *testing.T) {
-	go redispubsub.SubscribeToRedisChannel(websocketserver.RedisClient, &websocketserver.GameIdConnectionIdMap, &websocketserver.ConnectionIdConnectionMap)
+	go redispubsub.SubscribeToRedisChannel(websocketserver.RedisClient, websocketserver.GameIdConnectionIdMap, websocketserver.ConnectionIdConnectionMap)
 	s := httptest.NewServer(http.HandlerFunc(websocketserver.HandleConnections))
 	u := "ws" + strings.TrimPrefix(s.URL, "http")
 
@@ -34,15 +38,18 @@ func TestWebsocketMessageFlow(t *testing.T) {
 	var wg sync.WaitGroup
 	var wsList []*websocket.Conn
 	var laterWsList []*websocket.Conn
-	//create numSockets games, check if they are stored successfully
+	//create numSockets games, check if they are created successfully
 	for i := 0; i < numGames; i++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
 			defer mu.Unlock()
+			ws := createMockWSClient(u, t)
+			gameId := testCreateMessage(ws, t)
 			mu.Lock()
-			wsList = append(wsList, createMockWSClient(u, t))
-			gameIds = append(gameIds, testCreateMessage(wsList[len(wsList)-1], t))
+			wsList = append(wsList, ws)
+			gameIds = append(gameIds, gameId)
+			gameIdWsClientMap[gameId] = []*websocket.Conn{ws}
 		}()
 	}
 
@@ -62,13 +69,16 @@ func TestWebsocketMessageFlow(t *testing.T) {
 	log.Printf("------TESTING----JOIN-------")
 	// test join action
 	//initialise rand to create random numbers
-	for j := 0; j < numGames*10; j++ {
+	for j := 0; j < numGames*joinFactor; j++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
+			defer mu.Unlock()
 			randomGame := j % numGames
 			randomSocket := j
 			testJoinMessage(randomGame, randomSocket, laterWsList, gameIds, t)
+			mu.Lock()
+			gameIdWsClientMap[gameIds[randomGame]] = append(gameIdWsClientMap[gameIds[randomGame]], laterWsList[randomSocket])
 		}()
 	}
 	wg.Wait()
@@ -81,9 +91,10 @@ func TestWebsocketMessageFlow(t *testing.T) {
 			testChatMessage(gameIds[randomGame], t)
 		}()
 	}
+	wg.Wait()
 	//random code to prevent garbage collection
-	log.Println(len(wsList))
-	log.Println(len(laterWsList))
+	// log.Println(len(wsList))
+	// log.Println(len(laterWsList))
 }
 
 func createMockWSClient(u string, t *testing.T) *websocket.Conn {
@@ -120,7 +131,6 @@ func testCreateMessage(ws *websocket.Conn, t *testing.T) string {
 func testJoinMessage(randomGame int, randomSocket int, wsList []*websocket.Conn, gameIds []string, t *testing.T) {
 	var messageFromClient = dto.MessageFromClient{Action: "join", GameId: gameIds[randomGame]}
 	wsList[randomSocket].WriteJSON(messageFromClient)
-
 	_, resp, err := wsList[randomSocket].ReadMessage()
 	if err != nil {
 		t.Fatalf("error while sending join message")
@@ -139,5 +149,64 @@ func testJoinMessage(randomGame int, randomSocket int, wsList []*websocket.Conn,
 }
 
 func testChatMessage(game string, t *testing.T) {
+	defer mu.Unlock()
+	randomText := util.GenerateGuid()
+	pattern := fmt.Sprintf("^[a-zA-Z0-9]+ Says %s", randomText)
+	var messageFromClient = dto.MessageFromClient{Action: "chat", GameId: game, ChatText: randomText}
+	mu.Lock()
+	gameWsSockets := gameIdWsClientMap[game]
 
+	var wg sync.WaitGroup
+	errChan := make(chan error, len(gameWsSockets))
+	for _, v := range gameWsSockets {
+		wg.Add(1)
+		go func() {
+			testListenIncomingChatMessage(v, regexp.MustCompile(pattern), &wg, errChan)
+		}()
+	}
+	log.Printf("found %vconnections for game %v", len(gameWsSockets), game)
+	randChatter := rand.Intn(len(gameWsSockets))
+	gameWsSockets[randChatter].WriteJSON(messageFromClient)
+
+	wg.Wait()
+	close(errChan)
+	for err := range errChan {
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+	}
+}
+
+func testListenIncomingChatMessage(ws *websocket.Conn, regExp *regexp.Regexp, wg *sync.WaitGroup, errChan chan error) {
+	defer wg.Done()
+
+	for {
+		_, resp, err := ws.ReadMessage()
+		if err != nil {
+			errChan <- fmt.Errorf("error while reading chat message %v", err)
+			return
+		}
+
+		var messageToClient dto.MessageToClient
+		err = json.Unmarshal(resp, &messageToClient)
+		if err != nil {
+			errChan <- fmt.Errorf("error while parsing chat msg %v %v", string(resp), err)
+			return
+		}
+
+		if messageToClient.Action == "join" {
+			continue
+		}
+
+		if messageToClient.Action != "chat" {
+			errChan <- fmt.Errorf("Unexpected message action for chat %+v", messageToClient)
+		}
+
+		if !regExp.MatchString(messageToClient.Data) {
+			errChan <- fmt.Errorf("Unexpected chat message %+v", messageToClient)
+			return
+		}
+		break
+	}
+	errChan <- nil
 }
