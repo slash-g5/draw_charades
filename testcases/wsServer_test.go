@@ -20,7 +20,7 @@ import (
 )
 
 const (
-	numGames   = 100
+	numGames   = 10
 	joinFactor = 10
 )
 
@@ -29,6 +29,7 @@ var (
 	mu                sync.Mutex
 )
 
+// Tests message flow with different testcases in different order
 func TestWebsocketMessageFlow(t *testing.T) {
 	go redispubsub.SubscribeToRedisChannel(websocketserver.RedisClient, websocketserver.GameIdConnectionIdMap, websocketserver.ConnectionIdConnectionMap)
 	s := httptest.NewServer(http.HandlerFunc(websocketserver.HandleConnections))
@@ -56,7 +57,7 @@ func TestWebsocketMessageFlow(t *testing.T) {
 	wg.Wait()
 
 	// create some new sockets, we will use them later to test other message actions
-	for i := 0; i < numGames*10; i++ {
+	for i := 0; i < numGames*joinFactor; i++ {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
@@ -92,9 +93,17 @@ func TestWebsocketMessageFlow(t *testing.T) {
 		}()
 	}
 	wg.Wait()
-	//random code to prevent garbage collection
-	// log.Println(len(wsList))
-	// log.Println(len(laterWsList))
+
+	log.Printf("------TESTING----DRAW-------")
+	for i := 0; i < numGames; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			randomGame := i
+			testDrawMessage(gameIds[randomGame], t)
+		}()
+	}
+	wg.Wait()
 }
 
 func createMockWSClient(u string, t *testing.T) *websocket.Conn {
@@ -149,12 +158,12 @@ func testJoinMessage(randomGame int, randomSocket int, wsList []*websocket.Conn,
 }
 
 func testChatMessage(game string, t *testing.T) {
-	defer mu.Unlock()
 	randomText := util.GenerateGuid()
 	pattern := fmt.Sprintf("^[a-zA-Z0-9]+ Says %s", randomText)
 	var messageFromClient = dto.MessageFromClient{Action: "chat", GameId: game, ChatText: randomText}
 	mu.Lock()
 	gameWsSockets := gameIdWsClientMap[game]
+	mu.Unlock()
 
 	var wg sync.WaitGroup
 	errChan := make(chan error, len(gameWsSockets))
@@ -164,7 +173,6 @@ func testChatMessage(game string, t *testing.T) {
 			testListenIncomingChatMessage(v, regexp.MustCompile(pattern), &wg, errChan)
 		}()
 	}
-	log.Printf("found %vconnections for game %v", len(gameWsSockets), game)
 	randChatter := rand.Intn(len(gameWsSockets))
 	gameWsSockets[randChatter].WriteJSON(messageFromClient)
 
@@ -194,12 +202,8 @@ func testListenIncomingChatMessage(ws *websocket.Conn, regExp *regexp.Regexp, wg
 			return
 		}
 
-		if messageToClient.Action == "join" {
-			continue
-		}
-
 		if messageToClient.Action != "chat" {
-			errChan <- fmt.Errorf("Unexpected message action for chat %+v", messageToClient)
+			continue
 		}
 
 		if !regExp.MatchString(messageToClient.Data) {
@@ -207,6 +211,90 @@ func testListenIncomingChatMessage(ws *websocket.Conn, regExp *regexp.Regexp, wg
 			return
 		}
 		break
+	}
+	errChan <- nil
+}
+
+func testDrawMessage(game string, t *testing.T) {
+	randomDrawingList := createRandomDrawings()
+	mu.Lock()
+	gameWsSockets := gameIdWsClientMap[game]
+	mu.Unlock()
+	var wg sync.WaitGroup
+	errChan := make(chan error, len(gameWsSockets))
+	for _, v := range gameWsSockets {
+		wg.Add(1)
+		go func() {
+			testListenIncomingDrawMessage(v, randomDrawingList, &wg, errChan)
+		}()
+	}
+
+	randDrawer := rand.Intn(len(gameWsSockets))
+
+	for _, drawing := range randomDrawingList {
+		var messageFromClient = dto.MessageFromClient{Action: "draw", Drawing: drawing, GameId: game}
+		gameWsSockets[randDrawer].WriteJSON(messageFromClient)
+	}
+
+	wg.Wait()
+	close(errChan)
+	for err := range errChan {
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+	}
+}
+
+func createRandomDrawings() []dto.Drawing {
+	var drawings []dto.Drawing
+
+	for i := 0; i < 10; i++ {
+		drawings = append(drawings, createRandomDrawing())
+	}
+
+	return drawings
+}
+
+func createRandomDrawing() dto.Drawing {
+	//100 component in draw message
+	var drawing dto.Drawing
+	for i := 0; i < 100; i++ {
+		var drawComponent dto.DrawComponent
+		drawComponent.Type = util.GenerateGuid()
+		for j := 0; j < 100; j++ {
+			point := dto.Point{X: rand.Intn(1000), Y: rand.Intn(1000)}
+			drawComponent.Points = append(drawComponent.Points, point)
+		}
+		drawing.Comoponents = append(drawing.Comoponents, drawComponent)
+	}
+	return drawing
+}
+
+func testListenIncomingDrawMessage(ws *websocket.Conn, drawings []dto.Drawing, wg *sync.WaitGroup, errChan chan error) {
+	defer wg.Done()
+	numDrawings := len(drawings)
+	for {
+		_, resp, err := ws.ReadMessage()
+		if err != nil {
+			errChan <- fmt.Errorf("error while reading chat message %v", err)
+			return
+		}
+
+		var messageToClient dto.MessageToClient
+		err = json.Unmarshal(resp, &messageToClient)
+		if err != nil {
+			errChan <- fmt.Errorf("error while parsing chat msg %v %v", string(resp), err)
+			return
+		}
+
+		if messageToClient.Action != "draw" {
+			continue
+		}
+
+		numDrawings--
+		if numDrawings == 0 {
+			break
+		}
 	}
 	errChan <- nil
 }

@@ -58,10 +58,13 @@ func handleMessageWithWSConnection(connectionId string, connectionIdConnectionMa
 	var messageTo dto.MessageToClient = dto.MessageToClient{Action: message.Action}
 
 	if message.Action == "join" {
-		messageTo.Data = message.JoinerId + " joined"
+		messageTo.Data = message.ClientId + " joined"
 		err = conn.WriteJSON(messageTo)
 	} else if message.Action == "chat" {
-		messageTo.Data = message.ChatterId + " Says " + message.ChatText
+		messageTo.Data = message.ClientId + " Says " + message.ChatText
+		err = conn.WriteJSON(messageTo)
+	} else if message.Action == "draw" {
+		messageTo.Drawing = message.Drawing
 		err = conn.WriteJSON(messageTo)
 	} else {
 		err = errors.New("invalid action")

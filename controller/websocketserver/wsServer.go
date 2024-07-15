@@ -89,7 +89,7 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 				continue
 			}
 			GameIdConnectionIdMap[gameId] = append(GameIdConnectionIdMap[gameId], connectionId)
-			payload.JoinerId = connectionId
+			payload.ClientId = connectionId
 			payloadBytes, err := json.Marshal(payload)
 			if err != nil {
 				log.Printf("Error while marshaling message %+v %+v \n", payload, err)
@@ -102,12 +102,30 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		if payload.Action == "chat" {
 			gameId = payload.GameId
 			gamedata.Mu.Lock()
-			if !isValidChat(gameId, connectionId) {
+			if !isValidMessage(gameId, connectionId) {
 				log.Printf("Invalid message for chat %v", payload)
 				gamedata.Mu.Unlock()
 				continue
 			}
-			payload.ChatterId = connectionId
+			payload.ClientId = connectionId
+			payloadBytes, err := json.Marshal(payload)
+			if err != nil {
+				log.Printf("Error while marshalling message %v %v \n", payload, err)
+			}
+			redispubsub.PublishToRedisChannel(RedisClient, payloadBytes)
+			gamedata.Mu.Unlock()
+			continue
+		}
+
+		if payload.Action == "draw" {
+			gameId = payload.GameId
+			gamedata.Mu.Lock()
+			if !isValidMessage(gameId, connectionId) {
+				log.Printf("Invalid message for chat %v", payload)
+				gamedata.Mu.Unlock()
+				continue
+			}
+			payload.ClientId = connectionId
 			payloadBytes, err := json.Marshal(payload)
 			if err != nil {
 				log.Printf("Error while marshalling message %v %v \n", payload, err)
@@ -117,6 +135,7 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 	}
+
 }
 
 func isValidJoin(gameId string, connectionId string) bool {
@@ -134,7 +153,7 @@ func isValidJoin(gameId string, connectionId string) bool {
 	return true
 }
 
-func isValidChat(gameId string, connectionId string) bool {
+func isValidMessage(gameId string, connectionId string) bool {
 	connectionIds, ok := GameIdConnectionIdMap[gameId]
 	if !ok {
 		return false
