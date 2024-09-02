@@ -10,26 +10,22 @@ import (
 	"multiplayer_game/util"
 	"net/http"
 
-	"github.com/go-redis/redis"
 	"github.com/gorilla/websocket"
 )
 
 var (
 	//upgrader upgrades http connection to websocket protocol
 	upgrader = websocket.Upgrader{CheckOrigin: func(r *http.Request) bool { return true }}
-	// define couple of maps to store ws information
+	// define three maps to store ws information
 	ConnectionIdConnectionMap = make(map[string]*websocket.Conn)
 	GameIdConnectionIdMap     = make(map[string][]string)
-	// redis client used as pubsub
-	RedisClient *redis.Client = redis.NewClient(&redis.Options{
-		Addr: "localhost:6379",
-	})
+	GameIdGameStateMap        = make(map[string]*dto.GameState)
 )
 
-func Init() {
+func Initialize() {
 
 	log.Println("Initialising WS Server")
-	go redispubsub.SubscribeToRedisChannel(RedisClient, GameIdConnectionIdMap, ConnectionIdConnectionMap)
+	go redispubsub.SubscribeToRedisChannel(gamedata.RedisClient, GameIdConnectionIdMap, ConnectionIdConnectionMap)
 
 	http.HandleFunc("/ws", HandleConnections)
 	log.Println("HTTP server started on :8080")
@@ -74,6 +70,8 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			gameId = util.GenerateGuid()
 			gamedata.Mu.Lock()
 			GameIdConnectionIdMap[gameId] = []string{connectionId}
+			GameIdGameStateMap[gameId] = &dto.GameState{TotalRounds: 5, CurrRound: 0, RoundTime: 45, AlreadyDrawn: []string{}, InactivePlayers: []string{},
+				TotalPlayers: 1, PlayerScoreMap: make(map[string]uint16), CurrPlayerScoreMap: make(map[string]uint16)}
 			ws.WriteMessage(websocket.TextMessage, []byte("CREATED game = "+gameId))
 			gamedata.Mu.Unlock()
 			payload.GameId = gameId
@@ -89,13 +87,25 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 				continue
 			}
 			GameIdConnectionIdMap[gameId] = append(GameIdConnectionIdMap[gameId], connectionId)
+
+			gameState, ok := GameIdGameStateMap[gameId]
+			if !ok {
+				log.Printf("invalid message %+v game %s not found", payload, gameId)
+				gamedata.Mu.Unlock()
+				continue
+			}
+
+			gameState.TotalPlayers += 1
+
+			gamedata.Mu.Unlock()
+
 			payload.ClientId = connectionId
 			payloadBytes, err := json.Marshal(payload)
 			if err != nil {
 				log.Printf("Error while marshaling message %+v %+v \n", payload, err)
+				continue
 			}
-			redispubsub.PublishToRedisChannel(RedisClient, payloadBytes)
-			gamedata.Mu.Unlock()
+			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
 			continue
 		}
 
@@ -112,8 +122,24 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				log.Printf("Error while marshalling message %v %v \n", payload, err)
 			}
-			redispubsub.PublishToRedisChannel(RedisClient, payloadBytes)
+			gameState, ok := GameIdGameStateMap[gameId]
+			if !ok {
+				log.Printf("Unable to obtain gamestate for gameId %v", gameId)
+				gamedata.Mu.Unlock()
+				continue
+			}
+			if gameState.CurrDrawer == payload.ClientId {
+				gamedata.Mu.Unlock()
+				continue
+			}
+			if payload.ChatText == gameState.CurrWord {
+				log.Printf("Successfull guess gameId %s Chat %s", gameId, payload.ChatText)
+				gamedata.Mu.Unlock()
+				gamedata.SuccessChatChan <- &dto.SuccessChatEvent{GameId: gameId, ChatterId: payload.ClientId}
+				continue
+			}
 			gamedata.Mu.Unlock()
+			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
 			continue
 		}
 
@@ -130,7 +156,27 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			if err != nil {
 				log.Printf("Error while marshalling message %v %v \n", payload, err)
 			}
-			redispubsub.PublishToRedisChannel(RedisClient, payloadBytes)
+			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
+			gamedata.Mu.Unlock()
+			continue
+		}
+
+		if payload.Action == "start" {
+			gameId = payload.GameId
+			gamedata.Mu.Lock()
+			gameState, ok := GameIdGameStateMap[gameId]
+			if !ok {
+				log.Printf("Invalid message received %+v, invalid game id %+v", payload, gameId)
+				gamedata.Mu.Unlock()
+				continue
+			}
+			if gameState.CurrRound > 0 {
+				log.Printf("Invalid message received %+v, game already started %s", payload, gameId)
+				gamedata.Mu.Unlock()
+				continue
+			}
+			var event = &dto.GameStartEvent{GameId: gameId}
+			gamedata.GameStartChan <- event
 			gamedata.Mu.Unlock()
 			continue
 		}

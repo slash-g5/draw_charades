@@ -22,7 +22,13 @@ type Drawing struct {
 }
 
 type MessageToClient struct {
-	Action  string
-	Data    string
-	Drawing Drawing
+	Action        string
+	Data          string
+	Drawing       Drawing
+	Drawer        string
+	Chatter       string
+	Round         uint8
+	CurrScoreMap  map[string]uint16
+	TotalScoreMap map[string]uint16
+	Word          string
 }

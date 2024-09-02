@@ -13,5 +13,6 @@ func TestGenerateGuid(t *testing.T) {
 		if ok {
 			t.Fatalf("non unique values are generated in generateguid function")
 		}
+		results[curr] = true
 	}
 }

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+  <h1 class="text-purple-400 text-3xl font-bold underline">
+    DRAW CHARADES
+  </h1>
+  <div id="login_form" class="h-1/4 w-1/4 p-4 mx-auto my-auto lg:mt-60 flex flex-col">
+    <div class= "w-2/3 mx-auto">
+      <div class="text-center italic text-purple-400 font-bold">
+        Draw Your Avatar
+      </div>
+      <div class="flex justify-center items-center">
+        <canvas id="avatar_canvas" class="mt-4 w-4/5 mx-auto border border-black bg-purple-100 rounded-lg">
+        </canvas>
+        <button id="clear_tool" class="mx-auto w-16 h-12 mt-2 rounded-lg">
+          <img src="static/clear.png" alt="Icon" class="h-6 w-8" />
+        </button>
+      </div>
+    </div>
+    <input type="text" id="name" required="true" placeholder="Name"
+      class="border rounded-full mt-4 w-2/3 mx-auto border-black text-gray-800 text-center font-bold p-2">
+    <button id="create_button"
+      class="border rounded-full w-2/3 mx-auto mt-4 border-black text-purple-400 font-bold hover:bg-gray-200 p-4">
+      New Game
+    </button>
+    <div class="text-2xl text-purple-400 font-bold text-center mt-2">OR</div>
+    <input type="text" placeholder="Gameid" id="game_id"
+      class="border rounded-full mt-4 w-2/3 mx-auto border-black text-center p-2 font-bold text-gray-800">
+    <button id="join_button"
+      class="border rounded-full w-2/3 mx-auto mt-4 mb-4 border-black text-purple-400 font-bold hover:bg-gray-200 p-4">
+      Join Game
+    </button>
+  </div>
+</body>
+
+<script src="static/welcome.js" type="module">
+</script>
+
+
+</html>

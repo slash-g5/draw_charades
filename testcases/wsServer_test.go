@@ -7,6 +7,8 @@ import (
 	"math/rand"
 	"multiplayer_game/controller/websocketserver"
 	"multiplayer_game/dto"
+	"multiplayer_game/gamemanager"
+	"multiplayer_game/service/common/gamedata"
 	"multiplayer_game/service/redispubsub"
 	"multiplayer_game/util"
 	"net/http"
@@ -31,7 +33,9 @@ var (
 
 // Tests message flow with different testcases in different order
 func TestWebsocketMessageFlow(t *testing.T) {
-	go redispubsub.SubscribeToRedisChannel(websocketserver.RedisClient, websocketserver.GameIdConnectionIdMap, websocketserver.ConnectionIdConnectionMap)
+	go redispubsub.SubscribeToRedisChannel(gamedata.RedisClient,
+		websocketserver.GameIdConnectionIdMap,
+		websocketserver.ConnectionIdConnectionMap)
 	s := httptest.NewServer(http.HandlerFunc(websocketserver.HandleConnections))
 	u := "ws" + strings.TrimPrefix(s.URL, "http")
 
@@ -53,8 +57,6 @@ func TestWebsocketMessageFlow(t *testing.T) {
 			gameIdWsClientMap[gameId] = []*websocket.Conn{ws}
 		}()
 	}
-
-	wg.Wait()
 
 	// create some new sockets, we will use them later to test other message actions
 	for i := 0; i < numGames*joinFactor; i++ {
@@ -101,6 +103,20 @@ func TestWebsocketMessageFlow(t *testing.T) {
 			defer wg.Done()
 			randomGame := i
 			testDrawMessage(gameIds[randomGame], t)
+		}()
+	}
+	wg.Wait()
+
+	go gamemanager.FillWordList()
+	go gamemanager.HandleGameStart()
+	go gamemanager.HandleGameChatSuccess()
+
+	log.Printf("--------TESTING-----START----")
+	for i := 0; i < numGames; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			testStartGame(gameIds[i], t)
 		}()
 	}
 	wg.Wait()
@@ -245,6 +261,33 @@ func testDrawMessage(game string, t *testing.T) {
 	}
 }
 
+func testStartGame(game string, t *testing.T) {
+	mu.Lock()
+	gameWsSockets := gameIdWsClientMap[game]
+	mu.Unlock()
+	var wg sync.WaitGroup
+	errChan := make(chan error, len(gameWsSockets))
+	for _, client := range gameWsSockets {
+		wg.Add(1)
+		go func() {
+			testIncomingStartMessage(client, &wg, errChan)
+		}()
+	}
+	randClient := rand.Intn(len(gameWsSockets))
+	gameWsSockets[randClient].WriteJSON(dto.MessageFromClient{
+		Action: "start", GameId: game,
+	})
+	log.Printf("Sending message for action start for game %s", game)
+
+	wg.Wait()
+	close(errChan)
+	for err := range errChan {
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+	}
+}
+
 func createRandomDrawings() []dto.Drawing {
 	var drawings []dto.Drawing
 
@@ -295,6 +338,33 @@ func testListenIncomingDrawMessage(ws *websocket.Conn, drawings []dto.Drawing, w
 		if numDrawings == 0 {
 			break
 		}
+	}
+	errChan <- nil
+}
+
+func testIncomingStartMessage(ws *websocket.Conn, wg *sync.WaitGroup, errChan chan error) {
+	defer wg.Done()
+	for {
+		_, resp, err := ws.ReadMessage()
+		log.Println("Received message while testing for start message")
+		if err != nil {
+			errChan <- fmt.Errorf("error while reading start message %+v", err)
+			return
+		}
+
+		var messageToClinet dto.MessageToClient
+		err = json.Unmarshal(resp, &messageToClinet)
+		if err != nil {
+			errChan <- fmt.Errorf("error while parsing start message %+v %+v", string(resp), err)
+			return
+		}
+
+		if messageToClinet.Action != "start" {
+			log.Println("Warning: got unexpected action " + messageToClinet.Action)
+			continue
+		}
+		log.Printf("Received Start message %+v", messageToClinet)
+		break
 	}
 	errChan <- nil
 }

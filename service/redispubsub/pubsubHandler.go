@@ -3,6 +3,7 @@ package redispubsub
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
 	"log"
 	"multiplayer_game/dto"
 	"multiplayer_game/service/common/gamedata"
@@ -73,5 +74,52 @@ func handleMessageWithWSConnection(connectionId string, connectionIdConnectionMa
 	if err != nil {
 		log.Printf("Error While writing to websocket %+v", err)
 		return
+	}
+}
+
+func NotifyGameStart(gameId string, redisClient *redis.Client, gameIdConnectionIdMap map[string][]string, connectionIdConnectionMap map[string]*websocket.Conn) {
+	log.Printf("Notifying game %s start", gameId)
+	defer gamedata.Mu.Unlock()
+	gamedata.Mu.Lock()
+	connectionIds, ok := gameIdConnectionIdMap[gameId]
+	if !ok {
+		fmt.Printf("Got no connection id for game %s", gameId)
+		return
+	}
+	for _, con := range connectionIds {
+		ws, ok := connectionIdConnectionMap[con]
+		if !ok {
+			fmt.Printf("Got no connection for connection id %s gameId %s", con, gameId)
+			continue
+		}
+		ws.WriteJSON(dto.MessageToClient{Action: "start", Data: "Game starting now"})
+	}
+}
+
+func NotifyGeneralMessage(gameId string, redisClient *redis.Client, gameIdConnectionIdMap map[string][]string, connectionIdConnectionMap map[string]*websocket.Conn, gameIdGameStateMap map[string]*dto.GameState, messageTo dto.MessageToClient) {
+	log.Printf("Notifying game %s round change", gameId)
+
+	gameState, ok := gameIdGameStateMap[gameId]
+	if !ok {
+		log.Printf("Invalid Game State for gameId %s", gameId)
+	}
+
+	connectionIds, ok := gameIdConnectionIdMap[gameId]
+	if !ok {
+		log.Printf("Got no connection for game %s", gameId)
+		return
+	}
+	for _, con := range connectionIds {
+		ws, ok := connectionIdConnectionMap[con]
+		if !ok {
+			log.Printf("Got no connection for connection id %s gameId %s", con, gameId)
+			continue
+		}
+		if messageTo.Drawer == con {
+			messageTo.Word = gameState.CurrWord
+		} else {
+			messageTo.Word = ""
+		}
+		ws.WriteJSON(messageTo)
 	}
 }
