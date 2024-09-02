@@ -9,7 +9,7 @@ import (
 
 func AddAvatarImage(base64Data string, redisClient *redis.Client) (string, error) {
 	imageId := util.GenerateGuid()
-	err := redisClient.Set(imageId, base64Data, time.Minute*15).Err()
+	err := redisClient.Set(imageId, base64Data, time.Minute*5).Err()
 	if err != nil {
 		return "", err
 	}
