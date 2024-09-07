@@ -46,6 +46,9 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 	gamedata.Mu.Lock()
 	ConnectionIdConnectionMap[connectionId] = ws
 	gamedata.Mu.Unlock()
+	//Send connectionId to clinet
+	var messageToClient = &dto.MessageToClient{Action: "connect", ConnectionId: connectionId}
+	ws.WriteJSON(messageToClient)
 	// listen for eternity using for (true) loop
 	for {
 		var msg []byte
@@ -72,7 +75,10 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			GameIdConnectionIdMap[gameId] = []string{connectionId}
 			GameIdGameStateMap[gameId] = &dto.GameState{TotalRounds: 5, CurrRound: 0, RoundTime: 45, AlreadyDrawn: []string{}, InactivePlayers: []string{},
 				TotalPlayers: 1, PlayerScoreMap: make(map[string]uint16), CurrPlayerScoreMap: make(map[string]uint16)}
-			ws.WriteMessage(websocket.TextMessage, []byte("CREATED game = "+gameId))
+			ws.WriteJSON(&dto.MessageToClient{
+				Action: "create",
+				GameId: gameId,
+			})
 			gamedata.Mu.Unlock()
 			payload.GameId = gameId
 			continue

@@ -9,8 +9,24 @@ const ws = new WebSocket(wsHost);
 const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get("name");
 const mode = urlParams.get("mode");
+let gameId = urlParams.get("gameId");
+
+const imgElementClass = "h-16 lg:h-24 w:4d";
+const nameElemClass = "text-xl font-bold p-2";
+const scoreElemClass = "px-2 pb-2 font-bold";
+const indvScoreBaseClass = "flex flex-row border-2 border-purple-400 bg-purple-50 rounded-lg p-2 max-h-20 lg:max-h-28 truncate w-52 lg:w-80";
+
+if(mode == null || !(mode === "create" || mode === "join") ||
+   name == null || name === "" || 
+   (mode === "join" && (gameId == null || gameId === ""))){
+  window.location.href = "http://" + host + ":8081/welcome"
+}
+
 const avatar = urlParams.get("avatar");
 let fellowGamersMap = {}
+
+//gameId display
+let gameIdDisplay = document.getElementById("game_id_display");
 
 //Chat window
 const msgList = document.getElementById("msg_list");
@@ -173,12 +189,45 @@ const canvasTopLeft = {
   });
 }
 
+//gameIdDisplay Event Listeners
+gameIdDisplay.addEventListener("click", () => {
+  copyGameIdToClipboard();
+})
+
 //websocket message Actions
 {
   ws.onmessage = (message) => {
-    const response = message.data;
-    console.log(response);
+    console.log(message.data);
+    const response = JSON.parse(message.data);
+    if (response.Action === "connect"){
+      createGameIfNeeded();
+      joinGameIfNeeded();
+    }
+    else if (response.Action === "create"){
+      handleCreateMsg(response);
+    }
   };
+}
+
+function createGameIfNeeded() {
+  console.log("connection established");
+  if (mode === "create") {
+    ws.send(JSON.stringify({
+      Action: "create"
+    }));
+  };
+}
+
+function handleCreateMsg(response) {
+  gameId = response.GameId;
+  displayGameId();
+}
+
+function joinGameIfNeeded() {
+  displayGameId();
+}
+
+function displayGameId(){
 }
 
 function updateCanvasCordinates() {
@@ -269,24 +318,81 @@ function updateMessages(msg) {
   msgList.scrollTop = msgList.scrollHeight;
 }
 
-function updateScore() {
-  scoreSheet.innerHTML = '';
-  for(const scr of score){
-    const scoreElem = document.createElement("div");
-    scoreElem.className = 
-    "text-violet-500 rounded-lg p-2 shadow mx-2 mb-2 mt-2 max-w-sm";
-    scoreElem.textContent = `${scr[0]} ${scr[1]}`
-    scoreSheet.appendChild(scoreElem);
+async function displaySelfScoreCard(){
+  const response = await fetch(`${httpHost}/avatar?key=${avatar}`);
+  let base64Response = '';
+  if(!response.ok){
+    console.log("Unexpected Errors: ", response);
   }
+  else {
+    base64Response = await response.text();
+  }
+  const elementSrc = `data:image/png;base64,${base64Response}`;
+
+  const scrElement = document.createElement("div");
+  scrElement.className = indvScoreBaseClass;
+
+  //Add img element
+  {
+    const imgElement = document.createElement("img");
+    imgElement.alt = "NA";
+    imgElement.src = elementSrc;
+    imgElement.className = imgElementClass;
+    scrElement.appendChild(imgElement);
+  }
+  //Add name and score
+  {
+
+    const nameScoreElem = document.createElement("div");
+
+    const nameElem = document.createElement("div");
+    nameElem.textContent = getNameForScore(name);
+    nameElem.className = nameElemClass;
+
+    const scoreElem = document.createElement("div");
+    scoreElem.textContent = 'score:' + '0';
+    scoreElem.className = scoreElemClass;
+
+    nameScoreElem.appendChild(nameElem);
+    nameScoreElem.appendChild(scoreElem);
+
+    scrElement.appendChild(nameScoreElem);
+
+  }
+
+  scoreSheet.appendChild(scrElement);
+
 }
 
-async function displayAvatar(){
-  const response = await fetch(`${httpHost}/avatar?key=${avatar}`);
-  if(!response.ok){
-    console.error("Unexpected Errors")
-  }
-  const base64Response = await response.text();
-  console.log(base64Response);
-  return base64Response;
+function getNameForScore(str){
+  return str.slice(0,10);
 }
-displayAvatar();
+
+function copyGameIdToClipboard(){
+  
+  const tempElem = document.createElement("textarea");
+  tempElem.value = gameId;
+  document.body.appendChild(tempElem);
+  tempElem.select();
+  tempElem.setSelectionRange(0, 99999); // For mobile devices
+  document.execCommand('copy');
+  document.body.removeChild(tempElem);
+  
+  let removedClasses = [];
+  gameIdDisplay.classList.forEach( classname => {
+    if(classname.startsWith("hover:")){
+      gameIdDisplay.classList.remove(classname);
+      removedClasses.push(classname);
+    }
+  });
+
+  gameIdDisplay.classList.add("bg-green-100");
+  setTimeout(() => {
+    gameIdDisplay.classList.remove("bg-green-100");
+    removedClasses.forEach((className) => {
+      gameIdDisplay.classList.add(className);
+    })
+  }, 1000)
+}
+
+displaySelfScoreCard();

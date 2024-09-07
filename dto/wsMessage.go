@@ -31,4 +31,6 @@ type MessageToClient struct {
 	CurrScoreMap  map[string]uint16
 	TotalScoreMap map[string]uint16
 	Word          string
+	ConnectionId  string
+	GameId        string
 }

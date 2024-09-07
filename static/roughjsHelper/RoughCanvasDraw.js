@@ -3,6 +3,7 @@ const RECT = "rect"
 const PENCIL = "pencil"
 const BRUSH = "brush"
 const ERASER = "eraser"
+const PEN = "pen"
 
 function draw(currentShape, roughCanvas, type, strokeColor="red"){
     switch (type) {
@@ -20,27 +21,23 @@ function draw(currentShape, roughCanvas, type, strokeColor="red"){
             break;
         case ERASER:
             drawEraser(currentShape, roughCanvas, strokeColor);
+        case PEN:
+            drawCollectionOfPoints(currentShape, roughCanvas, strokeColor, 5);
         default:
             break;
     }
 }
 
 function drawCurve(currentShape, roughCanvas, strokeColor){
-    roughCanvas.curve(currentShape, {
-  stroke: strokeColor, strokeWidth: 2, roughness:0
-})
+    drawCollectionOfPoints(currentShape, roughCanvas, strokeColor, 2);
 }
 
 function drawThickCurve(currentShape, roughCanvas, strokeColor){
-    roughCanvas.curve(currentShape, {
-  stroke: strokeColor, strokeWidth: 16, roughness:0
-})
+    drawCollectionOfPoints(currentShape, roughCanvas, strokeColor, 16);
 }
 
 function drawEraser(currentShape, roughCanvas, strokeColor){
-    roughCanvas.curve(currentShape, {
-  stroke: strokeColor, strokeWidth: 32, roughness:0
-})
+    drawCollectionOfPoints(currentShape, roughCanvas, strokeColor, 32);
 }
 
 function drawRect(currentShape, roughCanvas, strokeColor) {
@@ -76,6 +73,12 @@ function drawLine(currentShape, roughCanvas, strokeColor){
             strokeWidth: 2,
             roughness: 0
         });
+}
+
+function drawCollectionOfPoints(currentShape, roughCanvas, strokeColor, strokeWidth){
+    roughCanvas.curve(currentShape, {
+                stroke: strokeColor, strokeWidth: strokeWidth, roughness:0
+            })
 }
 
 export{draw}

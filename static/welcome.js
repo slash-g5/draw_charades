@@ -12,11 +12,11 @@ const clearTool = document.getElementById("clear_tool");
 const roughCanvas = rough.canvas(avatarCanvas);
 const canvasContext = avatarCanvas.getContext("2d");
 
-const drawItem = "pencil";
+const drawItem = "pen";
 let isDrawing = false;
 let avatar = []
 let currentShape = []
-let drawColor = "#8B5CF6";
+let drawColor = "black";
 
 let canvasRect = avatarCanvas.getBoundingClientRect();
 const canvasWidth = canvasRect.width;
@@ -33,8 +33,12 @@ cButton.addEventListener("click", () => {
     alert("Please Enter Name");
     return;
   }
+  if(name.value.length > 10){
+    alert("name should have ten characters or less");
+    return;
+  }
   getAvatarImageId().then(imageId => {
-    window.location.href = host + ":8081/create?name=" + name.value + "&avatar="+imageId;
+    window.location.href = host + ":8081?mode=create&name=" + name.value.slice(0,10) + "&avatar="+imageId;
   }).catch(e => console.error("Error:", e));
 });
 
@@ -48,7 +52,7 @@ jButton.addEventListener("click", () => {
     return;
   }
   getAvatarImageId().then(imageId => {
-      window.location.href = host + ":8081?mode=join&name=" + name.value +
+      window.location.href = host + ":8081?mode=join&name=" + name.value.slice(0,15) +
     "&gameId=" + gameId.value + "&avatar="+imageId;
   }).catch(e => console.error("Error:", e)) 
 });
@@ -137,6 +141,12 @@ function updateCanvas() {
 
 function clearCanvas() {
   canvasContext.clearRect(0, 0, canvasWidth*canvasTopLeft.scaleX, canvasHeight*canvasTopLeft.scaleY);
+}
+
+function addBackGround() {
+  roughCanvas.rectangle(0, 0, canvasWidth*canvasTopLeft.scaleX, canvasHeight*canvasTopLeft.scaleY, {
+    stroke: "#C084FC"
+  });
 }
 
 function getAvatarString(){

@@ -14,7 +14,7 @@ func Initialize() {
 	staticFiles := http.FileServer(http.Dir("static"))
 	roughJsFiles := http.FileServer(http.Dir("static/roughjsHelper"))
 
-	http.HandleFunc("/create", handleCreate)
+	http.HandleFunc("/", handleCreate)
 	http.HandleFunc("/welcome", handleWelcome)
 	http.HandleFunc("/output.css", handleTailwindCss)
 
