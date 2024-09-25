@@ -1,6 +1,7 @@
 package dto
 
 import (
+	"encoding/json"
 	"time"
 )
 
@@ -15,6 +16,7 @@ type GameState struct {
 	RoundStartTime     time.Time
 	RoundTime          uint8
 	CurrTime           uint
+	ActivePlayers      []string
 	InactivePlayers    []string
 	TotalPlayers       uint8
 	PlayerScoreMap     map[string]uint16
@@ -46,4 +48,8 @@ type GameErrorEvent struct {
 
 type GameStartEvent struct {
 	GameId string
+}
+
+func (g *GameState) MarshalBinary() ([]byte, error) {
+	return json.Marshal(g)
 }

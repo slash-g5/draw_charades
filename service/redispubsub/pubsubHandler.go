@@ -2,9 +2,9 @@ package redispubsub
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"log"
+	"multiplayer_game/dao"
 	"multiplayer_game/dto"
 	"multiplayer_game/service/common/gamedata"
 
@@ -16,29 +16,30 @@ var (
 	redisChannel = "rpubsub"
 )
 
-func SubscribeToRedisChannel(redisClient *redis.Client, gameIdConnectionIdMap map[string][]string, connectionIdConnectionMap map[string]*websocket.Conn) {
+func SubscribeToRedisChannel(redisClient *redis.Client, connectionIdConnectionMap map[string]*websocket.Conn) {
 	// subscribe to channel = redisChannel
 	pubsub := redisClient.Subscribe(redisChannel)
 
 	ch := pubsub.Channel()
-	var message dto.MessageFromClient
+	var message dto.MessageToClient
 
 	for msg := range ch {
 		err := json.Unmarshal([]byte(msg.Payload), &message)
 		if err != nil {
 			log.Printf("Error converting msg payload in format \n")
+			continue
 		}
-		gamedata.Mu.Lock()
-		connectionIds, ok := gameIdConnectionIdMap[message.GameId]
-		gamedata.Mu.Unlock()
-		if !ok {
-			log.Printf("Invalid gameid received in pubsub %s", message.GameId)
+		// get the connectionIds associated with the gameId
+		game, err := dao.GetGameByGameId(message.GameId, redisClient)
+		if err != nil {
+			log.Printf("Error while getting game from gameId %s %+v", message.GameId, err)
+			continue
 		}
-		gamedata.Mu.Lock()
+		connectionIds := game.ActivePlayers
+		// for each connection send message to websocket
 		for _, connectionId := range connectionIds {
-			handleMessageWithWSConnection(connectionId, connectionIdConnectionMap, message)
+			sendMessageToWS(connectionId, connectionIdConnectionMap, message)
 		}
-		gamedata.Mu.Unlock()
 	}
 }
 
@@ -48,29 +49,16 @@ func PublishToRedisChannel(redisClient *redis.Client, msg []byte) {
 		log.Printf("Error publishing message to Redis: msg = %v err = %v", msg, err)
 	}
 }
-func handleMessageWithWSConnection(connectionId string, connectionIdConnectionMap map[string]*websocket.Conn, message dto.MessageFromClient) {
+
+func sendMessageToWS(connectionId string, connectionIdConnectionMap map[string]*websocket.Conn, message dto.MessageToClient) {
+	defer gamedata.Mu.Unlock()
+	gamedata.Mu.Lock()
 	conn, ok := connectionIdConnectionMap[connectionId]
 	if !ok {
 		log.Printf("Invalid ConnectionId %v", connectionId)
 		return
 	}
-
-	var err error
-	var messageTo dto.MessageToClient = dto.MessageToClient{Action: message.Action}
-
-	if message.Action == "join" {
-		messageTo.Data = message.ClientId + " joined"
-		err = conn.WriteJSON(messageTo)
-	} else if message.Action == "chat" {
-		messageTo.Data = message.ClientId + " Says " + message.ChatText
-		err = conn.WriteJSON(messageTo)
-	} else if message.Action == "draw" {
-		messageTo.Drawing = message.Drawing
-		err = conn.WriteJSON(messageTo)
-	} else {
-		err = errors.New("invalid action")
-	}
-
+	err := conn.WriteJSON(message)
 	if err != nil {
 		log.Printf("Error While writing to websocket %+v", err)
 		return
@@ -122,4 +110,8 @@ func NotifyGeneralMessage(gameId string, redisClient *redis.Client, gameIdConnec
 		}
 		ws.WriteJSON(messageTo)
 	}
+}
+
+func NotifyChannel(messageTo *dto.MessageToClient, redisClient *redis.Client) error {
+	return redisClient.Publish(redisChannel, messageTo).Err()
 }

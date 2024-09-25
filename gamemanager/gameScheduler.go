@@ -16,7 +16,6 @@ import (
 func HandleRepeatActions() {
 	var wg sync.WaitGroup
 	for {
-		log.Printf("Checking games")
 		var gameInSchedule []string
 		gamedata.Mu.Lock()
 		for gameId := range websocketserver.GameIdConnectionIdMap {
@@ -26,7 +25,6 @@ func HandleRepeatActions() {
 			}
 			if !websocketserver.GameIdGameStateMap[gameId].Start {
 				//This game is not started
-				log.Printf("Found GameId %s but it is not started", gameId)
 				continue
 			}
 			if websocketserver.GameIdGameStateMap[gameId].Complete {
@@ -36,7 +34,6 @@ func HandleRepeatActions() {
 			}
 			gameInSchedule = append(gameInSchedule, gameId)
 		}
-		log.Printf("Found gameIds in schedule %v", gameInSchedule)
 		gamedata.Mu.Unlock()
 		// Unblocking other tasks by releasing lock and sleeping for some time
 		time.Sleep(time.Millisecond * 500)

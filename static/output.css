@@ -554,20 +554,8 @@ video {
   --tw-contain-style:  ;
 }
 
-.pointer-events-none {
-  pointer-events: none;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.bottom-full {
-  bottom: 100%;
-}
-
-.left-1\/2 {
-  left: 50%;
+.m-2 {
+  margin: 0.5rem;
 }
 
 .mx-2 {
@@ -585,14 +573,14 @@ video {
   margin-right: auto;
 }
 
-.my-auto {
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .mb-2 {
@@ -619,6 +607,10 @@ video {
   margin-top: 2rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -629,6 +621,10 @@ video {
 
 .h-1\/4 {
   height: 25%;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .h-12 {
@@ -651,20 +647,20 @@ video {
   height: auto;
 }
 
-.max-h-20 {
-  max-height: 5rem;
+.h-8 {
+  height: 2rem;
 }
 
-.max-h-44 {
-  max-height: 11rem;
+.h-14 {
+  height: 3.5rem;
 }
 
 .max-h-80 {
   max-height: 20rem;
 }
 
-.w-1\/4 {
-  width: 25%;
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-16 {
@@ -695,21 +691,16 @@ video {
   width: 100%;
 }
 
-.w-3\/5 {
-  width: 60%;
+.w-1\/3 {
+  width: 33.333333%;
+}
+
+.w-14 {
+  width: 3.5rem;
 }
 
 .max-w-sm {
   max-width: 24rem;
-}
-
-.-translate-x-1\/2 {
-  --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .select-none {
@@ -742,10 +733,6 @@ video {
   justify-content: space-evenly;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
 .overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -764,14 +751,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
 .border {
   border-width: 1px;
 }
@@ -785,19 +764,1433 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.border-blue-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(96 165 250 / var(--tw-border-opacity));
+}
+
+.border-blue-400\/0 {
+  border-color: rgb(96 165 250 / 0);
+}
+
+.border-blue-400\/10 {
+  border-color: rgb(96 165 250 / 0.1);
+}
+
+.border-blue-400\/100 {
+  border-color: rgb(96 165 250 / 1);
+}
+
+.border-blue-400\/15 {
+  border-color: rgb(96 165 250 / 0.15);
+}
+
+.border-blue-400\/20 {
+  border-color: rgb(96 165 250 / 0.2);
+}
+
+.border-blue-400\/25 {
+  border-color: rgb(96 165 250 / 0.25);
+}
+
+.border-blue-400\/30 {
+  border-color: rgb(96 165 250 / 0.3);
+}
+
+.border-blue-400\/35 {
+  border-color: rgb(96 165 250 / 0.35);
+}
+
+.border-blue-400\/40 {
+  border-color: rgb(96 165 250 / 0.4);
+}
+
+.border-blue-400\/45 {
+  border-color: rgb(96 165 250 / 0.45);
+}
+
+.border-blue-400\/5 {
+  border-color: rgb(96 165 250 / 0.05);
+}
+
+.border-blue-400\/50 {
+  border-color: rgb(96 165 250 / 0.5);
+}
+
+.border-blue-400\/55 {
+  border-color: rgb(96 165 250 / 0.55);
+}
+
+.border-blue-400\/60 {
+  border-color: rgb(96 165 250 / 0.6);
+}
+
+.border-blue-400\/65 {
+  border-color: rgb(96 165 250 / 0.65);
+}
+
+.border-blue-400\/70 {
+  border-color: rgb(96 165 250 / 0.7);
+}
+
+.border-blue-400\/75 {
+  border-color: rgb(96 165 250 / 0.75);
+}
+
+.border-blue-400\/80 {
+  border-color: rgb(96 165 250 / 0.8);
+}
+
+.border-blue-400\/85 {
+  border-color: rgb(96 165 250 / 0.85);
+}
+
+.border-blue-400\/90 {
+  border-color: rgb(96 165 250 / 0.9);
+}
+
+.border-blue-400\/95 {
+  border-color: rgb(96 165 250 / 0.95);
+}
+
+.border-cyan-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(34 211 238 / var(--tw-border-opacity));
+}
+
+.border-cyan-400\/0 {
+  border-color: rgb(34 211 238 / 0);
+}
+
+.border-cyan-400\/10 {
+  border-color: rgb(34 211 238 / 0.1);
+}
+
+.border-cyan-400\/100 {
+  border-color: rgb(34 211 238 / 1);
+}
+
+.border-cyan-400\/15 {
+  border-color: rgb(34 211 238 / 0.15);
+}
+
+.border-cyan-400\/20 {
+  border-color: rgb(34 211 238 / 0.2);
+}
+
+.border-cyan-400\/25 {
+  border-color: rgb(34 211 238 / 0.25);
+}
+
+.border-cyan-400\/30 {
+  border-color: rgb(34 211 238 / 0.3);
+}
+
+.border-cyan-400\/35 {
+  border-color: rgb(34 211 238 / 0.35);
+}
+
+.border-cyan-400\/40 {
+  border-color: rgb(34 211 238 / 0.4);
+}
+
+.border-cyan-400\/45 {
+  border-color: rgb(34 211 238 / 0.45);
+}
+
+.border-cyan-400\/5 {
+  border-color: rgb(34 211 238 / 0.05);
+}
+
+.border-cyan-400\/50 {
+  border-color: rgb(34 211 238 / 0.5);
+}
+
+.border-cyan-400\/55 {
+  border-color: rgb(34 211 238 / 0.55);
+}
+
+.border-cyan-400\/60 {
+  border-color: rgb(34 211 238 / 0.6);
+}
+
+.border-cyan-400\/65 {
+  border-color: rgb(34 211 238 / 0.65);
+}
+
+.border-cyan-400\/70 {
+  border-color: rgb(34 211 238 / 0.7);
+}
+
+.border-cyan-400\/75 {
+  border-color: rgb(34 211 238 / 0.75);
+}
+
+.border-cyan-400\/80 {
+  border-color: rgb(34 211 238 / 0.8);
+}
+
+.border-cyan-400\/85 {
+  border-color: rgb(34 211 238 / 0.85);
+}
+
+.border-cyan-400\/90 {
+  border-color: rgb(34 211 238 / 0.9);
+}
+
+.border-cyan-400\/95 {
+  border-color: rgb(34 211 238 / 0.95);
+}
+
+.border-gray-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(31 41 55 / var(--tw-border-opacity));
+}
+
+.border-green-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(74 222 128 / var(--tw-border-opacity));
+}
+
+.border-green-400\/0 {
+  border-color: rgb(74 222 128 / 0);
+}
+
+.border-green-400\/10 {
+  border-color: rgb(74 222 128 / 0.1);
+}
+
+.border-green-400\/100 {
+  border-color: rgb(74 222 128 / 1);
+}
+
+.border-green-400\/15 {
+  border-color: rgb(74 222 128 / 0.15);
+}
+
+.border-green-400\/20 {
+  border-color: rgb(74 222 128 / 0.2);
+}
+
+.border-green-400\/25 {
+  border-color: rgb(74 222 128 / 0.25);
+}
+
+.border-green-400\/30 {
+  border-color: rgb(74 222 128 / 0.3);
+}
+
+.border-green-400\/35 {
+  border-color: rgb(74 222 128 / 0.35);
+}
+
+.border-green-400\/40 {
+  border-color: rgb(74 222 128 / 0.4);
+}
+
+.border-green-400\/45 {
+  border-color: rgb(74 222 128 / 0.45);
+}
+
+.border-green-400\/5 {
+  border-color: rgb(74 222 128 / 0.05);
+}
+
+.border-green-400\/50 {
+  border-color: rgb(74 222 128 / 0.5);
+}
+
+.border-green-400\/55 {
+  border-color: rgb(74 222 128 / 0.55);
+}
+
+.border-green-400\/60 {
+  border-color: rgb(74 222 128 / 0.6);
+}
+
+.border-green-400\/65 {
+  border-color: rgb(74 222 128 / 0.65);
+}
+
+.border-green-400\/70 {
+  border-color: rgb(74 222 128 / 0.7);
+}
+
+.border-green-400\/75 {
+  border-color: rgb(74 222 128 / 0.75);
+}
+
+.border-green-400\/80 {
+  border-color: rgb(74 222 128 / 0.8);
+}
+
+.border-green-400\/85 {
+  border-color: rgb(74 222 128 / 0.85);
+}
+
+.border-green-400\/90 {
+  border-color: rgb(74 222 128 / 0.9);
+}
+
+.border-green-400\/95 {
+  border-color: rgb(74 222 128 / 0.95);
+}
+
+.border-pink-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(244 114 182 / var(--tw-border-opacity));
+}
+
+.border-pink-400\/0 {
+  border-color: rgb(244 114 182 / 0);
+}
+
+.border-pink-400\/10 {
+  border-color: rgb(244 114 182 / 0.1);
+}
+
+.border-pink-400\/100 {
+  border-color: rgb(244 114 182 / 1);
+}
+
+.border-pink-400\/15 {
+  border-color: rgb(244 114 182 / 0.15);
+}
+
+.border-pink-400\/20 {
+  border-color: rgb(244 114 182 / 0.2);
+}
+
+.border-pink-400\/25 {
+  border-color: rgb(244 114 182 / 0.25);
+}
+
+.border-pink-400\/30 {
+  border-color: rgb(244 114 182 / 0.3);
+}
+
+.border-pink-400\/35 {
+  border-color: rgb(244 114 182 / 0.35);
+}
+
+.border-pink-400\/40 {
+  border-color: rgb(244 114 182 / 0.4);
+}
+
+.border-pink-400\/45 {
+  border-color: rgb(244 114 182 / 0.45);
+}
+
+.border-pink-400\/5 {
+  border-color: rgb(244 114 182 / 0.05);
+}
+
+.border-pink-400\/50 {
+  border-color: rgb(244 114 182 / 0.5);
+}
+
+.border-pink-400\/55 {
+  border-color: rgb(244 114 182 / 0.55);
+}
+
+.border-pink-400\/60 {
+  border-color: rgb(244 114 182 / 0.6);
+}
+
+.border-pink-400\/65 {
+  border-color: rgb(244 114 182 / 0.65);
+}
+
+.border-pink-400\/70 {
+  border-color: rgb(244 114 182 / 0.7);
+}
+
+.border-pink-400\/75 {
+  border-color: rgb(244 114 182 / 0.75);
+}
+
+.border-pink-400\/80 {
+  border-color: rgb(244 114 182 / 0.8);
+}
+
+.border-pink-400\/85 {
+  border-color: rgb(244 114 182 / 0.85);
+}
+
+.border-pink-400\/90 {
+  border-color: rgb(244 114 182 / 0.9);
+}
+
+.border-pink-400\/95 {
+  border-color: rgb(244 114 182 / 0.95);
+}
+
 .border-purple-400 {
   --tw-border-opacity: 1;
   border-color: rgb(192 132 252 / var(--tw-border-opacity));
 }
 
-.border-purple-50 {
-  --tw-border-opacity: 1;
-  border-color: rgb(250 245 255 / var(--tw-border-opacity));
+.border-purple-400\/0 {
+  border-color: rgb(192 132 252 / 0);
 }
 
-.border-purple-200 {
+.border-purple-400\/10 {
+  border-color: rgb(192 132 252 / 0.1);
+}
+
+.border-purple-400\/100 {
+  border-color: rgb(192 132 252 / 1);
+}
+
+.border-purple-400\/15 {
+  border-color: rgb(192 132 252 / 0.15);
+}
+
+.border-purple-400\/20 {
+  border-color: rgb(192 132 252 / 0.2);
+}
+
+.border-purple-400\/25 {
+  border-color: rgb(192 132 252 / 0.25);
+}
+
+.border-purple-400\/30 {
+  border-color: rgb(192 132 252 / 0.3);
+}
+
+.border-purple-400\/35 {
+  border-color: rgb(192 132 252 / 0.35);
+}
+
+.border-purple-400\/40 {
+  border-color: rgb(192 132 252 / 0.4);
+}
+
+.border-purple-400\/45 {
+  border-color: rgb(192 132 252 / 0.45);
+}
+
+.border-purple-400\/5 {
+  border-color: rgb(192 132 252 / 0.05);
+}
+
+.border-purple-400\/50 {
+  border-color: rgb(192 132 252 / 0.5);
+}
+
+.border-purple-400\/55 {
+  border-color: rgb(192 132 252 / 0.55);
+}
+
+.border-purple-400\/60 {
+  border-color: rgb(192 132 252 / 0.6);
+}
+
+.border-purple-400\/65 {
+  border-color: rgb(192 132 252 / 0.65);
+}
+
+.border-purple-400\/70 {
+  border-color: rgb(192 132 252 / 0.7);
+}
+
+.border-purple-400\/75 {
+  border-color: rgb(192 132 252 / 0.75);
+}
+
+.border-purple-400\/80 {
+  border-color: rgb(192 132 252 / 0.8);
+}
+
+.border-purple-400\/85 {
+  border-color: rgb(192 132 252 / 0.85);
+}
+
+.border-purple-400\/90 {
+  border-color: rgb(192 132 252 / 0.9);
+}
+
+.border-purple-400\/95 {
+  border-color: rgb(192 132 252 / 0.95);
+}
+
+.border-red-400 {
   --tw-border-opacity: 1;
-  border-color: rgb(233 213 255 / var(--tw-border-opacity));
+  border-color: rgb(248 113 113 / var(--tw-border-opacity));
+}
+
+.border-red-400\/0 {
+  border-color: rgb(248 113 113 / 0);
+}
+
+.border-red-400\/10 {
+  border-color: rgb(248 113 113 / 0.1);
+}
+
+.border-red-400\/100 {
+  border-color: rgb(248 113 113 / 1);
+}
+
+.border-red-400\/15 {
+  border-color: rgb(248 113 113 / 0.15);
+}
+
+.border-red-400\/20 {
+  border-color: rgb(248 113 113 / 0.2);
+}
+
+.border-red-400\/25 {
+  border-color: rgb(248 113 113 / 0.25);
+}
+
+.border-red-400\/30 {
+  border-color: rgb(248 113 113 / 0.3);
+}
+
+.border-red-400\/35 {
+  border-color: rgb(248 113 113 / 0.35);
+}
+
+.border-red-400\/40 {
+  border-color: rgb(248 113 113 / 0.4);
+}
+
+.border-red-400\/45 {
+  border-color: rgb(248 113 113 / 0.45);
+}
+
+.border-red-400\/5 {
+  border-color: rgb(248 113 113 / 0.05);
+}
+
+.border-red-400\/50 {
+  border-color: rgb(248 113 113 / 0.5);
+}
+
+.border-red-400\/55 {
+  border-color: rgb(248 113 113 / 0.55);
+}
+
+.border-red-400\/60 {
+  border-color: rgb(248 113 113 / 0.6);
+}
+
+.border-red-400\/65 {
+  border-color: rgb(248 113 113 / 0.65);
+}
+
+.border-red-400\/70 {
+  border-color: rgb(248 113 113 / 0.7);
+}
+
+.border-red-400\/75 {
+  border-color: rgb(248 113 113 / 0.75);
+}
+
+.border-red-400\/80 {
+  border-color: rgb(248 113 113 / 0.8);
+}
+
+.border-red-400\/85 {
+  border-color: rgb(248 113 113 / 0.85);
+}
+
+.border-red-400\/90 {
+  border-color: rgb(248 113 113 / 0.9);
+}
+
+.border-red-400\/95 {
+  border-color: rgb(248 113 113 / 0.95);
+}
+
+.border-teal-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(45 212 191 / var(--tw-border-opacity));
+}
+
+.border-teal-400\/0 {
+  border-color: rgb(45 212 191 / 0);
+}
+
+.border-teal-400\/10 {
+  border-color: rgb(45 212 191 / 0.1);
+}
+
+.border-teal-400\/100 {
+  border-color: rgb(45 212 191 / 1);
+}
+
+.border-teal-400\/15 {
+  border-color: rgb(45 212 191 / 0.15);
+}
+
+.border-teal-400\/20 {
+  border-color: rgb(45 212 191 / 0.2);
+}
+
+.border-teal-400\/25 {
+  border-color: rgb(45 212 191 / 0.25);
+}
+
+.border-teal-400\/30 {
+  border-color: rgb(45 212 191 / 0.3);
+}
+
+.border-teal-400\/35 {
+  border-color: rgb(45 212 191 / 0.35);
+}
+
+.border-teal-400\/40 {
+  border-color: rgb(45 212 191 / 0.4);
+}
+
+.border-teal-400\/45 {
+  border-color: rgb(45 212 191 / 0.45);
+}
+
+.border-teal-400\/5 {
+  border-color: rgb(45 212 191 / 0.05);
+}
+
+.border-teal-400\/50 {
+  border-color: rgb(45 212 191 / 0.5);
+}
+
+.border-teal-400\/55 {
+  border-color: rgb(45 212 191 / 0.55);
+}
+
+.border-teal-400\/60 {
+  border-color: rgb(45 212 191 / 0.6);
+}
+
+.border-teal-400\/65 {
+  border-color: rgb(45 212 191 / 0.65);
+}
+
+.border-teal-400\/70 {
+  border-color: rgb(45 212 191 / 0.7);
+}
+
+.border-teal-400\/75 {
+  border-color: rgb(45 212 191 / 0.75);
+}
+
+.border-teal-400\/80 {
+  border-color: rgb(45 212 191 / 0.8);
+}
+
+.border-teal-400\/85 {
+  border-color: rgb(45 212 191 / 0.85);
+}
+
+.border-teal-400\/90 {
+  border-color: rgb(45 212 191 / 0.9);
+}
+
+.border-teal-400\/95 {
+  border-color: rgb(45 212 191 / 0.95);
+}
+
+.border-yellow-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(250 204 21 / var(--tw-border-opacity));
+}
+
+.border-yellow-400\/0 {
+  border-color: rgb(250 204 21 / 0);
+}
+
+.border-yellow-400\/10 {
+  border-color: rgb(250 204 21 / 0.1);
+}
+
+.border-yellow-400\/100 {
+  border-color: rgb(250 204 21 / 1);
+}
+
+.border-yellow-400\/15 {
+  border-color: rgb(250 204 21 / 0.15);
+}
+
+.border-yellow-400\/20 {
+  border-color: rgb(250 204 21 / 0.2);
+}
+
+.border-yellow-400\/25 {
+  border-color: rgb(250 204 21 / 0.25);
+}
+
+.border-yellow-400\/30 {
+  border-color: rgb(250 204 21 / 0.3);
+}
+
+.border-yellow-400\/35 {
+  border-color: rgb(250 204 21 / 0.35);
+}
+
+.border-yellow-400\/40 {
+  border-color: rgb(250 204 21 / 0.4);
+}
+
+.border-yellow-400\/45 {
+  border-color: rgb(250 204 21 / 0.45);
+}
+
+.border-yellow-400\/5 {
+  border-color: rgb(250 204 21 / 0.05);
+}
+
+.border-yellow-400\/50 {
+  border-color: rgb(250 204 21 / 0.5);
+}
+
+.border-yellow-400\/55 {
+  border-color: rgb(250 204 21 / 0.55);
+}
+
+.border-yellow-400\/60 {
+  border-color: rgb(250 204 21 / 0.6);
+}
+
+.border-yellow-400\/65 {
+  border-color: rgb(250 204 21 / 0.65);
+}
+
+.border-yellow-400\/70 {
+  border-color: rgb(250 204 21 / 0.7);
+}
+
+.border-yellow-400\/75 {
+  border-color: rgb(250 204 21 / 0.75);
+}
+
+.border-yellow-400\/80 {
+  border-color: rgb(250 204 21 / 0.8);
+}
+
+.border-yellow-400\/85 {
+  border-color: rgb(250 204 21 / 0.85);
+}
+
+.border-yellow-400\/90 {
+  border-color: rgb(250 204 21 / 0.9);
+}
+
+.border-yellow-400\/95 {
+  border-color: rgb(250 204 21 / 0.95);
+}
+
+.bg-blue-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.bg-blue-100\/0 {
+  background-color: rgb(219 234 254 / 0);
+}
+
+.bg-blue-100\/10 {
+  background-color: rgb(219 234 254 / 0.1);
+}
+
+.bg-blue-100\/100 {
+  background-color: rgb(219 234 254 / 1);
+}
+
+.bg-blue-100\/15 {
+  background-color: rgb(219 234 254 / 0.15);
+}
+
+.bg-blue-100\/20 {
+  background-color: rgb(219 234 254 / 0.2);
+}
+
+.bg-blue-100\/25 {
+  background-color: rgb(219 234 254 / 0.25);
+}
+
+.bg-blue-100\/30 {
+  background-color: rgb(219 234 254 / 0.3);
+}
+
+.bg-blue-100\/35 {
+  background-color: rgb(219 234 254 / 0.35);
+}
+
+.bg-blue-100\/40 {
+  background-color: rgb(219 234 254 / 0.4);
+}
+
+.bg-blue-100\/45 {
+  background-color: rgb(219 234 254 / 0.45);
+}
+
+.bg-blue-100\/5 {
+  background-color: rgb(219 234 254 / 0.05);
+}
+
+.bg-blue-100\/50 {
+  background-color: rgb(219 234 254 / 0.5);
+}
+
+.bg-blue-100\/55 {
+  background-color: rgb(219 234 254 / 0.55);
+}
+
+.bg-blue-100\/60 {
+  background-color: rgb(219 234 254 / 0.6);
+}
+
+.bg-blue-100\/65 {
+  background-color: rgb(219 234 254 / 0.65);
+}
+
+.bg-blue-100\/70 {
+  background-color: rgb(219 234 254 / 0.7);
+}
+
+.bg-blue-100\/75 {
+  background-color: rgb(219 234 254 / 0.75);
+}
+
+.bg-blue-100\/80 {
+  background-color: rgb(219 234 254 / 0.8);
+}
+
+.bg-blue-100\/85 {
+  background-color: rgb(219 234 254 / 0.85);
+}
+
+.bg-blue-100\/90 {
+  background-color: rgb(219 234 254 / 0.9);
+}
+
+.bg-blue-100\/95 {
+  background-color: rgb(219 234 254 / 0.95);
+}
+
+.bg-blue-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.bg-blue-400\/0 {
+  background-color: rgb(96 165 250 / 0);
+}
+
+.bg-blue-400\/10 {
+  background-color: rgb(96 165 250 / 0.1);
+}
+
+.bg-blue-400\/100 {
+  background-color: rgb(96 165 250 / 1);
+}
+
+.bg-blue-400\/15 {
+  background-color: rgb(96 165 250 / 0.15);
+}
+
+.bg-blue-400\/20 {
+  background-color: rgb(96 165 250 / 0.2);
+}
+
+.bg-blue-400\/25 {
+  background-color: rgb(96 165 250 / 0.25);
+}
+
+.bg-blue-400\/30 {
+  background-color: rgb(96 165 250 / 0.3);
+}
+
+.bg-blue-400\/35 {
+  background-color: rgb(96 165 250 / 0.35);
+}
+
+.bg-blue-400\/40 {
+  background-color: rgb(96 165 250 / 0.4);
+}
+
+.bg-blue-400\/45 {
+  background-color: rgb(96 165 250 / 0.45);
+}
+
+.bg-blue-400\/5 {
+  background-color: rgb(96 165 250 / 0.05);
+}
+
+.bg-blue-400\/50 {
+  background-color: rgb(96 165 250 / 0.5);
+}
+
+.bg-blue-400\/55 {
+  background-color: rgb(96 165 250 / 0.55);
+}
+
+.bg-blue-400\/60 {
+  background-color: rgb(96 165 250 / 0.6);
+}
+
+.bg-blue-400\/65 {
+  background-color: rgb(96 165 250 / 0.65);
+}
+
+.bg-blue-400\/70 {
+  background-color: rgb(96 165 250 / 0.7);
+}
+
+.bg-blue-400\/75 {
+  background-color: rgb(96 165 250 / 0.75);
+}
+
+.bg-blue-400\/80 {
+  background-color: rgb(96 165 250 / 0.8);
+}
+
+.bg-blue-400\/85 {
+  background-color: rgb(96 165 250 / 0.85);
+}
+
+.bg-blue-400\/90 {
+  background-color: rgb(96 165 250 / 0.9);
+}
+
+.bg-blue-400\/95 {
+  background-color: rgb(96 165 250 / 0.95);
+}
+
+.bg-blue-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-50\/0 {
+  background-color: rgb(239 246 255 / 0);
+}
+
+.bg-blue-50\/10 {
+  background-color: rgb(239 246 255 / 0.1);
+}
+
+.bg-blue-50\/100 {
+  background-color: rgb(239 246 255 / 1);
+}
+
+.bg-blue-50\/15 {
+  background-color: rgb(239 246 255 / 0.15);
+}
+
+.bg-blue-50\/20 {
+  background-color: rgb(239 246 255 / 0.2);
+}
+
+.bg-blue-50\/25 {
+  background-color: rgb(239 246 255 / 0.25);
+}
+
+.bg-blue-50\/30 {
+  background-color: rgb(239 246 255 / 0.3);
+}
+
+.bg-blue-50\/35 {
+  background-color: rgb(239 246 255 / 0.35);
+}
+
+.bg-blue-50\/40 {
+  background-color: rgb(239 246 255 / 0.4);
+}
+
+.bg-blue-50\/45 {
+  background-color: rgb(239 246 255 / 0.45);
+}
+
+.bg-blue-50\/5 {
+  background-color: rgb(239 246 255 / 0.05);
+}
+
+.bg-blue-50\/50 {
+  background-color: rgb(239 246 255 / 0.5);
+}
+
+.bg-blue-50\/55 {
+  background-color: rgb(239 246 255 / 0.55);
+}
+
+.bg-blue-50\/60 {
+  background-color: rgb(239 246 255 / 0.6);
+}
+
+.bg-blue-50\/65 {
+  background-color: rgb(239 246 255 / 0.65);
+}
+
+.bg-blue-50\/70 {
+  background-color: rgb(239 246 255 / 0.7);
+}
+
+.bg-blue-50\/75 {
+  background-color: rgb(239 246 255 / 0.75);
+}
+
+.bg-blue-50\/80 {
+  background-color: rgb(239 246 255 / 0.8);
+}
+
+.bg-blue-50\/85 {
+  background-color: rgb(239 246 255 / 0.85);
+}
+
+.bg-blue-50\/90 {
+  background-color: rgb(239 246 255 / 0.9);
+}
+
+.bg-blue-50\/95 {
+  background-color: rgb(239 246 255 / 0.95);
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500\/0 {
+  background-color: rgb(59 130 246 / 0);
+}
+
+.bg-blue-500\/10 {
+  background-color: rgb(59 130 246 / 0.1);
+}
+
+.bg-blue-500\/100 {
+  background-color: rgb(59 130 246 / 1);
+}
+
+.bg-blue-500\/15 {
+  background-color: rgb(59 130 246 / 0.15);
+}
+
+.bg-blue-500\/20 {
+  background-color: rgb(59 130 246 / 0.2);
+}
+
+.bg-blue-500\/25 {
+  background-color: rgb(59 130 246 / 0.25);
+}
+
+.bg-blue-500\/30 {
+  background-color: rgb(59 130 246 / 0.3);
+}
+
+.bg-blue-500\/35 {
+  background-color: rgb(59 130 246 / 0.35);
+}
+
+.bg-blue-500\/40 {
+  background-color: rgb(59 130 246 / 0.4);
+}
+
+.bg-blue-500\/45 {
+  background-color: rgb(59 130 246 / 0.45);
+}
+
+.bg-blue-500\/5 {
+  background-color: rgb(59 130 246 / 0.05);
+}
+
+.bg-blue-500\/50 {
+  background-color: rgb(59 130 246 / 0.5);
+}
+
+.bg-blue-500\/55 {
+  background-color: rgb(59 130 246 / 0.55);
+}
+
+.bg-blue-500\/60 {
+  background-color: rgb(59 130 246 / 0.6);
+}
+
+.bg-blue-500\/65 {
+  background-color: rgb(59 130 246 / 0.65);
+}
+
+.bg-blue-500\/70 {
+  background-color: rgb(59 130 246 / 0.7);
+}
+
+.bg-blue-500\/75 {
+  background-color: rgb(59 130 246 / 0.75);
+}
+
+.bg-blue-500\/80 {
+  background-color: rgb(59 130 246 / 0.8);
+}
+
+.bg-blue-500\/85 {
+  background-color: rgb(59 130 246 / 0.85);
+}
+
+.bg-blue-500\/90 {
+  background-color: rgb(59 130 246 / 0.9);
+}
+
+.bg-blue-500\/95 {
+  background-color: rgb(59 130 246 / 0.95);
+}
+
+.bg-cyan-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(207 250 254 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-100\/0 {
+  background-color: rgb(207 250 254 / 0);
+}
+
+.bg-cyan-100\/10 {
+  background-color: rgb(207 250 254 / 0.1);
+}
+
+.bg-cyan-100\/100 {
+  background-color: rgb(207 250 254 / 1);
+}
+
+.bg-cyan-100\/15 {
+  background-color: rgb(207 250 254 / 0.15);
+}
+
+.bg-cyan-100\/20 {
+  background-color: rgb(207 250 254 / 0.2);
+}
+
+.bg-cyan-100\/25 {
+  background-color: rgb(207 250 254 / 0.25);
+}
+
+.bg-cyan-100\/30 {
+  background-color: rgb(207 250 254 / 0.3);
+}
+
+.bg-cyan-100\/35 {
+  background-color: rgb(207 250 254 / 0.35);
+}
+
+.bg-cyan-100\/40 {
+  background-color: rgb(207 250 254 / 0.4);
+}
+
+.bg-cyan-100\/45 {
+  background-color: rgb(207 250 254 / 0.45);
+}
+
+.bg-cyan-100\/5 {
+  background-color: rgb(207 250 254 / 0.05);
+}
+
+.bg-cyan-100\/50 {
+  background-color: rgb(207 250 254 / 0.5);
+}
+
+.bg-cyan-100\/55 {
+  background-color: rgb(207 250 254 / 0.55);
+}
+
+.bg-cyan-100\/60 {
+  background-color: rgb(207 250 254 / 0.6);
+}
+
+.bg-cyan-100\/65 {
+  background-color: rgb(207 250 254 / 0.65);
+}
+
+.bg-cyan-100\/70 {
+  background-color: rgb(207 250 254 / 0.7);
+}
+
+.bg-cyan-100\/75 {
+  background-color: rgb(207 250 254 / 0.75);
+}
+
+.bg-cyan-100\/80 {
+  background-color: rgb(207 250 254 / 0.8);
+}
+
+.bg-cyan-100\/85 {
+  background-color: rgb(207 250 254 / 0.85);
+}
+
+.bg-cyan-100\/90 {
+  background-color: rgb(207 250 254 / 0.9);
+}
+
+.bg-cyan-100\/95 {
+  background-color: rgb(207 250 254 / 0.95);
+}
+
+.bg-cyan-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 211 238 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-400\/0 {
+  background-color: rgb(34 211 238 / 0);
+}
+
+.bg-cyan-400\/10 {
+  background-color: rgb(34 211 238 / 0.1);
+}
+
+.bg-cyan-400\/100 {
+  background-color: rgb(34 211 238 / 1);
+}
+
+.bg-cyan-400\/15 {
+  background-color: rgb(34 211 238 / 0.15);
+}
+
+.bg-cyan-400\/20 {
+  background-color: rgb(34 211 238 / 0.2);
+}
+
+.bg-cyan-400\/25 {
+  background-color: rgb(34 211 238 / 0.25);
+}
+
+.bg-cyan-400\/30 {
+  background-color: rgb(34 211 238 / 0.3);
+}
+
+.bg-cyan-400\/35 {
+  background-color: rgb(34 211 238 / 0.35);
+}
+
+.bg-cyan-400\/40 {
+  background-color: rgb(34 211 238 / 0.4);
+}
+
+.bg-cyan-400\/45 {
+  background-color: rgb(34 211 238 / 0.45);
+}
+
+.bg-cyan-400\/5 {
+  background-color: rgb(34 211 238 / 0.05);
+}
+
+.bg-cyan-400\/50 {
+  background-color: rgb(34 211 238 / 0.5);
+}
+
+.bg-cyan-400\/55 {
+  background-color: rgb(34 211 238 / 0.55);
+}
+
+.bg-cyan-400\/60 {
+  background-color: rgb(34 211 238 / 0.6);
+}
+
+.bg-cyan-400\/65 {
+  background-color: rgb(34 211 238 / 0.65);
+}
+
+.bg-cyan-400\/70 {
+  background-color: rgb(34 211 238 / 0.7);
+}
+
+.bg-cyan-400\/75 {
+  background-color: rgb(34 211 238 / 0.75);
+}
+
+.bg-cyan-400\/80 {
+  background-color: rgb(34 211 238 / 0.8);
+}
+
+.bg-cyan-400\/85 {
+  background-color: rgb(34 211 238 / 0.85);
+}
+
+.bg-cyan-400\/90 {
+  background-color: rgb(34 211 238 / 0.9);
+}
+
+.bg-cyan-400\/95 {
+  background-color: rgb(34 211 238 / 0.95);
+}
+
+.bg-cyan-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-50\/0 {
+  background-color: rgb(236 254 255 / 0);
+}
+
+.bg-cyan-50\/10 {
+  background-color: rgb(236 254 255 / 0.1);
+}
+
+.bg-cyan-50\/100 {
+  background-color: rgb(236 254 255 / 1);
+}
+
+.bg-cyan-50\/15 {
+  background-color: rgb(236 254 255 / 0.15);
+}
+
+.bg-cyan-50\/20 {
+  background-color: rgb(236 254 255 / 0.2);
+}
+
+.bg-cyan-50\/25 {
+  background-color: rgb(236 254 255 / 0.25);
+}
+
+.bg-cyan-50\/30 {
+  background-color: rgb(236 254 255 / 0.3);
+}
+
+.bg-cyan-50\/35 {
+  background-color: rgb(236 254 255 / 0.35);
+}
+
+.bg-cyan-50\/40 {
+  background-color: rgb(236 254 255 / 0.4);
+}
+
+.bg-cyan-50\/45 {
+  background-color: rgb(236 254 255 / 0.45);
+}
+
+.bg-cyan-50\/5 {
+  background-color: rgb(236 254 255 / 0.05);
+}
+
+.bg-cyan-50\/50 {
+  background-color: rgb(236 254 255 / 0.5);
+}
+
+.bg-cyan-50\/55 {
+  background-color: rgb(236 254 255 / 0.55);
+}
+
+.bg-cyan-50\/60 {
+  background-color: rgb(236 254 255 / 0.6);
+}
+
+.bg-cyan-50\/65 {
+  background-color: rgb(236 254 255 / 0.65);
+}
+
+.bg-cyan-50\/70 {
+  background-color: rgb(236 254 255 / 0.7);
+}
+
+.bg-cyan-50\/75 {
+  background-color: rgb(236 254 255 / 0.75);
+}
+
+.bg-cyan-50\/80 {
+  background-color: rgb(236 254 255 / 0.8);
+}
+
+.bg-cyan-50\/85 {
+  background-color: rgb(236 254 255 / 0.85);
+}
+
+.bg-cyan-50\/90 {
+  background-color: rgb(236 254 255 / 0.9);
+}
+
+.bg-cyan-50\/95 {
+  background-color: rgb(236 254 255 / 0.95);
+}
+
+.bg-cyan-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+}
+
+.bg-cyan-500\/0 {
+  background-color: rgb(6 182 212 / 0);
+}
+
+.bg-cyan-500\/10 {
+  background-color: rgb(6 182 212 / 0.1);
+}
+
+.bg-cyan-500\/100 {
+  background-color: rgb(6 182 212 / 1);
+}
+
+.bg-cyan-500\/15 {
+  background-color: rgb(6 182 212 / 0.15);
+}
+
+.bg-cyan-500\/20 {
+  background-color: rgb(6 182 212 / 0.2);
+}
+
+.bg-cyan-500\/25 {
+  background-color: rgb(6 182 212 / 0.25);
+}
+
+.bg-cyan-500\/30 {
+  background-color: rgb(6 182 212 / 0.3);
+}
+
+.bg-cyan-500\/35 {
+  background-color: rgb(6 182 212 / 0.35);
+}
+
+.bg-cyan-500\/40 {
+  background-color: rgb(6 182 212 / 0.4);
+}
+
+.bg-cyan-500\/45 {
+  background-color: rgb(6 182 212 / 0.45);
+}
+
+.bg-cyan-500\/5 {
+  background-color: rgb(6 182 212 / 0.05);
+}
+
+.bg-cyan-500\/50 {
+  background-color: rgb(6 182 212 / 0.5);
+}
+
+.bg-cyan-500\/55 {
+  background-color: rgb(6 182 212 / 0.55);
+}
+
+.bg-cyan-500\/60 {
+  background-color: rgb(6 182 212 / 0.6);
+}
+
+.bg-cyan-500\/65 {
+  background-color: rgb(6 182 212 / 0.65);
+}
+
+.bg-cyan-500\/70 {
+  background-color: rgb(6 182 212 / 0.7);
+}
+
+.bg-cyan-500\/75 {
+  background-color: rgb(6 182 212 / 0.75);
+}
+
+.bg-cyan-500\/80 {
+  background-color: rgb(6 182 212 / 0.8);
+}
+
+.bg-cyan-500\/85 {
+  background-color: rgb(6 182 212 / 0.85);
+}
+
+.bg-cyan-500\/90 {
+  background-color: rgb(6 182 212 / 0.9);
+}
+
+.bg-cyan-500\/95 {
+  background-color: rgb(6 182 212 / 0.95);
 }
 
 .bg-gray-100 {
@@ -805,9 +2198,894 @@ video {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
+.bg-green-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+
+.bg-green-100\/0 {
+  background-color: rgb(220 252 231 / 0);
+}
+
+.bg-green-100\/10 {
+  background-color: rgb(220 252 231 / 0.1);
+}
+
+.bg-green-100\/100 {
+  background-color: rgb(220 252 231 / 1);
+}
+
+.bg-green-100\/15 {
+  background-color: rgb(220 252 231 / 0.15);
+}
+
+.bg-green-100\/20 {
+  background-color: rgb(220 252 231 / 0.2);
+}
+
+.bg-green-100\/25 {
+  background-color: rgb(220 252 231 / 0.25);
+}
+
+.bg-green-100\/30 {
+  background-color: rgb(220 252 231 / 0.3);
+}
+
+.bg-green-100\/35 {
+  background-color: rgb(220 252 231 / 0.35);
+}
+
+.bg-green-100\/40 {
+  background-color: rgb(220 252 231 / 0.4);
+}
+
+.bg-green-100\/45 {
+  background-color: rgb(220 252 231 / 0.45);
+}
+
+.bg-green-100\/5 {
+  background-color: rgb(220 252 231 / 0.05);
+}
+
+.bg-green-100\/50 {
+  background-color: rgb(220 252 231 / 0.5);
+}
+
+.bg-green-100\/55 {
+  background-color: rgb(220 252 231 / 0.55);
+}
+
+.bg-green-100\/60 {
+  background-color: rgb(220 252 231 / 0.6);
+}
+
+.bg-green-100\/65 {
+  background-color: rgb(220 252 231 / 0.65);
+}
+
+.bg-green-100\/70 {
+  background-color: rgb(220 252 231 / 0.7);
+}
+
+.bg-green-100\/75 {
+  background-color: rgb(220 252 231 / 0.75);
+}
+
+.bg-green-100\/80 {
+  background-color: rgb(220 252 231 / 0.8);
+}
+
+.bg-green-100\/85 {
+  background-color: rgb(220 252 231 / 0.85);
+}
+
+.bg-green-100\/90 {
+  background-color: rgb(220 252 231 / 0.9);
+}
+
+.bg-green-100\/95 {
+  background-color: rgb(220 252 231 / 0.95);
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
+.bg-green-400\/0 {
+  background-color: rgb(74 222 128 / 0);
+}
+
+.bg-green-400\/10 {
+  background-color: rgb(74 222 128 / 0.1);
+}
+
+.bg-green-400\/100 {
+  background-color: rgb(74 222 128 / 1);
+}
+
+.bg-green-400\/15 {
+  background-color: rgb(74 222 128 / 0.15);
+}
+
+.bg-green-400\/20 {
+  background-color: rgb(74 222 128 / 0.2);
+}
+
+.bg-green-400\/25 {
+  background-color: rgb(74 222 128 / 0.25);
+}
+
+.bg-green-400\/30 {
+  background-color: rgb(74 222 128 / 0.3);
+}
+
+.bg-green-400\/35 {
+  background-color: rgb(74 222 128 / 0.35);
+}
+
+.bg-green-400\/40 {
+  background-color: rgb(74 222 128 / 0.4);
+}
+
+.bg-green-400\/45 {
+  background-color: rgb(74 222 128 / 0.45);
+}
+
+.bg-green-400\/5 {
+  background-color: rgb(74 222 128 / 0.05);
+}
+
+.bg-green-400\/50 {
+  background-color: rgb(74 222 128 / 0.5);
+}
+
+.bg-green-400\/55 {
+  background-color: rgb(74 222 128 / 0.55);
+}
+
+.bg-green-400\/60 {
+  background-color: rgb(74 222 128 / 0.6);
+}
+
+.bg-green-400\/65 {
+  background-color: rgb(74 222 128 / 0.65);
+}
+
+.bg-green-400\/70 {
+  background-color: rgb(74 222 128 / 0.7);
+}
+
+.bg-green-400\/75 {
+  background-color: rgb(74 222 128 / 0.75);
+}
+
+.bg-green-400\/80 {
+  background-color: rgb(74 222 128 / 0.8);
+}
+
+.bg-green-400\/85 {
+  background-color: rgb(74 222 128 / 0.85);
+}
+
+.bg-green-400\/90 {
+  background-color: rgb(74 222 128 / 0.9);
+}
+
+.bg-green-400\/95 {
+  background-color: rgb(74 222 128 / 0.95);
+}
+
+.bg-green-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+}
+
+.bg-green-50\/0 {
+  background-color: rgb(240 253 244 / 0);
+}
+
+.bg-green-50\/10 {
+  background-color: rgb(240 253 244 / 0.1);
+}
+
+.bg-green-50\/100 {
+  background-color: rgb(240 253 244 / 1);
+}
+
+.bg-green-50\/15 {
+  background-color: rgb(240 253 244 / 0.15);
+}
+
+.bg-green-50\/20 {
+  background-color: rgb(240 253 244 / 0.2);
+}
+
+.bg-green-50\/25 {
+  background-color: rgb(240 253 244 / 0.25);
+}
+
+.bg-green-50\/30 {
+  background-color: rgb(240 253 244 / 0.3);
+}
+
+.bg-green-50\/35 {
+  background-color: rgb(240 253 244 / 0.35);
+}
+
+.bg-green-50\/40 {
+  background-color: rgb(240 253 244 / 0.4);
+}
+
+.bg-green-50\/45 {
+  background-color: rgb(240 253 244 / 0.45);
+}
+
+.bg-green-50\/5 {
+  background-color: rgb(240 253 244 / 0.05);
+}
+
+.bg-green-50\/50 {
+  background-color: rgb(240 253 244 / 0.5);
+}
+
+.bg-green-50\/55 {
+  background-color: rgb(240 253 244 / 0.55);
+}
+
+.bg-green-50\/60 {
+  background-color: rgb(240 253 244 / 0.6);
+}
+
+.bg-green-50\/65 {
+  background-color: rgb(240 253 244 / 0.65);
+}
+
+.bg-green-50\/70 {
+  background-color: rgb(240 253 244 / 0.7);
+}
+
+.bg-green-50\/75 {
+  background-color: rgb(240 253 244 / 0.75);
+}
+
+.bg-green-50\/80 {
+  background-color: rgb(240 253 244 / 0.8);
+}
+
+.bg-green-50\/85 {
+  background-color: rgb(240 253 244 / 0.85);
+}
+
+.bg-green-50\/90 {
+  background-color: rgb(240 253 244 / 0.9);
+}
+
+.bg-green-50\/95 {
+  background-color: rgb(240 253 244 / 0.95);
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-green-500\/0 {
+  background-color: rgb(34 197 94 / 0);
+}
+
+.bg-green-500\/10 {
+  background-color: rgb(34 197 94 / 0.1);
+}
+
+.bg-green-500\/100 {
+  background-color: rgb(34 197 94 / 1);
+}
+
+.bg-green-500\/15 {
+  background-color: rgb(34 197 94 / 0.15);
+}
+
+.bg-green-500\/20 {
+  background-color: rgb(34 197 94 / 0.2);
+}
+
+.bg-green-500\/25 {
+  background-color: rgb(34 197 94 / 0.25);
+}
+
+.bg-green-500\/30 {
+  background-color: rgb(34 197 94 / 0.3);
+}
+
+.bg-green-500\/35 {
+  background-color: rgb(34 197 94 / 0.35);
+}
+
+.bg-green-500\/40 {
+  background-color: rgb(34 197 94 / 0.4);
+}
+
+.bg-green-500\/45 {
+  background-color: rgb(34 197 94 / 0.45);
+}
+
+.bg-green-500\/5 {
+  background-color: rgb(34 197 94 / 0.05);
+}
+
+.bg-green-500\/50 {
+  background-color: rgb(34 197 94 / 0.5);
+}
+
+.bg-green-500\/55 {
+  background-color: rgb(34 197 94 / 0.55);
+}
+
+.bg-green-500\/60 {
+  background-color: rgb(34 197 94 / 0.6);
+}
+
+.bg-green-500\/65 {
+  background-color: rgb(34 197 94 / 0.65);
+}
+
+.bg-green-500\/70 {
+  background-color: rgb(34 197 94 / 0.7);
+}
+
+.bg-green-500\/75 {
+  background-color: rgb(34 197 94 / 0.75);
+}
+
+.bg-green-500\/80 {
+  background-color: rgb(34 197 94 / 0.8);
+}
+
+.bg-green-500\/85 {
+  background-color: rgb(34 197 94 / 0.85);
+}
+
+.bg-green-500\/90 {
+  background-color: rgb(34 197 94 / 0.9);
+}
+
+.bg-green-500\/95 {
+  background-color: rgb(34 197 94 / 0.95);
+}
+
+.bg-pink-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 231 243 / var(--tw-bg-opacity));
+}
+
+.bg-pink-100\/0 {
+  background-color: rgb(252 231 243 / 0);
+}
+
+.bg-pink-100\/10 {
+  background-color: rgb(252 231 243 / 0.1);
+}
+
+.bg-pink-100\/100 {
+  background-color: rgb(252 231 243 / 1);
+}
+
+.bg-pink-100\/15 {
+  background-color: rgb(252 231 243 / 0.15);
+}
+
+.bg-pink-100\/20 {
+  background-color: rgb(252 231 243 / 0.2);
+}
+
+.bg-pink-100\/25 {
+  background-color: rgb(252 231 243 / 0.25);
+}
+
+.bg-pink-100\/30 {
+  background-color: rgb(252 231 243 / 0.3);
+}
+
+.bg-pink-100\/35 {
+  background-color: rgb(252 231 243 / 0.35);
+}
+
+.bg-pink-100\/40 {
+  background-color: rgb(252 231 243 / 0.4);
+}
+
+.bg-pink-100\/45 {
+  background-color: rgb(252 231 243 / 0.45);
+}
+
+.bg-pink-100\/5 {
+  background-color: rgb(252 231 243 / 0.05);
+}
+
+.bg-pink-100\/50 {
+  background-color: rgb(252 231 243 / 0.5);
+}
+
+.bg-pink-100\/55 {
+  background-color: rgb(252 231 243 / 0.55);
+}
+
+.bg-pink-100\/60 {
+  background-color: rgb(252 231 243 / 0.6);
+}
+
+.bg-pink-100\/65 {
+  background-color: rgb(252 231 243 / 0.65);
+}
+
+.bg-pink-100\/70 {
+  background-color: rgb(252 231 243 / 0.7);
+}
+
+.bg-pink-100\/75 {
+  background-color: rgb(252 231 243 / 0.75);
+}
+
+.bg-pink-100\/80 {
+  background-color: rgb(252 231 243 / 0.8);
+}
+
+.bg-pink-100\/85 {
+  background-color: rgb(252 231 243 / 0.85);
+}
+
+.bg-pink-100\/90 {
+  background-color: rgb(252 231 243 / 0.9);
+}
+
+.bg-pink-100\/95 {
+  background-color: rgb(252 231 243 / 0.95);
+}
+
+.bg-pink-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 114 182 / var(--tw-bg-opacity));
+}
+
+.bg-pink-400\/0 {
+  background-color: rgb(244 114 182 / 0);
+}
+
+.bg-pink-400\/10 {
+  background-color: rgb(244 114 182 / 0.1);
+}
+
+.bg-pink-400\/100 {
+  background-color: rgb(244 114 182 / 1);
+}
+
+.bg-pink-400\/15 {
+  background-color: rgb(244 114 182 / 0.15);
+}
+
+.bg-pink-400\/20 {
+  background-color: rgb(244 114 182 / 0.2);
+}
+
+.bg-pink-400\/25 {
+  background-color: rgb(244 114 182 / 0.25);
+}
+
+.bg-pink-400\/30 {
+  background-color: rgb(244 114 182 / 0.3);
+}
+
+.bg-pink-400\/35 {
+  background-color: rgb(244 114 182 / 0.35);
+}
+
+.bg-pink-400\/40 {
+  background-color: rgb(244 114 182 / 0.4);
+}
+
+.bg-pink-400\/45 {
+  background-color: rgb(244 114 182 / 0.45);
+}
+
+.bg-pink-400\/5 {
+  background-color: rgb(244 114 182 / 0.05);
+}
+
+.bg-pink-400\/50 {
+  background-color: rgb(244 114 182 / 0.5);
+}
+
+.bg-pink-400\/55 {
+  background-color: rgb(244 114 182 / 0.55);
+}
+
+.bg-pink-400\/60 {
+  background-color: rgb(244 114 182 / 0.6);
+}
+
+.bg-pink-400\/65 {
+  background-color: rgb(244 114 182 / 0.65);
+}
+
+.bg-pink-400\/70 {
+  background-color: rgb(244 114 182 / 0.7);
+}
+
+.bg-pink-400\/75 {
+  background-color: rgb(244 114 182 / 0.75);
+}
+
+.bg-pink-400\/80 {
+  background-color: rgb(244 114 182 / 0.8);
+}
+
+.bg-pink-400\/85 {
+  background-color: rgb(244 114 182 / 0.85);
+}
+
+.bg-pink-400\/90 {
+  background-color: rgb(244 114 182 / 0.9);
+}
+
+.bg-pink-400\/95 {
+  background-color: rgb(244 114 182 / 0.95);
+}
+
+.bg-pink-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 242 248 / var(--tw-bg-opacity));
+}
+
+.bg-pink-50\/0 {
+  background-color: rgb(253 242 248 / 0);
+}
+
+.bg-pink-50\/10 {
+  background-color: rgb(253 242 248 / 0.1);
+}
+
+.bg-pink-50\/100 {
+  background-color: rgb(253 242 248 / 1);
+}
+
+.bg-pink-50\/15 {
+  background-color: rgb(253 242 248 / 0.15);
+}
+
+.bg-pink-50\/20 {
+  background-color: rgb(253 242 248 / 0.2);
+}
+
+.bg-pink-50\/25 {
+  background-color: rgb(253 242 248 / 0.25);
+}
+
+.bg-pink-50\/30 {
+  background-color: rgb(253 242 248 / 0.3);
+}
+
+.bg-pink-50\/35 {
+  background-color: rgb(253 242 248 / 0.35);
+}
+
+.bg-pink-50\/40 {
+  background-color: rgb(253 242 248 / 0.4);
+}
+
+.bg-pink-50\/45 {
+  background-color: rgb(253 242 248 / 0.45);
+}
+
+.bg-pink-50\/5 {
+  background-color: rgb(253 242 248 / 0.05);
+}
+
+.bg-pink-50\/50 {
+  background-color: rgb(253 242 248 / 0.5);
+}
+
+.bg-pink-50\/55 {
+  background-color: rgb(253 242 248 / 0.55);
+}
+
+.bg-pink-50\/60 {
+  background-color: rgb(253 242 248 / 0.6);
+}
+
+.bg-pink-50\/65 {
+  background-color: rgb(253 242 248 / 0.65);
+}
+
+.bg-pink-50\/70 {
+  background-color: rgb(253 242 248 / 0.7);
+}
+
+.bg-pink-50\/75 {
+  background-color: rgb(253 242 248 / 0.75);
+}
+
+.bg-pink-50\/80 {
+  background-color: rgb(253 242 248 / 0.8);
+}
+
+.bg-pink-50\/85 {
+  background-color: rgb(253 242 248 / 0.85);
+}
+
+.bg-pink-50\/90 {
+  background-color: rgb(253 242 248 / 0.9);
+}
+
+.bg-pink-50\/95 {
+  background-color: rgb(253 242 248 / 0.95);
+}
+
+.bg-pink-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
+.bg-pink-500\/0 {
+  background-color: rgb(236 72 153 / 0);
+}
+
+.bg-pink-500\/10 {
+  background-color: rgb(236 72 153 / 0.1);
+}
+
+.bg-pink-500\/100 {
+  background-color: rgb(236 72 153 / 1);
+}
+
+.bg-pink-500\/15 {
+  background-color: rgb(236 72 153 / 0.15);
+}
+
+.bg-pink-500\/20 {
+  background-color: rgb(236 72 153 / 0.2);
+}
+
+.bg-pink-500\/25 {
+  background-color: rgb(236 72 153 / 0.25);
+}
+
+.bg-pink-500\/30 {
+  background-color: rgb(236 72 153 / 0.3);
+}
+
+.bg-pink-500\/35 {
+  background-color: rgb(236 72 153 / 0.35);
+}
+
+.bg-pink-500\/40 {
+  background-color: rgb(236 72 153 / 0.4);
+}
+
+.bg-pink-500\/45 {
+  background-color: rgb(236 72 153 / 0.45);
+}
+
+.bg-pink-500\/5 {
+  background-color: rgb(236 72 153 / 0.05);
+}
+
+.bg-pink-500\/50 {
+  background-color: rgb(236 72 153 / 0.5);
+}
+
+.bg-pink-500\/55 {
+  background-color: rgb(236 72 153 / 0.55);
+}
+
+.bg-pink-500\/60 {
+  background-color: rgb(236 72 153 / 0.6);
+}
+
+.bg-pink-500\/65 {
+  background-color: rgb(236 72 153 / 0.65);
+}
+
+.bg-pink-500\/70 {
+  background-color: rgb(236 72 153 / 0.7);
+}
+
+.bg-pink-500\/75 {
+  background-color: rgb(236 72 153 / 0.75);
+}
+
+.bg-pink-500\/80 {
+  background-color: rgb(236 72 153 / 0.8);
+}
+
+.bg-pink-500\/85 {
+  background-color: rgb(236 72 153 / 0.85);
+}
+
+.bg-pink-500\/90 {
+  background-color: rgb(236 72 153 / 0.9);
+}
+
+.bg-pink-500\/95 {
+  background-color: rgb(236 72 153 / 0.95);
+}
+
 .bg-purple-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 232 255 / var(--tw-bg-opacity));
+}
+
+.bg-purple-100\/0 {
+  background-color: rgb(243 232 255 / 0);
+}
+
+.bg-purple-100\/10 {
+  background-color: rgb(243 232 255 / 0.1);
+}
+
+.bg-purple-100\/100 {
+  background-color: rgb(243 232 255 / 1);
+}
+
+.bg-purple-100\/15 {
+  background-color: rgb(243 232 255 / 0.15);
+}
+
+.bg-purple-100\/20 {
+  background-color: rgb(243 232 255 / 0.2);
+}
+
+.bg-purple-100\/25 {
+  background-color: rgb(243 232 255 / 0.25);
+}
+
+.bg-purple-100\/30 {
+  background-color: rgb(243 232 255 / 0.3);
+}
+
+.bg-purple-100\/35 {
+  background-color: rgb(243 232 255 / 0.35);
+}
+
+.bg-purple-100\/40 {
+  background-color: rgb(243 232 255 / 0.4);
+}
+
+.bg-purple-100\/45 {
+  background-color: rgb(243 232 255 / 0.45);
+}
+
+.bg-purple-100\/5 {
+  background-color: rgb(243 232 255 / 0.05);
+}
+
+.bg-purple-100\/50 {
+  background-color: rgb(243 232 255 / 0.5);
+}
+
+.bg-purple-100\/55 {
+  background-color: rgb(243 232 255 / 0.55);
+}
+
+.bg-purple-100\/60 {
+  background-color: rgb(243 232 255 / 0.6);
+}
+
+.bg-purple-100\/65 {
+  background-color: rgb(243 232 255 / 0.65);
+}
+
+.bg-purple-100\/70 {
+  background-color: rgb(243 232 255 / 0.7);
+}
+
+.bg-purple-100\/75 {
+  background-color: rgb(243 232 255 / 0.75);
+}
+
+.bg-purple-100\/80 {
+  background-color: rgb(243 232 255 / 0.8);
+}
+
+.bg-purple-100\/85 {
+  background-color: rgb(243 232 255 / 0.85);
+}
+
+.bg-purple-100\/90 {
+  background-color: rgb(243 232 255 / 0.9);
+}
+
+.bg-purple-100\/95 {
+  background-color: rgb(243 232 255 / 0.95);
+}
+
+.bg-purple-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+.bg-purple-400\/0 {
+  background-color: rgb(192 132 252 / 0);
+}
+
+.bg-purple-400\/10 {
+  background-color: rgb(192 132 252 / 0.1);
+}
+
+.bg-purple-400\/100 {
+  background-color: rgb(192 132 252 / 1);
+}
+
+.bg-purple-400\/15 {
+  background-color: rgb(192 132 252 / 0.15);
+}
+
+.bg-purple-400\/20 {
+  background-color: rgb(192 132 252 / 0.2);
+}
+
+.bg-purple-400\/25 {
+  background-color: rgb(192 132 252 / 0.25);
+}
+
+.bg-purple-400\/30 {
+  background-color: rgb(192 132 252 / 0.3);
+}
+
+.bg-purple-400\/35 {
+  background-color: rgb(192 132 252 / 0.35);
+}
+
+.bg-purple-400\/40 {
+  background-color: rgb(192 132 252 / 0.4);
+}
+
+.bg-purple-400\/45 {
+  background-color: rgb(192 132 252 / 0.45);
+}
+
+.bg-purple-400\/5 {
+  background-color: rgb(192 132 252 / 0.05);
+}
+
+.bg-purple-400\/50 {
+  background-color: rgb(192 132 252 / 0.5);
+}
+
+.bg-purple-400\/55 {
+  background-color: rgb(192 132 252 / 0.55);
+}
+
+.bg-purple-400\/60 {
+  background-color: rgb(192 132 252 / 0.6);
+}
+
+.bg-purple-400\/65 {
+  background-color: rgb(192 132 252 / 0.65);
+}
+
+.bg-purple-400\/70 {
+  background-color: rgb(192 132 252 / 0.7);
+}
+
+.bg-purple-400\/75 {
+  background-color: rgb(192 132 252 / 0.75);
+}
+
+.bg-purple-400\/80 {
+  background-color: rgb(192 132 252 / 0.8);
+}
+
+.bg-purple-400\/85 {
+  background-color: rgb(192 132 252 / 0.85);
+}
+
+.bg-purple-400\/90 {
+  background-color: rgb(192 132 252 / 0.9);
+}
+
+.bg-purple-400\/95 {
+  background-color: rgb(192 132 252 / 0.95);
 }
 
 .bg-purple-50 {
@@ -815,14 +3093,1255 @@ video {
   background-color: rgb(250 245 255 / var(--tw-bg-opacity));
 }
 
-.bg-green-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+.bg-purple-50\/0 {
+  background-color: rgb(250 245 255 / 0);
 }
 
-.bg-gray-700 {
+.bg-purple-50\/10 {
+  background-color: rgb(250 245 255 / 0.1);
+}
+
+.bg-purple-50\/100 {
+  background-color: rgb(250 245 255 / 1);
+}
+
+.bg-purple-50\/15 {
+  background-color: rgb(250 245 255 / 0.15);
+}
+
+.bg-purple-50\/20 {
+  background-color: rgb(250 245 255 / 0.2);
+}
+
+.bg-purple-50\/25 {
+  background-color: rgb(250 245 255 / 0.25);
+}
+
+.bg-purple-50\/30 {
+  background-color: rgb(250 245 255 / 0.3);
+}
+
+.bg-purple-50\/35 {
+  background-color: rgb(250 245 255 / 0.35);
+}
+
+.bg-purple-50\/40 {
+  background-color: rgb(250 245 255 / 0.4);
+}
+
+.bg-purple-50\/45 {
+  background-color: rgb(250 245 255 / 0.45);
+}
+
+.bg-purple-50\/5 {
+  background-color: rgb(250 245 255 / 0.05);
+}
+
+.bg-purple-50\/50 {
+  background-color: rgb(250 245 255 / 0.5);
+}
+
+.bg-purple-50\/55 {
+  background-color: rgb(250 245 255 / 0.55);
+}
+
+.bg-purple-50\/60 {
+  background-color: rgb(250 245 255 / 0.6);
+}
+
+.bg-purple-50\/65 {
+  background-color: rgb(250 245 255 / 0.65);
+}
+
+.bg-purple-50\/70 {
+  background-color: rgb(250 245 255 / 0.7);
+}
+
+.bg-purple-50\/75 {
+  background-color: rgb(250 245 255 / 0.75);
+}
+
+.bg-purple-50\/80 {
+  background-color: rgb(250 245 255 / 0.8);
+}
+
+.bg-purple-50\/85 {
+  background-color: rgb(250 245 255 / 0.85);
+}
+
+.bg-purple-50\/90 {
+  background-color: rgb(250 245 255 / 0.9);
+}
+
+.bg-purple-50\/95 {
+  background-color: rgb(250 245 255 / 0.95);
+}
+
+.bg-purple-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
+
+.bg-purple-500\/0 {
+  background-color: rgb(168 85 247 / 0);
+}
+
+.bg-purple-500\/10 {
+  background-color: rgb(168 85 247 / 0.1);
+}
+
+.bg-purple-500\/100 {
+  background-color: rgb(168 85 247 / 1);
+}
+
+.bg-purple-500\/15 {
+  background-color: rgb(168 85 247 / 0.15);
+}
+
+.bg-purple-500\/20 {
+  background-color: rgb(168 85 247 / 0.2);
+}
+
+.bg-purple-500\/25 {
+  background-color: rgb(168 85 247 / 0.25);
+}
+
+.bg-purple-500\/30 {
+  background-color: rgb(168 85 247 / 0.3);
+}
+
+.bg-purple-500\/35 {
+  background-color: rgb(168 85 247 / 0.35);
+}
+
+.bg-purple-500\/40 {
+  background-color: rgb(168 85 247 / 0.4);
+}
+
+.bg-purple-500\/45 {
+  background-color: rgb(168 85 247 / 0.45);
+}
+
+.bg-purple-500\/5 {
+  background-color: rgb(168 85 247 / 0.05);
+}
+
+.bg-purple-500\/50 {
+  background-color: rgb(168 85 247 / 0.5);
+}
+
+.bg-purple-500\/55 {
+  background-color: rgb(168 85 247 / 0.55);
+}
+
+.bg-purple-500\/60 {
+  background-color: rgb(168 85 247 / 0.6);
+}
+
+.bg-purple-500\/65 {
+  background-color: rgb(168 85 247 / 0.65);
+}
+
+.bg-purple-500\/70 {
+  background-color: rgb(168 85 247 / 0.7);
+}
+
+.bg-purple-500\/75 {
+  background-color: rgb(168 85 247 / 0.75);
+}
+
+.bg-purple-500\/80 {
+  background-color: rgb(168 85 247 / 0.8);
+}
+
+.bg-purple-500\/85 {
+  background-color: rgb(168 85 247 / 0.85);
+}
+
+.bg-purple-500\/90 {
+  background-color: rgb(168 85 247 / 0.9);
+}
+
+.bg-purple-500\/95 {
+  background-color: rgb(168 85 247 / 0.95);
+}
+
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
+.bg-red-100\/0 {
+  background-color: rgb(254 226 226 / 0);
+}
+
+.bg-red-100\/10 {
+  background-color: rgb(254 226 226 / 0.1);
+}
+
+.bg-red-100\/100 {
+  background-color: rgb(254 226 226 / 1);
+}
+
+.bg-red-100\/15 {
+  background-color: rgb(254 226 226 / 0.15);
+}
+
+.bg-red-100\/20 {
+  background-color: rgb(254 226 226 / 0.2);
+}
+
+.bg-red-100\/25 {
+  background-color: rgb(254 226 226 / 0.25);
+}
+
+.bg-red-100\/30 {
+  background-color: rgb(254 226 226 / 0.3);
+}
+
+.bg-red-100\/35 {
+  background-color: rgb(254 226 226 / 0.35);
+}
+
+.bg-red-100\/40 {
+  background-color: rgb(254 226 226 / 0.4);
+}
+
+.bg-red-100\/45 {
+  background-color: rgb(254 226 226 / 0.45);
+}
+
+.bg-red-100\/5 {
+  background-color: rgb(254 226 226 / 0.05);
+}
+
+.bg-red-100\/50 {
+  background-color: rgb(254 226 226 / 0.5);
+}
+
+.bg-red-100\/55 {
+  background-color: rgb(254 226 226 / 0.55);
+}
+
+.bg-red-100\/60 {
+  background-color: rgb(254 226 226 / 0.6);
+}
+
+.bg-red-100\/65 {
+  background-color: rgb(254 226 226 / 0.65);
+}
+
+.bg-red-100\/70 {
+  background-color: rgb(254 226 226 / 0.7);
+}
+
+.bg-red-100\/75 {
+  background-color: rgb(254 226 226 / 0.75);
+}
+
+.bg-red-100\/80 {
+  background-color: rgb(254 226 226 / 0.8);
+}
+
+.bg-red-100\/85 {
+  background-color: rgb(254 226 226 / 0.85);
+}
+
+.bg-red-100\/90 {
+  background-color: rgb(254 226 226 / 0.9);
+}
+
+.bg-red-100\/95 {
+  background-color: rgb(254 226 226 / 0.95);
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-red-400\/0 {
+  background-color: rgb(248 113 113 / 0);
+}
+
+.bg-red-400\/10 {
+  background-color: rgb(248 113 113 / 0.1);
+}
+
+.bg-red-400\/100 {
+  background-color: rgb(248 113 113 / 1);
+}
+
+.bg-red-400\/15 {
+  background-color: rgb(248 113 113 / 0.15);
+}
+
+.bg-red-400\/20 {
+  background-color: rgb(248 113 113 / 0.2);
+}
+
+.bg-red-400\/25 {
+  background-color: rgb(248 113 113 / 0.25);
+}
+
+.bg-red-400\/30 {
+  background-color: rgb(248 113 113 / 0.3);
+}
+
+.bg-red-400\/35 {
+  background-color: rgb(248 113 113 / 0.35);
+}
+
+.bg-red-400\/40 {
+  background-color: rgb(248 113 113 / 0.4);
+}
+
+.bg-red-400\/45 {
+  background-color: rgb(248 113 113 / 0.45);
+}
+
+.bg-red-400\/5 {
+  background-color: rgb(248 113 113 / 0.05);
+}
+
+.bg-red-400\/50 {
+  background-color: rgb(248 113 113 / 0.5);
+}
+
+.bg-red-400\/55 {
+  background-color: rgb(248 113 113 / 0.55);
+}
+
+.bg-red-400\/60 {
+  background-color: rgb(248 113 113 / 0.6);
+}
+
+.bg-red-400\/65 {
+  background-color: rgb(248 113 113 / 0.65);
+}
+
+.bg-red-400\/70 {
+  background-color: rgb(248 113 113 / 0.7);
+}
+
+.bg-red-400\/75 {
+  background-color: rgb(248 113 113 / 0.75);
+}
+
+.bg-red-400\/80 {
+  background-color: rgb(248 113 113 / 0.8);
+}
+
+.bg-red-400\/85 {
+  background-color: rgb(248 113 113 / 0.85);
+}
+
+.bg-red-400\/90 {
+  background-color: rgb(248 113 113 / 0.9);
+}
+
+.bg-red-400\/95 {
+  background-color: rgb(248 113 113 / 0.95);
+}
+
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-red-50\/0 {
+  background-color: rgb(254 242 242 / 0);
+}
+
+.bg-red-50\/10 {
+  background-color: rgb(254 242 242 / 0.1);
+}
+
+.bg-red-50\/100 {
+  background-color: rgb(254 242 242 / 1);
+}
+
+.bg-red-50\/15 {
+  background-color: rgb(254 242 242 / 0.15);
+}
+
+.bg-red-50\/20 {
+  background-color: rgb(254 242 242 / 0.2);
+}
+
+.bg-red-50\/25 {
+  background-color: rgb(254 242 242 / 0.25);
+}
+
+.bg-red-50\/30 {
+  background-color: rgb(254 242 242 / 0.3);
+}
+
+.bg-red-50\/35 {
+  background-color: rgb(254 242 242 / 0.35);
+}
+
+.bg-red-50\/40 {
+  background-color: rgb(254 242 242 / 0.4);
+}
+
+.bg-red-50\/45 {
+  background-color: rgb(254 242 242 / 0.45);
+}
+
+.bg-red-50\/5 {
+  background-color: rgb(254 242 242 / 0.05);
+}
+
+.bg-red-50\/50 {
+  background-color: rgb(254 242 242 / 0.5);
+}
+
+.bg-red-50\/55 {
+  background-color: rgb(254 242 242 / 0.55);
+}
+
+.bg-red-50\/60 {
+  background-color: rgb(254 242 242 / 0.6);
+}
+
+.bg-red-50\/65 {
+  background-color: rgb(254 242 242 / 0.65);
+}
+
+.bg-red-50\/70 {
+  background-color: rgb(254 242 242 / 0.7);
+}
+
+.bg-red-50\/75 {
+  background-color: rgb(254 242 242 / 0.75);
+}
+
+.bg-red-50\/80 {
+  background-color: rgb(254 242 242 / 0.8);
+}
+
+.bg-red-50\/85 {
+  background-color: rgb(254 242 242 / 0.85);
+}
+
+.bg-red-50\/90 {
+  background-color: rgb(254 242 242 / 0.9);
+}
+
+.bg-red-50\/95 {
+  background-color: rgb(254 242 242 / 0.95);
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.bg-red-500\/0 {
+  background-color: rgb(239 68 68 / 0);
+}
+
+.bg-red-500\/10 {
+  background-color: rgb(239 68 68 / 0.1);
+}
+
+.bg-red-500\/100 {
+  background-color: rgb(239 68 68 / 1);
+}
+
+.bg-red-500\/15 {
+  background-color: rgb(239 68 68 / 0.15);
+}
+
+.bg-red-500\/20 {
+  background-color: rgb(239 68 68 / 0.2);
+}
+
+.bg-red-500\/25 {
+  background-color: rgb(239 68 68 / 0.25);
+}
+
+.bg-red-500\/30 {
+  background-color: rgb(239 68 68 / 0.3);
+}
+
+.bg-red-500\/35 {
+  background-color: rgb(239 68 68 / 0.35);
+}
+
+.bg-red-500\/40 {
+  background-color: rgb(239 68 68 / 0.4);
+}
+
+.bg-red-500\/45 {
+  background-color: rgb(239 68 68 / 0.45);
+}
+
+.bg-red-500\/5 {
+  background-color: rgb(239 68 68 / 0.05);
+}
+
+.bg-red-500\/50 {
+  background-color: rgb(239 68 68 / 0.5);
+}
+
+.bg-red-500\/55 {
+  background-color: rgb(239 68 68 / 0.55);
+}
+
+.bg-red-500\/60 {
+  background-color: rgb(239 68 68 / 0.6);
+}
+
+.bg-red-500\/65 {
+  background-color: rgb(239 68 68 / 0.65);
+}
+
+.bg-red-500\/70 {
+  background-color: rgb(239 68 68 / 0.7);
+}
+
+.bg-red-500\/75 {
+  background-color: rgb(239 68 68 / 0.75);
+}
+
+.bg-red-500\/80 {
+  background-color: rgb(239 68 68 / 0.8);
+}
+
+.bg-red-500\/85 {
+  background-color: rgb(239 68 68 / 0.85);
+}
+
+.bg-red-500\/90 {
+  background-color: rgb(239 68 68 / 0.9);
+}
+
+.bg-red-500\/95 {
+  background-color: rgb(239 68 68 / 0.95);
+}
+
+.bg-teal-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 251 241 / var(--tw-bg-opacity));
+}
+
+.bg-teal-100\/0 {
+  background-color: rgb(204 251 241 / 0);
+}
+
+.bg-teal-100\/10 {
+  background-color: rgb(204 251 241 / 0.1);
+}
+
+.bg-teal-100\/100 {
+  background-color: rgb(204 251 241 / 1);
+}
+
+.bg-teal-100\/15 {
+  background-color: rgb(204 251 241 / 0.15);
+}
+
+.bg-teal-100\/20 {
+  background-color: rgb(204 251 241 / 0.2);
+}
+
+.bg-teal-100\/25 {
+  background-color: rgb(204 251 241 / 0.25);
+}
+
+.bg-teal-100\/30 {
+  background-color: rgb(204 251 241 / 0.3);
+}
+
+.bg-teal-100\/35 {
+  background-color: rgb(204 251 241 / 0.35);
+}
+
+.bg-teal-100\/40 {
+  background-color: rgb(204 251 241 / 0.4);
+}
+
+.bg-teal-100\/45 {
+  background-color: rgb(204 251 241 / 0.45);
+}
+
+.bg-teal-100\/5 {
+  background-color: rgb(204 251 241 / 0.05);
+}
+
+.bg-teal-100\/50 {
+  background-color: rgb(204 251 241 / 0.5);
+}
+
+.bg-teal-100\/55 {
+  background-color: rgb(204 251 241 / 0.55);
+}
+
+.bg-teal-100\/60 {
+  background-color: rgb(204 251 241 / 0.6);
+}
+
+.bg-teal-100\/65 {
+  background-color: rgb(204 251 241 / 0.65);
+}
+
+.bg-teal-100\/70 {
+  background-color: rgb(204 251 241 / 0.7);
+}
+
+.bg-teal-100\/75 {
+  background-color: rgb(204 251 241 / 0.75);
+}
+
+.bg-teal-100\/80 {
+  background-color: rgb(204 251 241 / 0.8);
+}
+
+.bg-teal-100\/85 {
+  background-color: rgb(204 251 241 / 0.85);
+}
+
+.bg-teal-100\/90 {
+  background-color: rgb(204 251 241 / 0.9);
+}
+
+.bg-teal-100\/95 {
+  background-color: rgb(204 251 241 / 0.95);
+}
+
+.bg-teal-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 212 191 / var(--tw-bg-opacity));
+}
+
+.bg-teal-400\/0 {
+  background-color: rgb(45 212 191 / 0);
+}
+
+.bg-teal-400\/10 {
+  background-color: rgb(45 212 191 / 0.1);
+}
+
+.bg-teal-400\/100 {
+  background-color: rgb(45 212 191 / 1);
+}
+
+.bg-teal-400\/15 {
+  background-color: rgb(45 212 191 / 0.15);
+}
+
+.bg-teal-400\/20 {
+  background-color: rgb(45 212 191 / 0.2);
+}
+
+.bg-teal-400\/25 {
+  background-color: rgb(45 212 191 / 0.25);
+}
+
+.bg-teal-400\/30 {
+  background-color: rgb(45 212 191 / 0.3);
+}
+
+.bg-teal-400\/35 {
+  background-color: rgb(45 212 191 / 0.35);
+}
+
+.bg-teal-400\/40 {
+  background-color: rgb(45 212 191 / 0.4);
+}
+
+.bg-teal-400\/45 {
+  background-color: rgb(45 212 191 / 0.45);
+}
+
+.bg-teal-400\/5 {
+  background-color: rgb(45 212 191 / 0.05);
+}
+
+.bg-teal-400\/50 {
+  background-color: rgb(45 212 191 / 0.5);
+}
+
+.bg-teal-400\/55 {
+  background-color: rgb(45 212 191 / 0.55);
+}
+
+.bg-teal-400\/60 {
+  background-color: rgb(45 212 191 / 0.6);
+}
+
+.bg-teal-400\/65 {
+  background-color: rgb(45 212 191 / 0.65);
+}
+
+.bg-teal-400\/70 {
+  background-color: rgb(45 212 191 / 0.7);
+}
+
+.bg-teal-400\/75 {
+  background-color: rgb(45 212 191 / 0.75);
+}
+
+.bg-teal-400\/80 {
+  background-color: rgb(45 212 191 / 0.8);
+}
+
+.bg-teal-400\/85 {
+  background-color: rgb(45 212 191 / 0.85);
+}
+
+.bg-teal-400\/90 {
+  background-color: rgb(45 212 191 / 0.9);
+}
+
+.bg-teal-400\/95 {
+  background-color: rgb(45 212 191 / 0.95);
+}
+
+.bg-teal-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 250 / var(--tw-bg-opacity));
+}
+
+.bg-teal-50\/0 {
+  background-color: rgb(240 253 250 / 0);
+}
+
+.bg-teal-50\/10 {
+  background-color: rgb(240 253 250 / 0.1);
+}
+
+.bg-teal-50\/100 {
+  background-color: rgb(240 253 250 / 1);
+}
+
+.bg-teal-50\/15 {
+  background-color: rgb(240 253 250 / 0.15);
+}
+
+.bg-teal-50\/20 {
+  background-color: rgb(240 253 250 / 0.2);
+}
+
+.bg-teal-50\/25 {
+  background-color: rgb(240 253 250 / 0.25);
+}
+
+.bg-teal-50\/30 {
+  background-color: rgb(240 253 250 / 0.3);
+}
+
+.bg-teal-50\/35 {
+  background-color: rgb(240 253 250 / 0.35);
+}
+
+.bg-teal-50\/40 {
+  background-color: rgb(240 253 250 / 0.4);
+}
+
+.bg-teal-50\/45 {
+  background-color: rgb(240 253 250 / 0.45);
+}
+
+.bg-teal-50\/5 {
+  background-color: rgb(240 253 250 / 0.05);
+}
+
+.bg-teal-50\/50 {
+  background-color: rgb(240 253 250 / 0.5);
+}
+
+.bg-teal-50\/55 {
+  background-color: rgb(240 253 250 / 0.55);
+}
+
+.bg-teal-50\/60 {
+  background-color: rgb(240 253 250 / 0.6);
+}
+
+.bg-teal-50\/65 {
+  background-color: rgb(240 253 250 / 0.65);
+}
+
+.bg-teal-50\/70 {
+  background-color: rgb(240 253 250 / 0.7);
+}
+
+.bg-teal-50\/75 {
+  background-color: rgb(240 253 250 / 0.75);
+}
+
+.bg-teal-50\/80 {
+  background-color: rgb(240 253 250 / 0.8);
+}
+
+.bg-teal-50\/85 {
+  background-color: rgb(240 253 250 / 0.85);
+}
+
+.bg-teal-50\/90 {
+  background-color: rgb(240 253 250 / 0.9);
+}
+
+.bg-teal-50\/95 {
+  background-color: rgb(240 253 250 / 0.95);
+}
+
+.bg-teal-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+
+.bg-teal-500\/0 {
+  background-color: rgb(20 184 166 / 0);
+}
+
+.bg-teal-500\/10 {
+  background-color: rgb(20 184 166 / 0.1);
+}
+
+.bg-teal-500\/100 {
+  background-color: rgb(20 184 166 / 1);
+}
+
+.bg-teal-500\/15 {
+  background-color: rgb(20 184 166 / 0.15);
+}
+
+.bg-teal-500\/20 {
+  background-color: rgb(20 184 166 / 0.2);
+}
+
+.bg-teal-500\/25 {
+  background-color: rgb(20 184 166 / 0.25);
+}
+
+.bg-teal-500\/30 {
+  background-color: rgb(20 184 166 / 0.3);
+}
+
+.bg-teal-500\/35 {
+  background-color: rgb(20 184 166 / 0.35);
+}
+
+.bg-teal-500\/40 {
+  background-color: rgb(20 184 166 / 0.4);
+}
+
+.bg-teal-500\/45 {
+  background-color: rgb(20 184 166 / 0.45);
+}
+
+.bg-teal-500\/5 {
+  background-color: rgb(20 184 166 / 0.05);
+}
+
+.bg-teal-500\/50 {
+  background-color: rgb(20 184 166 / 0.5);
+}
+
+.bg-teal-500\/55 {
+  background-color: rgb(20 184 166 / 0.55);
+}
+
+.bg-teal-500\/60 {
+  background-color: rgb(20 184 166 / 0.6);
+}
+
+.bg-teal-500\/65 {
+  background-color: rgb(20 184 166 / 0.65);
+}
+
+.bg-teal-500\/70 {
+  background-color: rgb(20 184 166 / 0.7);
+}
+
+.bg-teal-500\/75 {
+  background-color: rgb(20 184 166 / 0.75);
+}
+
+.bg-teal-500\/80 {
+  background-color: rgb(20 184 166 / 0.8);
+}
+
+.bg-teal-500\/85 {
+  background-color: rgb(20 184 166 / 0.85);
+}
+
+.bg-teal-500\/90 {
+  background-color: rgb(20 184 166 / 0.9);
+}
+
+.bg-teal-500\/95 {
+  background-color: rgb(20 184 166 / 0.95);
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-100\/0 {
+  background-color: rgb(254 249 195 / 0);
+}
+
+.bg-yellow-100\/10 {
+  background-color: rgb(254 249 195 / 0.1);
+}
+
+.bg-yellow-100\/100 {
+  background-color: rgb(254 249 195 / 1);
+}
+
+.bg-yellow-100\/15 {
+  background-color: rgb(254 249 195 / 0.15);
+}
+
+.bg-yellow-100\/20 {
+  background-color: rgb(254 249 195 / 0.2);
+}
+
+.bg-yellow-100\/25 {
+  background-color: rgb(254 249 195 / 0.25);
+}
+
+.bg-yellow-100\/30 {
+  background-color: rgb(254 249 195 / 0.3);
+}
+
+.bg-yellow-100\/35 {
+  background-color: rgb(254 249 195 / 0.35);
+}
+
+.bg-yellow-100\/40 {
+  background-color: rgb(254 249 195 / 0.4);
+}
+
+.bg-yellow-100\/45 {
+  background-color: rgb(254 249 195 / 0.45);
+}
+
+.bg-yellow-100\/5 {
+  background-color: rgb(254 249 195 / 0.05);
+}
+
+.bg-yellow-100\/50 {
+  background-color: rgb(254 249 195 / 0.5);
+}
+
+.bg-yellow-100\/55 {
+  background-color: rgb(254 249 195 / 0.55);
+}
+
+.bg-yellow-100\/60 {
+  background-color: rgb(254 249 195 / 0.6);
+}
+
+.bg-yellow-100\/65 {
+  background-color: rgb(254 249 195 / 0.65);
+}
+
+.bg-yellow-100\/70 {
+  background-color: rgb(254 249 195 / 0.7);
+}
+
+.bg-yellow-100\/75 {
+  background-color: rgb(254 249 195 / 0.75);
+}
+
+.bg-yellow-100\/80 {
+  background-color: rgb(254 249 195 / 0.8);
+}
+
+.bg-yellow-100\/85 {
+  background-color: rgb(254 249 195 / 0.85);
+}
+
+.bg-yellow-100\/90 {
+  background-color: rgb(254 249 195 / 0.9);
+}
+
+.bg-yellow-100\/95 {
+  background-color: rgb(254 249 195 / 0.95);
+}
+
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-400\/0 {
+  background-color: rgb(250 204 21 / 0);
+}
+
+.bg-yellow-400\/10 {
+  background-color: rgb(250 204 21 / 0.1);
+}
+
+.bg-yellow-400\/100 {
+  background-color: rgb(250 204 21 / 1);
+}
+
+.bg-yellow-400\/15 {
+  background-color: rgb(250 204 21 / 0.15);
+}
+
+.bg-yellow-400\/20 {
+  background-color: rgb(250 204 21 / 0.2);
+}
+
+.bg-yellow-400\/25 {
+  background-color: rgb(250 204 21 / 0.25);
+}
+
+.bg-yellow-400\/30 {
+  background-color: rgb(250 204 21 / 0.3);
+}
+
+.bg-yellow-400\/35 {
+  background-color: rgb(250 204 21 / 0.35);
+}
+
+.bg-yellow-400\/40 {
+  background-color: rgb(250 204 21 / 0.4);
+}
+
+.bg-yellow-400\/45 {
+  background-color: rgb(250 204 21 / 0.45);
+}
+
+.bg-yellow-400\/5 {
+  background-color: rgb(250 204 21 / 0.05);
+}
+
+.bg-yellow-400\/50 {
+  background-color: rgb(250 204 21 / 0.5);
+}
+
+.bg-yellow-400\/55 {
+  background-color: rgb(250 204 21 / 0.55);
+}
+
+.bg-yellow-400\/60 {
+  background-color: rgb(250 204 21 / 0.6);
+}
+
+.bg-yellow-400\/65 {
+  background-color: rgb(250 204 21 / 0.65);
+}
+
+.bg-yellow-400\/70 {
+  background-color: rgb(250 204 21 / 0.7);
+}
+
+.bg-yellow-400\/75 {
+  background-color: rgb(250 204 21 / 0.75);
+}
+
+.bg-yellow-400\/80 {
+  background-color: rgb(250 204 21 / 0.8);
+}
+
+.bg-yellow-400\/85 {
+  background-color: rgb(250 204 21 / 0.85);
+}
+
+.bg-yellow-400\/90 {
+  background-color: rgb(250 204 21 / 0.9);
+}
+
+.bg-yellow-400\/95 {
+  background-color: rgb(250 204 21 / 0.95);
+}
+
+.bg-yellow-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-50\/0 {
+  background-color: rgb(254 252 232 / 0);
+}
+
+.bg-yellow-50\/10 {
+  background-color: rgb(254 252 232 / 0.1);
+}
+
+.bg-yellow-50\/100 {
+  background-color: rgb(254 252 232 / 1);
+}
+
+.bg-yellow-50\/15 {
+  background-color: rgb(254 252 232 / 0.15);
+}
+
+.bg-yellow-50\/20 {
+  background-color: rgb(254 252 232 / 0.2);
+}
+
+.bg-yellow-50\/25 {
+  background-color: rgb(254 252 232 / 0.25);
+}
+
+.bg-yellow-50\/30 {
+  background-color: rgb(254 252 232 / 0.3);
+}
+
+.bg-yellow-50\/35 {
+  background-color: rgb(254 252 232 / 0.35);
+}
+
+.bg-yellow-50\/40 {
+  background-color: rgb(254 252 232 / 0.4);
+}
+
+.bg-yellow-50\/45 {
+  background-color: rgb(254 252 232 / 0.45);
+}
+
+.bg-yellow-50\/5 {
+  background-color: rgb(254 252 232 / 0.05);
+}
+
+.bg-yellow-50\/50 {
+  background-color: rgb(254 252 232 / 0.5);
+}
+
+.bg-yellow-50\/55 {
+  background-color: rgb(254 252 232 / 0.55);
+}
+
+.bg-yellow-50\/60 {
+  background-color: rgb(254 252 232 / 0.6);
+}
+
+.bg-yellow-50\/65 {
+  background-color: rgb(254 252 232 / 0.65);
+}
+
+.bg-yellow-50\/70 {
+  background-color: rgb(254 252 232 / 0.7);
+}
+
+.bg-yellow-50\/75 {
+  background-color: rgb(254 252 232 / 0.75);
+}
+
+.bg-yellow-50\/80 {
+  background-color: rgb(254 252 232 / 0.8);
+}
+
+.bg-yellow-50\/85 {
+  background-color: rgb(254 252 232 / 0.85);
+}
+
+.bg-yellow-50\/90 {
+  background-color: rgb(254 252 232 / 0.9);
+}
+
+.bg-yellow-50\/95 {
+  background-color: rgb(254 252 232 / 0.95);
+}
+
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-500\/0 {
+  background-color: rgb(234 179 8 / 0);
+}
+
+.bg-yellow-500\/10 {
+  background-color: rgb(234 179 8 / 0.1);
+}
+
+.bg-yellow-500\/100 {
+  background-color: rgb(234 179 8 / 1);
+}
+
+.bg-yellow-500\/15 {
+  background-color: rgb(234 179 8 / 0.15);
+}
+
+.bg-yellow-500\/20 {
+  background-color: rgb(234 179 8 / 0.2);
+}
+
+.bg-yellow-500\/25 {
+  background-color: rgb(234 179 8 / 0.25);
+}
+
+.bg-yellow-500\/30 {
+  background-color: rgb(234 179 8 / 0.3);
+}
+
+.bg-yellow-500\/35 {
+  background-color: rgb(234 179 8 / 0.35);
+}
+
+.bg-yellow-500\/40 {
+  background-color: rgb(234 179 8 / 0.4);
+}
+
+.bg-yellow-500\/45 {
+  background-color: rgb(234 179 8 / 0.45);
+}
+
+.bg-yellow-500\/5 {
+  background-color: rgb(234 179 8 / 0.05);
+}
+
+.bg-yellow-500\/50 {
+  background-color: rgb(234 179 8 / 0.5);
+}
+
+.bg-yellow-500\/55 {
+  background-color: rgb(234 179 8 / 0.55);
+}
+
+.bg-yellow-500\/60 {
+  background-color: rgb(234 179 8 / 0.6);
+}
+
+.bg-yellow-500\/65 {
+  background-color: rgb(234 179 8 / 0.65);
+}
+
+.bg-yellow-500\/70 {
+  background-color: rgb(234 179 8 / 0.7);
+}
+
+.bg-yellow-500\/75 {
+  background-color: rgb(234 179 8 / 0.75);
+}
+
+.bg-yellow-500\/80 {
+  background-color: rgb(234 179 8 / 0.8);
+}
+
+.bg-yellow-500\/85 {
+  background-color: rgb(234 179 8 / 0.85);
+}
+
+.bg-yellow-500\/90 {
+  background-color: rgb(234 179 8 / 0.9);
+}
+
+.bg-yellow-500\/95 {
+  background-color: rgb(234 179 8 / 0.95);
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -838,26 +4357,8 @@ video {
   padding-right: 0.5rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .pb-2 {
   padding-bottom: 0.5rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pr-4 {
-  padding-right: 1rem;
 }
 
 .text-center {
@@ -879,11 +4380,6 @@ video {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -892,9 +4388,365 @@ video {
   font-style: italic;
 }
 
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.text-blue-500\/0 {
+  color: rgb(59 130 246 / 0);
+}
+
+.text-blue-500\/10 {
+  color: rgb(59 130 246 / 0.1);
+}
+
+.text-blue-500\/100 {
+  color: rgb(59 130 246 / 1);
+}
+
+.text-blue-500\/15 {
+  color: rgb(59 130 246 / 0.15);
+}
+
+.text-blue-500\/20 {
+  color: rgb(59 130 246 / 0.2);
+}
+
+.text-blue-500\/25 {
+  color: rgb(59 130 246 / 0.25);
+}
+
+.text-blue-500\/30 {
+  color: rgb(59 130 246 / 0.3);
+}
+
+.text-blue-500\/35 {
+  color: rgb(59 130 246 / 0.35);
+}
+
+.text-blue-500\/40 {
+  color: rgb(59 130 246 / 0.4);
+}
+
+.text-blue-500\/45 {
+  color: rgb(59 130 246 / 0.45);
+}
+
+.text-blue-500\/5 {
+  color: rgb(59 130 246 / 0.05);
+}
+
+.text-blue-500\/50 {
+  color: rgb(59 130 246 / 0.5);
+}
+
+.text-blue-500\/55 {
+  color: rgb(59 130 246 / 0.55);
+}
+
+.text-blue-500\/60 {
+  color: rgb(59 130 246 / 0.6);
+}
+
+.text-blue-500\/65 {
+  color: rgb(59 130 246 / 0.65);
+}
+
+.text-blue-500\/70 {
+  color: rgb(59 130 246 / 0.7);
+}
+
+.text-blue-500\/75 {
+  color: rgb(59 130 246 / 0.75);
+}
+
+.text-blue-500\/80 {
+  color: rgb(59 130 246 / 0.8);
+}
+
+.text-blue-500\/85 {
+  color: rgb(59 130 246 / 0.85);
+}
+
+.text-blue-500\/90 {
+  color: rgb(59 130 246 / 0.9);
+}
+
+.text-blue-500\/95 {
+  color: rgb(59 130 246 / 0.95);
+}
+
+.text-cyan-500 {
+  --tw-text-opacity: 1;
+  color: rgb(6 182 212 / var(--tw-text-opacity));
+}
+
+.text-cyan-500\/0 {
+  color: rgb(6 182 212 / 0);
+}
+
+.text-cyan-500\/10 {
+  color: rgb(6 182 212 / 0.1);
+}
+
+.text-cyan-500\/100 {
+  color: rgb(6 182 212 / 1);
+}
+
+.text-cyan-500\/15 {
+  color: rgb(6 182 212 / 0.15);
+}
+
+.text-cyan-500\/20 {
+  color: rgb(6 182 212 / 0.2);
+}
+
+.text-cyan-500\/25 {
+  color: rgb(6 182 212 / 0.25);
+}
+
+.text-cyan-500\/30 {
+  color: rgb(6 182 212 / 0.3);
+}
+
+.text-cyan-500\/35 {
+  color: rgb(6 182 212 / 0.35);
+}
+
+.text-cyan-500\/40 {
+  color: rgb(6 182 212 / 0.4);
+}
+
+.text-cyan-500\/45 {
+  color: rgb(6 182 212 / 0.45);
+}
+
+.text-cyan-500\/5 {
+  color: rgb(6 182 212 / 0.05);
+}
+
+.text-cyan-500\/50 {
+  color: rgb(6 182 212 / 0.5);
+}
+
+.text-cyan-500\/55 {
+  color: rgb(6 182 212 / 0.55);
+}
+
+.text-cyan-500\/60 {
+  color: rgb(6 182 212 / 0.6);
+}
+
+.text-cyan-500\/65 {
+  color: rgb(6 182 212 / 0.65);
+}
+
+.text-cyan-500\/70 {
+  color: rgb(6 182 212 / 0.7);
+}
+
+.text-cyan-500\/75 {
+  color: rgb(6 182 212 / 0.75);
+}
+
+.text-cyan-500\/80 {
+  color: rgb(6 182 212 / 0.8);
+}
+
+.text-cyan-500\/85 {
+  color: rgb(6 182 212 / 0.85);
+}
+
+.text-cyan-500\/90 {
+  color: rgb(6 182 212 / 0.9);
+}
+
+.text-cyan-500\/95 {
+  color: rgb(6 182 212 / 0.95);
+}
+
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
+}
+
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
+.text-green-500\/0 {
+  color: rgb(34 197 94 / 0);
+}
+
+.text-green-500\/10 {
+  color: rgb(34 197 94 / 0.1);
+}
+
+.text-green-500\/100 {
+  color: rgb(34 197 94 / 1);
+}
+
+.text-green-500\/15 {
+  color: rgb(34 197 94 / 0.15);
+}
+
+.text-green-500\/20 {
+  color: rgb(34 197 94 / 0.2);
+}
+
+.text-green-500\/25 {
+  color: rgb(34 197 94 / 0.25);
+}
+
+.text-green-500\/30 {
+  color: rgb(34 197 94 / 0.3);
+}
+
+.text-green-500\/35 {
+  color: rgb(34 197 94 / 0.35);
+}
+
+.text-green-500\/40 {
+  color: rgb(34 197 94 / 0.4);
+}
+
+.text-green-500\/45 {
+  color: rgb(34 197 94 / 0.45);
+}
+
+.text-green-500\/5 {
+  color: rgb(34 197 94 / 0.05);
+}
+
+.text-green-500\/50 {
+  color: rgb(34 197 94 / 0.5);
+}
+
+.text-green-500\/55 {
+  color: rgb(34 197 94 / 0.55);
+}
+
+.text-green-500\/60 {
+  color: rgb(34 197 94 / 0.6);
+}
+
+.text-green-500\/65 {
+  color: rgb(34 197 94 / 0.65);
+}
+
+.text-green-500\/70 {
+  color: rgb(34 197 94 / 0.7);
+}
+
+.text-green-500\/75 {
+  color: rgb(34 197 94 / 0.75);
+}
+
+.text-green-500\/80 {
+  color: rgb(34 197 94 / 0.8);
+}
+
+.text-green-500\/85 {
+  color: rgb(34 197 94 / 0.85);
+}
+
+.text-green-500\/90 {
+  color: rgb(34 197 94 / 0.9);
+}
+
+.text-green-500\/95 {
+  color: rgb(34 197 94 / 0.95);
+}
+
+.text-pink-500 {
+  --tw-text-opacity: 1;
+  color: rgb(236 72 153 / var(--tw-text-opacity));
+}
+
+.text-pink-500\/0 {
+  color: rgb(236 72 153 / 0);
+}
+
+.text-pink-500\/10 {
+  color: rgb(236 72 153 / 0.1);
+}
+
+.text-pink-500\/100 {
+  color: rgb(236 72 153 / 1);
+}
+
+.text-pink-500\/15 {
+  color: rgb(236 72 153 / 0.15);
+}
+
+.text-pink-500\/20 {
+  color: rgb(236 72 153 / 0.2);
+}
+
+.text-pink-500\/25 {
+  color: rgb(236 72 153 / 0.25);
+}
+
+.text-pink-500\/30 {
+  color: rgb(236 72 153 / 0.3);
+}
+
+.text-pink-500\/35 {
+  color: rgb(236 72 153 / 0.35);
+}
+
+.text-pink-500\/40 {
+  color: rgb(236 72 153 / 0.4);
+}
+
+.text-pink-500\/45 {
+  color: rgb(236 72 153 / 0.45);
+}
+
+.text-pink-500\/5 {
+  color: rgb(236 72 153 / 0.05);
+}
+
+.text-pink-500\/50 {
+  color: rgb(236 72 153 / 0.5);
+}
+
+.text-pink-500\/55 {
+  color: rgb(236 72 153 / 0.55);
+}
+
+.text-pink-500\/60 {
+  color: rgb(236 72 153 / 0.6);
+}
+
+.text-pink-500\/65 {
+  color: rgb(236 72 153 / 0.65);
+}
+
+.text-pink-500\/70 {
+  color: rgb(236 72 153 / 0.7);
+}
+
+.text-pink-500\/75 {
+  color: rgb(236 72 153 / 0.75);
+}
+
+.text-pink-500\/80 {
+  color: rgb(236 72 153 / 0.8);
+}
+
+.text-pink-500\/85 {
+  color: rgb(236 72 153 / 0.85);
+}
+
+.text-pink-500\/90 {
+  color: rgb(236 72 153 / 0.9);
+}
+
+.text-pink-500\/95 {
+  color: rgb(236 72 153 / 0.95);
 }
 
 .text-purple-400 {
@@ -902,14 +4754,360 @@ video {
   color: rgb(192 132 252 / var(--tw-text-opacity));
 }
 
-.text-violet-500 {
+.text-purple-500 {
   --tw-text-opacity: 1;
-  color: rgb(139 92 246 / var(--tw-text-opacity));
+  color: rgb(168 85 247 / var(--tw-text-opacity));
 }
 
-.text-white {
+.text-purple-500\/0 {
+  color: rgb(168 85 247 / 0);
+}
+
+.text-purple-500\/10 {
+  color: rgb(168 85 247 / 0.1);
+}
+
+.text-purple-500\/100 {
+  color: rgb(168 85 247 / 1);
+}
+
+.text-purple-500\/15 {
+  color: rgb(168 85 247 / 0.15);
+}
+
+.text-purple-500\/20 {
+  color: rgb(168 85 247 / 0.2);
+}
+
+.text-purple-500\/25 {
+  color: rgb(168 85 247 / 0.25);
+}
+
+.text-purple-500\/30 {
+  color: rgb(168 85 247 / 0.3);
+}
+
+.text-purple-500\/35 {
+  color: rgb(168 85 247 / 0.35);
+}
+
+.text-purple-500\/40 {
+  color: rgb(168 85 247 / 0.4);
+}
+
+.text-purple-500\/45 {
+  color: rgb(168 85 247 / 0.45);
+}
+
+.text-purple-500\/5 {
+  color: rgb(168 85 247 / 0.05);
+}
+
+.text-purple-500\/50 {
+  color: rgb(168 85 247 / 0.5);
+}
+
+.text-purple-500\/55 {
+  color: rgb(168 85 247 / 0.55);
+}
+
+.text-purple-500\/60 {
+  color: rgb(168 85 247 / 0.6);
+}
+
+.text-purple-500\/65 {
+  color: rgb(168 85 247 / 0.65);
+}
+
+.text-purple-500\/70 {
+  color: rgb(168 85 247 / 0.7);
+}
+
+.text-purple-500\/75 {
+  color: rgb(168 85 247 / 0.75);
+}
+
+.text-purple-500\/80 {
+  color: rgb(168 85 247 / 0.8);
+}
+
+.text-purple-500\/85 {
+  color: rgb(168 85 247 / 0.85);
+}
+
+.text-purple-500\/90 {
+  color: rgb(168 85 247 / 0.9);
+}
+
+.text-purple-500\/95 {
+  color: rgb(168 85 247 / 0.95);
+}
+
+.text-red-500 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.text-red-500\/0 {
+  color: rgb(239 68 68 / 0);
+}
+
+.text-red-500\/10 {
+  color: rgb(239 68 68 / 0.1);
+}
+
+.text-red-500\/100 {
+  color: rgb(239 68 68 / 1);
+}
+
+.text-red-500\/15 {
+  color: rgb(239 68 68 / 0.15);
+}
+
+.text-red-500\/20 {
+  color: rgb(239 68 68 / 0.2);
+}
+
+.text-red-500\/25 {
+  color: rgb(239 68 68 / 0.25);
+}
+
+.text-red-500\/30 {
+  color: rgb(239 68 68 / 0.3);
+}
+
+.text-red-500\/35 {
+  color: rgb(239 68 68 / 0.35);
+}
+
+.text-red-500\/40 {
+  color: rgb(239 68 68 / 0.4);
+}
+
+.text-red-500\/45 {
+  color: rgb(239 68 68 / 0.45);
+}
+
+.text-red-500\/5 {
+  color: rgb(239 68 68 / 0.05);
+}
+
+.text-red-500\/50 {
+  color: rgb(239 68 68 / 0.5);
+}
+
+.text-red-500\/55 {
+  color: rgb(239 68 68 / 0.55);
+}
+
+.text-red-500\/60 {
+  color: rgb(239 68 68 / 0.6);
+}
+
+.text-red-500\/65 {
+  color: rgb(239 68 68 / 0.65);
+}
+
+.text-red-500\/70 {
+  color: rgb(239 68 68 / 0.7);
+}
+
+.text-red-500\/75 {
+  color: rgb(239 68 68 / 0.75);
+}
+
+.text-red-500\/80 {
+  color: rgb(239 68 68 / 0.8);
+}
+
+.text-red-500\/85 {
+  color: rgb(239 68 68 / 0.85);
+}
+
+.text-red-500\/90 {
+  color: rgb(239 68 68 / 0.9);
+}
+
+.text-red-500\/95 {
+  color: rgb(239 68 68 / 0.95);
+}
+
+.text-teal-500 {
+  --tw-text-opacity: 1;
+  color: rgb(20 184 166 / var(--tw-text-opacity));
+}
+
+.text-teal-500\/0 {
+  color: rgb(20 184 166 / 0);
+}
+
+.text-teal-500\/10 {
+  color: rgb(20 184 166 / 0.1);
+}
+
+.text-teal-500\/100 {
+  color: rgb(20 184 166 / 1);
+}
+
+.text-teal-500\/15 {
+  color: rgb(20 184 166 / 0.15);
+}
+
+.text-teal-500\/20 {
+  color: rgb(20 184 166 / 0.2);
+}
+
+.text-teal-500\/25 {
+  color: rgb(20 184 166 / 0.25);
+}
+
+.text-teal-500\/30 {
+  color: rgb(20 184 166 / 0.3);
+}
+
+.text-teal-500\/35 {
+  color: rgb(20 184 166 / 0.35);
+}
+
+.text-teal-500\/40 {
+  color: rgb(20 184 166 / 0.4);
+}
+
+.text-teal-500\/45 {
+  color: rgb(20 184 166 / 0.45);
+}
+
+.text-teal-500\/5 {
+  color: rgb(20 184 166 / 0.05);
+}
+
+.text-teal-500\/50 {
+  color: rgb(20 184 166 / 0.5);
+}
+
+.text-teal-500\/55 {
+  color: rgb(20 184 166 / 0.55);
+}
+
+.text-teal-500\/60 {
+  color: rgb(20 184 166 / 0.6);
+}
+
+.text-teal-500\/65 {
+  color: rgb(20 184 166 / 0.65);
+}
+
+.text-teal-500\/70 {
+  color: rgb(20 184 166 / 0.7);
+}
+
+.text-teal-500\/75 {
+  color: rgb(20 184 166 / 0.75);
+}
+
+.text-teal-500\/80 {
+  color: rgb(20 184 166 / 0.8);
+}
+
+.text-teal-500\/85 {
+  color: rgb(20 184 166 / 0.85);
+}
+
+.text-teal-500\/90 {
+  color: rgb(20 184 166 / 0.9);
+}
+
+.text-teal-500\/95 {
+  color: rgb(20 184 166 / 0.95);
+}
+
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+.text-yellow-500\/0 {
+  color: rgb(234 179 8 / 0);
+}
+
+.text-yellow-500\/10 {
+  color: rgb(234 179 8 / 0.1);
+}
+
+.text-yellow-500\/100 {
+  color: rgb(234 179 8 / 1);
+}
+
+.text-yellow-500\/15 {
+  color: rgb(234 179 8 / 0.15);
+}
+
+.text-yellow-500\/20 {
+  color: rgb(234 179 8 / 0.2);
+}
+
+.text-yellow-500\/25 {
+  color: rgb(234 179 8 / 0.25);
+}
+
+.text-yellow-500\/30 {
+  color: rgb(234 179 8 / 0.3);
+}
+
+.text-yellow-500\/35 {
+  color: rgb(234 179 8 / 0.35);
+}
+
+.text-yellow-500\/40 {
+  color: rgb(234 179 8 / 0.4);
+}
+
+.text-yellow-500\/45 {
+  color: rgb(234 179 8 / 0.45);
+}
+
+.text-yellow-500\/5 {
+  color: rgb(234 179 8 / 0.05);
+}
+
+.text-yellow-500\/50 {
+  color: rgb(234 179 8 / 0.5);
+}
+
+.text-yellow-500\/55 {
+  color: rgb(234 179 8 / 0.55);
+}
+
+.text-yellow-500\/60 {
+  color: rgb(234 179 8 / 0.6);
+}
+
+.text-yellow-500\/65 {
+  color: rgb(234 179 8 / 0.65);
+}
+
+.text-yellow-500\/70 {
+  color: rgb(234 179 8 / 0.7);
+}
+
+.text-yellow-500\/75 {
+  color: rgb(234 179 8 / 0.75);
+}
+
+.text-yellow-500\/80 {
+  color: rgb(234 179 8 / 0.8);
+}
+
+.text-yellow-500\/85 {
+  color: rgb(234 179 8 / 0.85);
+}
+
+.text-yellow-500\/90 {
+  color: rgb(234 179 8 / 0.9);
+}
+
+.text-yellow-500\/95 {
+  color: rgb(234 179 8 / 0.95);
 }
 
 .underline {
@@ -926,9 +5124,1433 @@ video {
   cursor: pointer;
 }
 
+.hover\:bg-blue-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(219 234 254 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-100\/0:hover {
+  background-color: rgb(219 234 254 / 0);
+}
+
+.hover\:bg-blue-100\/10:hover {
+  background-color: rgb(219 234 254 / 0.1);
+}
+
+.hover\:bg-blue-100\/100:hover {
+  background-color: rgb(219 234 254 / 1);
+}
+
+.hover\:bg-blue-100\/15:hover {
+  background-color: rgb(219 234 254 / 0.15);
+}
+
+.hover\:bg-blue-100\/20:hover {
+  background-color: rgb(219 234 254 / 0.2);
+}
+
+.hover\:bg-blue-100\/25:hover {
+  background-color: rgb(219 234 254 / 0.25);
+}
+
+.hover\:bg-blue-100\/30:hover {
+  background-color: rgb(219 234 254 / 0.3);
+}
+
+.hover\:bg-blue-100\/35:hover {
+  background-color: rgb(219 234 254 / 0.35);
+}
+
+.hover\:bg-blue-100\/40:hover {
+  background-color: rgb(219 234 254 / 0.4);
+}
+
+.hover\:bg-blue-100\/45:hover {
+  background-color: rgb(219 234 254 / 0.45);
+}
+
+.hover\:bg-blue-100\/5:hover {
+  background-color: rgb(219 234 254 / 0.05);
+}
+
+.hover\:bg-blue-100\/50:hover {
+  background-color: rgb(219 234 254 / 0.5);
+}
+
+.hover\:bg-blue-100\/55:hover {
+  background-color: rgb(219 234 254 / 0.55);
+}
+
+.hover\:bg-blue-100\/60:hover {
+  background-color: rgb(219 234 254 / 0.6);
+}
+
+.hover\:bg-blue-100\/65:hover {
+  background-color: rgb(219 234 254 / 0.65);
+}
+
+.hover\:bg-blue-100\/70:hover {
+  background-color: rgb(219 234 254 / 0.7);
+}
+
+.hover\:bg-blue-100\/75:hover {
+  background-color: rgb(219 234 254 / 0.75);
+}
+
+.hover\:bg-blue-100\/80:hover {
+  background-color: rgb(219 234 254 / 0.8);
+}
+
+.hover\:bg-blue-100\/85:hover {
+  background-color: rgb(219 234 254 / 0.85);
+}
+
+.hover\:bg-blue-100\/90:hover {
+  background-color: rgb(219 234 254 / 0.9);
+}
+
+.hover\:bg-blue-100\/95:hover {
+  background-color: rgb(219 234 254 / 0.95);
+}
+
+.hover\:bg-blue-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-400\/0:hover {
+  background-color: rgb(96 165 250 / 0);
+}
+
+.hover\:bg-blue-400\/10:hover {
+  background-color: rgb(96 165 250 / 0.1);
+}
+
+.hover\:bg-blue-400\/100:hover {
+  background-color: rgb(96 165 250 / 1);
+}
+
+.hover\:bg-blue-400\/15:hover {
+  background-color: rgb(96 165 250 / 0.15);
+}
+
+.hover\:bg-blue-400\/20:hover {
+  background-color: rgb(96 165 250 / 0.2);
+}
+
+.hover\:bg-blue-400\/25:hover {
+  background-color: rgb(96 165 250 / 0.25);
+}
+
+.hover\:bg-blue-400\/30:hover {
+  background-color: rgb(96 165 250 / 0.3);
+}
+
+.hover\:bg-blue-400\/35:hover {
+  background-color: rgb(96 165 250 / 0.35);
+}
+
+.hover\:bg-blue-400\/40:hover {
+  background-color: rgb(96 165 250 / 0.4);
+}
+
+.hover\:bg-blue-400\/45:hover {
+  background-color: rgb(96 165 250 / 0.45);
+}
+
+.hover\:bg-blue-400\/5:hover {
+  background-color: rgb(96 165 250 / 0.05);
+}
+
+.hover\:bg-blue-400\/50:hover {
+  background-color: rgb(96 165 250 / 0.5);
+}
+
+.hover\:bg-blue-400\/55:hover {
+  background-color: rgb(96 165 250 / 0.55);
+}
+
+.hover\:bg-blue-400\/60:hover {
+  background-color: rgb(96 165 250 / 0.6);
+}
+
+.hover\:bg-blue-400\/65:hover {
+  background-color: rgb(96 165 250 / 0.65);
+}
+
+.hover\:bg-blue-400\/70:hover {
+  background-color: rgb(96 165 250 / 0.7);
+}
+
+.hover\:bg-blue-400\/75:hover {
+  background-color: rgb(96 165 250 / 0.75);
+}
+
+.hover\:bg-blue-400\/80:hover {
+  background-color: rgb(96 165 250 / 0.8);
+}
+
+.hover\:bg-blue-400\/85:hover {
+  background-color: rgb(96 165 250 / 0.85);
+}
+
+.hover\:bg-blue-400\/90:hover {
+  background-color: rgb(96 165 250 / 0.9);
+}
+
+.hover\:bg-blue-400\/95:hover {
+  background-color: rgb(96 165 250 / 0.95);
+}
+
+.hover\:bg-blue-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 246 255 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-50\/0:hover {
+  background-color: rgb(239 246 255 / 0);
+}
+
+.hover\:bg-blue-50\/10:hover {
+  background-color: rgb(239 246 255 / 0.1);
+}
+
+.hover\:bg-blue-50\/100:hover {
+  background-color: rgb(239 246 255 / 1);
+}
+
+.hover\:bg-blue-50\/15:hover {
+  background-color: rgb(239 246 255 / 0.15);
+}
+
+.hover\:bg-blue-50\/20:hover {
+  background-color: rgb(239 246 255 / 0.2);
+}
+
+.hover\:bg-blue-50\/25:hover {
+  background-color: rgb(239 246 255 / 0.25);
+}
+
+.hover\:bg-blue-50\/30:hover {
+  background-color: rgb(239 246 255 / 0.3);
+}
+
+.hover\:bg-blue-50\/35:hover {
+  background-color: rgb(239 246 255 / 0.35);
+}
+
+.hover\:bg-blue-50\/40:hover {
+  background-color: rgb(239 246 255 / 0.4);
+}
+
+.hover\:bg-blue-50\/45:hover {
+  background-color: rgb(239 246 255 / 0.45);
+}
+
+.hover\:bg-blue-50\/5:hover {
+  background-color: rgb(239 246 255 / 0.05);
+}
+
+.hover\:bg-blue-50\/50:hover {
+  background-color: rgb(239 246 255 / 0.5);
+}
+
+.hover\:bg-blue-50\/55:hover {
+  background-color: rgb(239 246 255 / 0.55);
+}
+
+.hover\:bg-blue-50\/60:hover {
+  background-color: rgb(239 246 255 / 0.6);
+}
+
+.hover\:bg-blue-50\/65:hover {
+  background-color: rgb(239 246 255 / 0.65);
+}
+
+.hover\:bg-blue-50\/70:hover {
+  background-color: rgb(239 246 255 / 0.7);
+}
+
+.hover\:bg-blue-50\/75:hover {
+  background-color: rgb(239 246 255 / 0.75);
+}
+
+.hover\:bg-blue-50\/80:hover {
+  background-color: rgb(239 246 255 / 0.8);
+}
+
+.hover\:bg-blue-50\/85:hover {
+  background-color: rgb(239 246 255 / 0.85);
+}
+
+.hover\:bg-blue-50\/90:hover {
+  background-color: rgb(239 246 255 / 0.9);
+}
+
+.hover\:bg-blue-50\/95:hover {
+  background-color: rgb(239 246 255 / 0.95);
+}
+
+.hover\:bg-blue-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-blue-500\/0:hover {
+  background-color: rgb(59 130 246 / 0);
+}
+
+.hover\:bg-blue-500\/10:hover {
+  background-color: rgb(59 130 246 / 0.1);
+}
+
+.hover\:bg-blue-500\/100:hover {
+  background-color: rgb(59 130 246 / 1);
+}
+
+.hover\:bg-blue-500\/15:hover {
+  background-color: rgb(59 130 246 / 0.15);
+}
+
+.hover\:bg-blue-500\/20:hover {
+  background-color: rgb(59 130 246 / 0.2);
+}
+
+.hover\:bg-blue-500\/25:hover {
+  background-color: rgb(59 130 246 / 0.25);
+}
+
+.hover\:bg-blue-500\/30:hover {
+  background-color: rgb(59 130 246 / 0.3);
+}
+
+.hover\:bg-blue-500\/35:hover {
+  background-color: rgb(59 130 246 / 0.35);
+}
+
+.hover\:bg-blue-500\/40:hover {
+  background-color: rgb(59 130 246 / 0.4);
+}
+
+.hover\:bg-blue-500\/45:hover {
+  background-color: rgb(59 130 246 / 0.45);
+}
+
+.hover\:bg-blue-500\/5:hover {
+  background-color: rgb(59 130 246 / 0.05);
+}
+
+.hover\:bg-blue-500\/50:hover {
+  background-color: rgb(59 130 246 / 0.5);
+}
+
+.hover\:bg-blue-500\/55:hover {
+  background-color: rgb(59 130 246 / 0.55);
+}
+
+.hover\:bg-blue-500\/60:hover {
+  background-color: rgb(59 130 246 / 0.6);
+}
+
+.hover\:bg-blue-500\/65:hover {
+  background-color: rgb(59 130 246 / 0.65);
+}
+
+.hover\:bg-blue-500\/70:hover {
+  background-color: rgb(59 130 246 / 0.7);
+}
+
+.hover\:bg-blue-500\/75:hover {
+  background-color: rgb(59 130 246 / 0.75);
+}
+
+.hover\:bg-blue-500\/80:hover {
+  background-color: rgb(59 130 246 / 0.8);
+}
+
+.hover\:bg-blue-500\/85:hover {
+  background-color: rgb(59 130 246 / 0.85);
+}
+
+.hover\:bg-blue-500\/90:hover {
+  background-color: rgb(59 130 246 / 0.9);
+}
+
+.hover\:bg-blue-500\/95:hover {
+  background-color: rgb(59 130 246 / 0.95);
+}
+
+.hover\:bg-cyan-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(207 250 254 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-cyan-100\/0:hover {
+  background-color: rgb(207 250 254 / 0);
+}
+
+.hover\:bg-cyan-100\/10:hover {
+  background-color: rgb(207 250 254 / 0.1);
+}
+
+.hover\:bg-cyan-100\/100:hover {
+  background-color: rgb(207 250 254 / 1);
+}
+
+.hover\:bg-cyan-100\/15:hover {
+  background-color: rgb(207 250 254 / 0.15);
+}
+
+.hover\:bg-cyan-100\/20:hover {
+  background-color: rgb(207 250 254 / 0.2);
+}
+
+.hover\:bg-cyan-100\/25:hover {
+  background-color: rgb(207 250 254 / 0.25);
+}
+
+.hover\:bg-cyan-100\/30:hover {
+  background-color: rgb(207 250 254 / 0.3);
+}
+
+.hover\:bg-cyan-100\/35:hover {
+  background-color: rgb(207 250 254 / 0.35);
+}
+
+.hover\:bg-cyan-100\/40:hover {
+  background-color: rgb(207 250 254 / 0.4);
+}
+
+.hover\:bg-cyan-100\/45:hover {
+  background-color: rgb(207 250 254 / 0.45);
+}
+
+.hover\:bg-cyan-100\/5:hover {
+  background-color: rgb(207 250 254 / 0.05);
+}
+
+.hover\:bg-cyan-100\/50:hover {
+  background-color: rgb(207 250 254 / 0.5);
+}
+
+.hover\:bg-cyan-100\/55:hover {
+  background-color: rgb(207 250 254 / 0.55);
+}
+
+.hover\:bg-cyan-100\/60:hover {
+  background-color: rgb(207 250 254 / 0.6);
+}
+
+.hover\:bg-cyan-100\/65:hover {
+  background-color: rgb(207 250 254 / 0.65);
+}
+
+.hover\:bg-cyan-100\/70:hover {
+  background-color: rgb(207 250 254 / 0.7);
+}
+
+.hover\:bg-cyan-100\/75:hover {
+  background-color: rgb(207 250 254 / 0.75);
+}
+
+.hover\:bg-cyan-100\/80:hover {
+  background-color: rgb(207 250 254 / 0.8);
+}
+
+.hover\:bg-cyan-100\/85:hover {
+  background-color: rgb(207 250 254 / 0.85);
+}
+
+.hover\:bg-cyan-100\/90:hover {
+  background-color: rgb(207 250 254 / 0.9);
+}
+
+.hover\:bg-cyan-100\/95:hover {
+  background-color: rgb(207 250 254 / 0.95);
+}
+
+.hover\:bg-cyan-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 211 238 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-cyan-400\/0:hover {
+  background-color: rgb(34 211 238 / 0);
+}
+
+.hover\:bg-cyan-400\/10:hover {
+  background-color: rgb(34 211 238 / 0.1);
+}
+
+.hover\:bg-cyan-400\/100:hover {
+  background-color: rgb(34 211 238 / 1);
+}
+
+.hover\:bg-cyan-400\/15:hover {
+  background-color: rgb(34 211 238 / 0.15);
+}
+
+.hover\:bg-cyan-400\/20:hover {
+  background-color: rgb(34 211 238 / 0.2);
+}
+
+.hover\:bg-cyan-400\/25:hover {
+  background-color: rgb(34 211 238 / 0.25);
+}
+
+.hover\:bg-cyan-400\/30:hover {
+  background-color: rgb(34 211 238 / 0.3);
+}
+
+.hover\:bg-cyan-400\/35:hover {
+  background-color: rgb(34 211 238 / 0.35);
+}
+
+.hover\:bg-cyan-400\/40:hover {
+  background-color: rgb(34 211 238 / 0.4);
+}
+
+.hover\:bg-cyan-400\/45:hover {
+  background-color: rgb(34 211 238 / 0.45);
+}
+
+.hover\:bg-cyan-400\/5:hover {
+  background-color: rgb(34 211 238 / 0.05);
+}
+
+.hover\:bg-cyan-400\/50:hover {
+  background-color: rgb(34 211 238 / 0.5);
+}
+
+.hover\:bg-cyan-400\/55:hover {
+  background-color: rgb(34 211 238 / 0.55);
+}
+
+.hover\:bg-cyan-400\/60:hover {
+  background-color: rgb(34 211 238 / 0.6);
+}
+
+.hover\:bg-cyan-400\/65:hover {
+  background-color: rgb(34 211 238 / 0.65);
+}
+
+.hover\:bg-cyan-400\/70:hover {
+  background-color: rgb(34 211 238 / 0.7);
+}
+
+.hover\:bg-cyan-400\/75:hover {
+  background-color: rgb(34 211 238 / 0.75);
+}
+
+.hover\:bg-cyan-400\/80:hover {
+  background-color: rgb(34 211 238 / 0.8);
+}
+
+.hover\:bg-cyan-400\/85:hover {
+  background-color: rgb(34 211 238 / 0.85);
+}
+
+.hover\:bg-cyan-400\/90:hover {
+  background-color: rgb(34 211 238 / 0.9);
+}
+
+.hover\:bg-cyan-400\/95:hover {
+  background-color: rgb(34 211 238 / 0.95);
+}
+
+.hover\:bg-cyan-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 254 255 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-cyan-50\/0:hover {
+  background-color: rgb(236 254 255 / 0);
+}
+
+.hover\:bg-cyan-50\/10:hover {
+  background-color: rgb(236 254 255 / 0.1);
+}
+
+.hover\:bg-cyan-50\/100:hover {
+  background-color: rgb(236 254 255 / 1);
+}
+
+.hover\:bg-cyan-50\/15:hover {
+  background-color: rgb(236 254 255 / 0.15);
+}
+
+.hover\:bg-cyan-50\/20:hover {
+  background-color: rgb(236 254 255 / 0.2);
+}
+
+.hover\:bg-cyan-50\/25:hover {
+  background-color: rgb(236 254 255 / 0.25);
+}
+
+.hover\:bg-cyan-50\/30:hover {
+  background-color: rgb(236 254 255 / 0.3);
+}
+
+.hover\:bg-cyan-50\/35:hover {
+  background-color: rgb(236 254 255 / 0.35);
+}
+
+.hover\:bg-cyan-50\/40:hover {
+  background-color: rgb(236 254 255 / 0.4);
+}
+
+.hover\:bg-cyan-50\/45:hover {
+  background-color: rgb(236 254 255 / 0.45);
+}
+
+.hover\:bg-cyan-50\/5:hover {
+  background-color: rgb(236 254 255 / 0.05);
+}
+
+.hover\:bg-cyan-50\/50:hover {
+  background-color: rgb(236 254 255 / 0.5);
+}
+
+.hover\:bg-cyan-50\/55:hover {
+  background-color: rgb(236 254 255 / 0.55);
+}
+
+.hover\:bg-cyan-50\/60:hover {
+  background-color: rgb(236 254 255 / 0.6);
+}
+
+.hover\:bg-cyan-50\/65:hover {
+  background-color: rgb(236 254 255 / 0.65);
+}
+
+.hover\:bg-cyan-50\/70:hover {
+  background-color: rgb(236 254 255 / 0.7);
+}
+
+.hover\:bg-cyan-50\/75:hover {
+  background-color: rgb(236 254 255 / 0.75);
+}
+
+.hover\:bg-cyan-50\/80:hover {
+  background-color: rgb(236 254 255 / 0.8);
+}
+
+.hover\:bg-cyan-50\/85:hover {
+  background-color: rgb(236 254 255 / 0.85);
+}
+
+.hover\:bg-cyan-50\/90:hover {
+  background-color: rgb(236 254 255 / 0.9);
+}
+
+.hover\:bg-cyan-50\/95:hover {
+  background-color: rgb(236 254 255 / 0.95);
+}
+
+.hover\:bg-cyan-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(6 182 212 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-cyan-500\/0:hover {
+  background-color: rgb(6 182 212 / 0);
+}
+
+.hover\:bg-cyan-500\/10:hover {
+  background-color: rgb(6 182 212 / 0.1);
+}
+
+.hover\:bg-cyan-500\/100:hover {
+  background-color: rgb(6 182 212 / 1);
+}
+
+.hover\:bg-cyan-500\/15:hover {
+  background-color: rgb(6 182 212 / 0.15);
+}
+
+.hover\:bg-cyan-500\/20:hover {
+  background-color: rgb(6 182 212 / 0.2);
+}
+
+.hover\:bg-cyan-500\/25:hover {
+  background-color: rgb(6 182 212 / 0.25);
+}
+
+.hover\:bg-cyan-500\/30:hover {
+  background-color: rgb(6 182 212 / 0.3);
+}
+
+.hover\:bg-cyan-500\/35:hover {
+  background-color: rgb(6 182 212 / 0.35);
+}
+
+.hover\:bg-cyan-500\/40:hover {
+  background-color: rgb(6 182 212 / 0.4);
+}
+
+.hover\:bg-cyan-500\/45:hover {
+  background-color: rgb(6 182 212 / 0.45);
+}
+
+.hover\:bg-cyan-500\/5:hover {
+  background-color: rgb(6 182 212 / 0.05);
+}
+
+.hover\:bg-cyan-500\/50:hover {
+  background-color: rgb(6 182 212 / 0.5);
+}
+
+.hover\:bg-cyan-500\/55:hover {
+  background-color: rgb(6 182 212 / 0.55);
+}
+
+.hover\:bg-cyan-500\/60:hover {
+  background-color: rgb(6 182 212 / 0.6);
+}
+
+.hover\:bg-cyan-500\/65:hover {
+  background-color: rgb(6 182 212 / 0.65);
+}
+
+.hover\:bg-cyan-500\/70:hover {
+  background-color: rgb(6 182 212 / 0.7);
+}
+
+.hover\:bg-cyan-500\/75:hover {
+  background-color: rgb(6 182 212 / 0.75);
+}
+
+.hover\:bg-cyan-500\/80:hover {
+  background-color: rgb(6 182 212 / 0.8);
+}
+
+.hover\:bg-cyan-500\/85:hover {
+  background-color: rgb(6 182 212 / 0.85);
+}
+
+.hover\:bg-cyan-500\/90:hover {
+  background-color: rgb(6 182 212 / 0.9);
+}
+
+.hover\:bg-cyan-500\/95:hover {
+  background-color: rgb(6 182 212 / 0.95);
+}
+
 .hover\:bg-gray-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 252 231 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-100\/0:hover {
+  background-color: rgb(220 252 231 / 0);
+}
+
+.hover\:bg-green-100\/10:hover {
+  background-color: rgb(220 252 231 / 0.1);
+}
+
+.hover\:bg-green-100\/100:hover {
+  background-color: rgb(220 252 231 / 1);
+}
+
+.hover\:bg-green-100\/15:hover {
+  background-color: rgb(220 252 231 / 0.15);
+}
+
+.hover\:bg-green-100\/20:hover {
+  background-color: rgb(220 252 231 / 0.2);
+}
+
+.hover\:bg-green-100\/25:hover {
+  background-color: rgb(220 252 231 / 0.25);
+}
+
+.hover\:bg-green-100\/30:hover {
+  background-color: rgb(220 252 231 / 0.3);
+}
+
+.hover\:bg-green-100\/35:hover {
+  background-color: rgb(220 252 231 / 0.35);
+}
+
+.hover\:bg-green-100\/40:hover {
+  background-color: rgb(220 252 231 / 0.4);
+}
+
+.hover\:bg-green-100\/45:hover {
+  background-color: rgb(220 252 231 / 0.45);
+}
+
+.hover\:bg-green-100\/5:hover {
+  background-color: rgb(220 252 231 / 0.05);
+}
+
+.hover\:bg-green-100\/50:hover {
+  background-color: rgb(220 252 231 / 0.5);
+}
+
+.hover\:bg-green-100\/55:hover {
+  background-color: rgb(220 252 231 / 0.55);
+}
+
+.hover\:bg-green-100\/60:hover {
+  background-color: rgb(220 252 231 / 0.6);
+}
+
+.hover\:bg-green-100\/65:hover {
+  background-color: rgb(220 252 231 / 0.65);
+}
+
+.hover\:bg-green-100\/70:hover {
+  background-color: rgb(220 252 231 / 0.7);
+}
+
+.hover\:bg-green-100\/75:hover {
+  background-color: rgb(220 252 231 / 0.75);
+}
+
+.hover\:bg-green-100\/80:hover {
+  background-color: rgb(220 252 231 / 0.8);
+}
+
+.hover\:bg-green-100\/85:hover {
+  background-color: rgb(220 252 231 / 0.85);
+}
+
+.hover\:bg-green-100\/90:hover {
+  background-color: rgb(220 252 231 / 0.9);
+}
+
+.hover\:bg-green-100\/95:hover {
+  background-color: rgb(220 252 231 / 0.95);
+}
+
+.hover\:bg-green-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-400\/0:hover {
+  background-color: rgb(74 222 128 / 0);
+}
+
+.hover\:bg-green-400\/10:hover {
+  background-color: rgb(74 222 128 / 0.1);
+}
+
+.hover\:bg-green-400\/100:hover {
+  background-color: rgb(74 222 128 / 1);
+}
+
+.hover\:bg-green-400\/15:hover {
+  background-color: rgb(74 222 128 / 0.15);
+}
+
+.hover\:bg-green-400\/20:hover {
+  background-color: rgb(74 222 128 / 0.2);
+}
+
+.hover\:bg-green-400\/25:hover {
+  background-color: rgb(74 222 128 / 0.25);
+}
+
+.hover\:bg-green-400\/30:hover {
+  background-color: rgb(74 222 128 / 0.3);
+}
+
+.hover\:bg-green-400\/35:hover {
+  background-color: rgb(74 222 128 / 0.35);
+}
+
+.hover\:bg-green-400\/40:hover {
+  background-color: rgb(74 222 128 / 0.4);
+}
+
+.hover\:bg-green-400\/45:hover {
+  background-color: rgb(74 222 128 / 0.45);
+}
+
+.hover\:bg-green-400\/5:hover {
+  background-color: rgb(74 222 128 / 0.05);
+}
+
+.hover\:bg-green-400\/50:hover {
+  background-color: rgb(74 222 128 / 0.5);
+}
+
+.hover\:bg-green-400\/55:hover {
+  background-color: rgb(74 222 128 / 0.55);
+}
+
+.hover\:bg-green-400\/60:hover {
+  background-color: rgb(74 222 128 / 0.6);
+}
+
+.hover\:bg-green-400\/65:hover {
+  background-color: rgb(74 222 128 / 0.65);
+}
+
+.hover\:bg-green-400\/70:hover {
+  background-color: rgb(74 222 128 / 0.7);
+}
+
+.hover\:bg-green-400\/75:hover {
+  background-color: rgb(74 222 128 / 0.75);
+}
+
+.hover\:bg-green-400\/80:hover {
+  background-color: rgb(74 222 128 / 0.8);
+}
+
+.hover\:bg-green-400\/85:hover {
+  background-color: rgb(74 222 128 / 0.85);
+}
+
+.hover\:bg-green-400\/90:hover {
+  background-color: rgb(74 222 128 / 0.9);
+}
+
+.hover\:bg-green-400\/95:hover {
+  background-color: rgb(74 222 128 / 0.95);
+}
+
+.hover\:bg-green-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-50\/0:hover {
+  background-color: rgb(240 253 244 / 0);
+}
+
+.hover\:bg-green-50\/10:hover {
+  background-color: rgb(240 253 244 / 0.1);
+}
+
+.hover\:bg-green-50\/100:hover {
+  background-color: rgb(240 253 244 / 1);
+}
+
+.hover\:bg-green-50\/15:hover {
+  background-color: rgb(240 253 244 / 0.15);
+}
+
+.hover\:bg-green-50\/20:hover {
+  background-color: rgb(240 253 244 / 0.2);
+}
+
+.hover\:bg-green-50\/25:hover {
+  background-color: rgb(240 253 244 / 0.25);
+}
+
+.hover\:bg-green-50\/30:hover {
+  background-color: rgb(240 253 244 / 0.3);
+}
+
+.hover\:bg-green-50\/35:hover {
+  background-color: rgb(240 253 244 / 0.35);
+}
+
+.hover\:bg-green-50\/40:hover {
+  background-color: rgb(240 253 244 / 0.4);
+}
+
+.hover\:bg-green-50\/45:hover {
+  background-color: rgb(240 253 244 / 0.45);
+}
+
+.hover\:bg-green-50\/5:hover {
+  background-color: rgb(240 253 244 / 0.05);
+}
+
+.hover\:bg-green-50\/50:hover {
+  background-color: rgb(240 253 244 / 0.5);
+}
+
+.hover\:bg-green-50\/55:hover {
+  background-color: rgb(240 253 244 / 0.55);
+}
+
+.hover\:bg-green-50\/60:hover {
+  background-color: rgb(240 253 244 / 0.6);
+}
+
+.hover\:bg-green-50\/65:hover {
+  background-color: rgb(240 253 244 / 0.65);
+}
+
+.hover\:bg-green-50\/70:hover {
+  background-color: rgb(240 253 244 / 0.7);
+}
+
+.hover\:bg-green-50\/75:hover {
+  background-color: rgb(240 253 244 / 0.75);
+}
+
+.hover\:bg-green-50\/80:hover {
+  background-color: rgb(240 253 244 / 0.8);
+}
+
+.hover\:bg-green-50\/85:hover {
+  background-color: rgb(240 253 244 / 0.85);
+}
+
+.hover\:bg-green-50\/90:hover {
+  background-color: rgb(240 253 244 / 0.9);
+}
+
+.hover\:bg-green-50\/95:hover {
+  background-color: rgb(240 253 244 / 0.95);
+}
+
+.hover\:bg-green-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-500\/0:hover {
+  background-color: rgb(34 197 94 / 0);
+}
+
+.hover\:bg-green-500\/10:hover {
+  background-color: rgb(34 197 94 / 0.1);
+}
+
+.hover\:bg-green-500\/100:hover {
+  background-color: rgb(34 197 94 / 1);
+}
+
+.hover\:bg-green-500\/15:hover {
+  background-color: rgb(34 197 94 / 0.15);
+}
+
+.hover\:bg-green-500\/20:hover {
+  background-color: rgb(34 197 94 / 0.2);
+}
+
+.hover\:bg-green-500\/25:hover {
+  background-color: rgb(34 197 94 / 0.25);
+}
+
+.hover\:bg-green-500\/30:hover {
+  background-color: rgb(34 197 94 / 0.3);
+}
+
+.hover\:bg-green-500\/35:hover {
+  background-color: rgb(34 197 94 / 0.35);
+}
+
+.hover\:bg-green-500\/40:hover {
+  background-color: rgb(34 197 94 / 0.4);
+}
+
+.hover\:bg-green-500\/45:hover {
+  background-color: rgb(34 197 94 / 0.45);
+}
+
+.hover\:bg-green-500\/5:hover {
+  background-color: rgb(34 197 94 / 0.05);
+}
+
+.hover\:bg-green-500\/50:hover {
+  background-color: rgb(34 197 94 / 0.5);
+}
+
+.hover\:bg-green-500\/55:hover {
+  background-color: rgb(34 197 94 / 0.55);
+}
+
+.hover\:bg-green-500\/60:hover {
+  background-color: rgb(34 197 94 / 0.6);
+}
+
+.hover\:bg-green-500\/65:hover {
+  background-color: rgb(34 197 94 / 0.65);
+}
+
+.hover\:bg-green-500\/70:hover {
+  background-color: rgb(34 197 94 / 0.7);
+}
+
+.hover\:bg-green-500\/75:hover {
+  background-color: rgb(34 197 94 / 0.75);
+}
+
+.hover\:bg-green-500\/80:hover {
+  background-color: rgb(34 197 94 / 0.8);
+}
+
+.hover\:bg-green-500\/85:hover {
+  background-color: rgb(34 197 94 / 0.85);
+}
+
+.hover\:bg-green-500\/90:hover {
+  background-color: rgb(34 197 94 / 0.9);
+}
+
+.hover\:bg-green-500\/95:hover {
+  background-color: rgb(34 197 94 / 0.95);
+}
+
+.hover\:bg-pink-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 231 243 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-100\/0:hover {
+  background-color: rgb(252 231 243 / 0);
+}
+
+.hover\:bg-pink-100\/10:hover {
+  background-color: rgb(252 231 243 / 0.1);
+}
+
+.hover\:bg-pink-100\/100:hover {
+  background-color: rgb(252 231 243 / 1);
+}
+
+.hover\:bg-pink-100\/15:hover {
+  background-color: rgb(252 231 243 / 0.15);
+}
+
+.hover\:bg-pink-100\/20:hover {
+  background-color: rgb(252 231 243 / 0.2);
+}
+
+.hover\:bg-pink-100\/25:hover {
+  background-color: rgb(252 231 243 / 0.25);
+}
+
+.hover\:bg-pink-100\/30:hover {
+  background-color: rgb(252 231 243 / 0.3);
+}
+
+.hover\:bg-pink-100\/35:hover {
+  background-color: rgb(252 231 243 / 0.35);
+}
+
+.hover\:bg-pink-100\/40:hover {
+  background-color: rgb(252 231 243 / 0.4);
+}
+
+.hover\:bg-pink-100\/45:hover {
+  background-color: rgb(252 231 243 / 0.45);
+}
+
+.hover\:bg-pink-100\/5:hover {
+  background-color: rgb(252 231 243 / 0.05);
+}
+
+.hover\:bg-pink-100\/50:hover {
+  background-color: rgb(252 231 243 / 0.5);
+}
+
+.hover\:bg-pink-100\/55:hover {
+  background-color: rgb(252 231 243 / 0.55);
+}
+
+.hover\:bg-pink-100\/60:hover {
+  background-color: rgb(252 231 243 / 0.6);
+}
+
+.hover\:bg-pink-100\/65:hover {
+  background-color: rgb(252 231 243 / 0.65);
+}
+
+.hover\:bg-pink-100\/70:hover {
+  background-color: rgb(252 231 243 / 0.7);
+}
+
+.hover\:bg-pink-100\/75:hover {
+  background-color: rgb(252 231 243 / 0.75);
+}
+
+.hover\:bg-pink-100\/80:hover {
+  background-color: rgb(252 231 243 / 0.8);
+}
+
+.hover\:bg-pink-100\/85:hover {
+  background-color: rgb(252 231 243 / 0.85);
+}
+
+.hover\:bg-pink-100\/90:hover {
+  background-color: rgb(252 231 243 / 0.9);
+}
+
+.hover\:bg-pink-100\/95:hover {
+  background-color: rgb(252 231 243 / 0.95);
+}
+
+.hover\:bg-pink-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 114 182 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-400\/0:hover {
+  background-color: rgb(244 114 182 / 0);
+}
+
+.hover\:bg-pink-400\/10:hover {
+  background-color: rgb(244 114 182 / 0.1);
+}
+
+.hover\:bg-pink-400\/100:hover {
+  background-color: rgb(244 114 182 / 1);
+}
+
+.hover\:bg-pink-400\/15:hover {
+  background-color: rgb(244 114 182 / 0.15);
+}
+
+.hover\:bg-pink-400\/20:hover {
+  background-color: rgb(244 114 182 / 0.2);
+}
+
+.hover\:bg-pink-400\/25:hover {
+  background-color: rgb(244 114 182 / 0.25);
+}
+
+.hover\:bg-pink-400\/30:hover {
+  background-color: rgb(244 114 182 / 0.3);
+}
+
+.hover\:bg-pink-400\/35:hover {
+  background-color: rgb(244 114 182 / 0.35);
+}
+
+.hover\:bg-pink-400\/40:hover {
+  background-color: rgb(244 114 182 / 0.4);
+}
+
+.hover\:bg-pink-400\/45:hover {
+  background-color: rgb(244 114 182 / 0.45);
+}
+
+.hover\:bg-pink-400\/5:hover {
+  background-color: rgb(244 114 182 / 0.05);
+}
+
+.hover\:bg-pink-400\/50:hover {
+  background-color: rgb(244 114 182 / 0.5);
+}
+
+.hover\:bg-pink-400\/55:hover {
+  background-color: rgb(244 114 182 / 0.55);
+}
+
+.hover\:bg-pink-400\/60:hover {
+  background-color: rgb(244 114 182 / 0.6);
+}
+
+.hover\:bg-pink-400\/65:hover {
+  background-color: rgb(244 114 182 / 0.65);
+}
+
+.hover\:bg-pink-400\/70:hover {
+  background-color: rgb(244 114 182 / 0.7);
+}
+
+.hover\:bg-pink-400\/75:hover {
+  background-color: rgb(244 114 182 / 0.75);
+}
+
+.hover\:bg-pink-400\/80:hover {
+  background-color: rgb(244 114 182 / 0.8);
+}
+
+.hover\:bg-pink-400\/85:hover {
+  background-color: rgb(244 114 182 / 0.85);
+}
+
+.hover\:bg-pink-400\/90:hover {
+  background-color: rgb(244 114 182 / 0.9);
+}
+
+.hover\:bg-pink-400\/95:hover {
+  background-color: rgb(244 114 182 / 0.95);
+}
+
+.hover\:bg-pink-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 242 248 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-50\/0:hover {
+  background-color: rgb(253 242 248 / 0);
+}
+
+.hover\:bg-pink-50\/10:hover {
+  background-color: rgb(253 242 248 / 0.1);
+}
+
+.hover\:bg-pink-50\/100:hover {
+  background-color: rgb(253 242 248 / 1);
+}
+
+.hover\:bg-pink-50\/15:hover {
+  background-color: rgb(253 242 248 / 0.15);
+}
+
+.hover\:bg-pink-50\/20:hover {
+  background-color: rgb(253 242 248 / 0.2);
+}
+
+.hover\:bg-pink-50\/25:hover {
+  background-color: rgb(253 242 248 / 0.25);
+}
+
+.hover\:bg-pink-50\/30:hover {
+  background-color: rgb(253 242 248 / 0.3);
+}
+
+.hover\:bg-pink-50\/35:hover {
+  background-color: rgb(253 242 248 / 0.35);
+}
+
+.hover\:bg-pink-50\/40:hover {
+  background-color: rgb(253 242 248 / 0.4);
+}
+
+.hover\:bg-pink-50\/45:hover {
+  background-color: rgb(253 242 248 / 0.45);
+}
+
+.hover\:bg-pink-50\/5:hover {
+  background-color: rgb(253 242 248 / 0.05);
+}
+
+.hover\:bg-pink-50\/50:hover {
+  background-color: rgb(253 242 248 / 0.5);
+}
+
+.hover\:bg-pink-50\/55:hover {
+  background-color: rgb(253 242 248 / 0.55);
+}
+
+.hover\:bg-pink-50\/60:hover {
+  background-color: rgb(253 242 248 / 0.6);
+}
+
+.hover\:bg-pink-50\/65:hover {
+  background-color: rgb(253 242 248 / 0.65);
+}
+
+.hover\:bg-pink-50\/70:hover {
+  background-color: rgb(253 242 248 / 0.7);
+}
+
+.hover\:bg-pink-50\/75:hover {
+  background-color: rgb(253 242 248 / 0.75);
+}
+
+.hover\:bg-pink-50\/80:hover {
+  background-color: rgb(253 242 248 / 0.8);
+}
+
+.hover\:bg-pink-50\/85:hover {
+  background-color: rgb(253 242 248 / 0.85);
+}
+
+.hover\:bg-pink-50\/90:hover {
+  background-color: rgb(253 242 248 / 0.9);
+}
+
+.hover\:bg-pink-50\/95:hover {
+  background-color: rgb(253 242 248 / 0.95);
+}
+
+.hover\:bg-pink-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-pink-500\/0:hover {
+  background-color: rgb(236 72 153 / 0);
+}
+
+.hover\:bg-pink-500\/10:hover {
+  background-color: rgb(236 72 153 / 0.1);
+}
+
+.hover\:bg-pink-500\/100:hover {
+  background-color: rgb(236 72 153 / 1);
+}
+
+.hover\:bg-pink-500\/15:hover {
+  background-color: rgb(236 72 153 / 0.15);
+}
+
+.hover\:bg-pink-500\/20:hover {
+  background-color: rgb(236 72 153 / 0.2);
+}
+
+.hover\:bg-pink-500\/25:hover {
+  background-color: rgb(236 72 153 / 0.25);
+}
+
+.hover\:bg-pink-500\/30:hover {
+  background-color: rgb(236 72 153 / 0.3);
+}
+
+.hover\:bg-pink-500\/35:hover {
+  background-color: rgb(236 72 153 / 0.35);
+}
+
+.hover\:bg-pink-500\/40:hover {
+  background-color: rgb(236 72 153 / 0.4);
+}
+
+.hover\:bg-pink-500\/45:hover {
+  background-color: rgb(236 72 153 / 0.45);
+}
+
+.hover\:bg-pink-500\/5:hover {
+  background-color: rgb(236 72 153 / 0.05);
+}
+
+.hover\:bg-pink-500\/50:hover {
+  background-color: rgb(236 72 153 / 0.5);
+}
+
+.hover\:bg-pink-500\/55:hover {
+  background-color: rgb(236 72 153 / 0.55);
+}
+
+.hover\:bg-pink-500\/60:hover {
+  background-color: rgb(236 72 153 / 0.6);
+}
+
+.hover\:bg-pink-500\/65:hover {
+  background-color: rgb(236 72 153 / 0.65);
+}
+
+.hover\:bg-pink-500\/70:hover {
+  background-color: rgb(236 72 153 / 0.7);
+}
+
+.hover\:bg-pink-500\/75:hover {
+  background-color: rgb(236 72 153 / 0.75);
+}
+
+.hover\:bg-pink-500\/80:hover {
+  background-color: rgb(236 72 153 / 0.8);
+}
+
+.hover\:bg-pink-500\/85:hover {
+  background-color: rgb(236 72 153 / 0.85);
+}
+
+.hover\:bg-pink-500\/90:hover {
+  background-color: rgb(236 72 153 / 0.9);
+}
+
+.hover\:bg-pink-500\/95:hover {
+  background-color: rgb(236 72 153 / 0.95);
 }
 
 .hover\:bg-purple-100:hover {
@@ -936,8 +6558,1423 @@ video {
   background-color: rgb(243 232 255 / var(--tw-bg-opacity));
 }
 
-.group:hover .group-hover\:block {
-  display: block;
+.hover\:bg-purple-100\/0:hover {
+  background-color: rgb(243 232 255 / 0);
+}
+
+.hover\:bg-purple-100\/10:hover {
+  background-color: rgb(243 232 255 / 0.1);
+}
+
+.hover\:bg-purple-100\/100:hover {
+  background-color: rgb(243 232 255 / 1);
+}
+
+.hover\:bg-purple-100\/15:hover {
+  background-color: rgb(243 232 255 / 0.15);
+}
+
+.hover\:bg-purple-100\/20:hover {
+  background-color: rgb(243 232 255 / 0.2);
+}
+
+.hover\:bg-purple-100\/25:hover {
+  background-color: rgb(243 232 255 / 0.25);
+}
+
+.hover\:bg-purple-100\/30:hover {
+  background-color: rgb(243 232 255 / 0.3);
+}
+
+.hover\:bg-purple-100\/35:hover {
+  background-color: rgb(243 232 255 / 0.35);
+}
+
+.hover\:bg-purple-100\/40:hover {
+  background-color: rgb(243 232 255 / 0.4);
+}
+
+.hover\:bg-purple-100\/45:hover {
+  background-color: rgb(243 232 255 / 0.45);
+}
+
+.hover\:bg-purple-100\/5:hover {
+  background-color: rgb(243 232 255 / 0.05);
+}
+
+.hover\:bg-purple-100\/50:hover {
+  background-color: rgb(243 232 255 / 0.5);
+}
+
+.hover\:bg-purple-100\/55:hover {
+  background-color: rgb(243 232 255 / 0.55);
+}
+
+.hover\:bg-purple-100\/60:hover {
+  background-color: rgb(243 232 255 / 0.6);
+}
+
+.hover\:bg-purple-100\/65:hover {
+  background-color: rgb(243 232 255 / 0.65);
+}
+
+.hover\:bg-purple-100\/70:hover {
+  background-color: rgb(243 232 255 / 0.7);
+}
+
+.hover\:bg-purple-100\/75:hover {
+  background-color: rgb(243 232 255 / 0.75);
+}
+
+.hover\:bg-purple-100\/80:hover {
+  background-color: rgb(243 232 255 / 0.8);
+}
+
+.hover\:bg-purple-100\/85:hover {
+  background-color: rgb(243 232 255 / 0.85);
+}
+
+.hover\:bg-purple-100\/90:hover {
+  background-color: rgb(243 232 255 / 0.9);
+}
+
+.hover\:bg-purple-100\/95:hover {
+  background-color: rgb(243 232 255 / 0.95);
+}
+
+.hover\:bg-purple-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-purple-400\/0:hover {
+  background-color: rgb(192 132 252 / 0);
+}
+
+.hover\:bg-purple-400\/10:hover {
+  background-color: rgb(192 132 252 / 0.1);
+}
+
+.hover\:bg-purple-400\/100:hover {
+  background-color: rgb(192 132 252 / 1);
+}
+
+.hover\:bg-purple-400\/15:hover {
+  background-color: rgb(192 132 252 / 0.15);
+}
+
+.hover\:bg-purple-400\/20:hover {
+  background-color: rgb(192 132 252 / 0.2);
+}
+
+.hover\:bg-purple-400\/25:hover {
+  background-color: rgb(192 132 252 / 0.25);
+}
+
+.hover\:bg-purple-400\/30:hover {
+  background-color: rgb(192 132 252 / 0.3);
+}
+
+.hover\:bg-purple-400\/35:hover {
+  background-color: rgb(192 132 252 / 0.35);
+}
+
+.hover\:bg-purple-400\/40:hover {
+  background-color: rgb(192 132 252 / 0.4);
+}
+
+.hover\:bg-purple-400\/45:hover {
+  background-color: rgb(192 132 252 / 0.45);
+}
+
+.hover\:bg-purple-400\/5:hover {
+  background-color: rgb(192 132 252 / 0.05);
+}
+
+.hover\:bg-purple-400\/50:hover {
+  background-color: rgb(192 132 252 / 0.5);
+}
+
+.hover\:bg-purple-400\/55:hover {
+  background-color: rgb(192 132 252 / 0.55);
+}
+
+.hover\:bg-purple-400\/60:hover {
+  background-color: rgb(192 132 252 / 0.6);
+}
+
+.hover\:bg-purple-400\/65:hover {
+  background-color: rgb(192 132 252 / 0.65);
+}
+
+.hover\:bg-purple-400\/70:hover {
+  background-color: rgb(192 132 252 / 0.7);
+}
+
+.hover\:bg-purple-400\/75:hover {
+  background-color: rgb(192 132 252 / 0.75);
+}
+
+.hover\:bg-purple-400\/80:hover {
+  background-color: rgb(192 132 252 / 0.8);
+}
+
+.hover\:bg-purple-400\/85:hover {
+  background-color: rgb(192 132 252 / 0.85);
+}
+
+.hover\:bg-purple-400\/90:hover {
+  background-color: rgb(192 132 252 / 0.9);
+}
+
+.hover\:bg-purple-400\/95:hover {
+  background-color: rgb(192 132 252 / 0.95);
+}
+
+.hover\:bg-purple-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 245 255 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-purple-50\/0:hover {
+  background-color: rgb(250 245 255 / 0);
+}
+
+.hover\:bg-purple-50\/10:hover {
+  background-color: rgb(250 245 255 / 0.1);
+}
+
+.hover\:bg-purple-50\/100:hover {
+  background-color: rgb(250 245 255 / 1);
+}
+
+.hover\:bg-purple-50\/15:hover {
+  background-color: rgb(250 245 255 / 0.15);
+}
+
+.hover\:bg-purple-50\/20:hover {
+  background-color: rgb(250 245 255 / 0.2);
+}
+
+.hover\:bg-purple-50\/25:hover {
+  background-color: rgb(250 245 255 / 0.25);
+}
+
+.hover\:bg-purple-50\/30:hover {
+  background-color: rgb(250 245 255 / 0.3);
+}
+
+.hover\:bg-purple-50\/35:hover {
+  background-color: rgb(250 245 255 / 0.35);
+}
+
+.hover\:bg-purple-50\/40:hover {
+  background-color: rgb(250 245 255 / 0.4);
+}
+
+.hover\:bg-purple-50\/45:hover {
+  background-color: rgb(250 245 255 / 0.45);
+}
+
+.hover\:bg-purple-50\/5:hover {
+  background-color: rgb(250 245 255 / 0.05);
+}
+
+.hover\:bg-purple-50\/50:hover {
+  background-color: rgb(250 245 255 / 0.5);
+}
+
+.hover\:bg-purple-50\/55:hover {
+  background-color: rgb(250 245 255 / 0.55);
+}
+
+.hover\:bg-purple-50\/60:hover {
+  background-color: rgb(250 245 255 / 0.6);
+}
+
+.hover\:bg-purple-50\/65:hover {
+  background-color: rgb(250 245 255 / 0.65);
+}
+
+.hover\:bg-purple-50\/70:hover {
+  background-color: rgb(250 245 255 / 0.7);
+}
+
+.hover\:bg-purple-50\/75:hover {
+  background-color: rgb(250 245 255 / 0.75);
+}
+
+.hover\:bg-purple-50\/80:hover {
+  background-color: rgb(250 245 255 / 0.8);
+}
+
+.hover\:bg-purple-50\/85:hover {
+  background-color: rgb(250 245 255 / 0.85);
+}
+
+.hover\:bg-purple-50\/90:hover {
+  background-color: rgb(250 245 255 / 0.9);
+}
+
+.hover\:bg-purple-50\/95:hover {
+  background-color: rgb(250 245 255 / 0.95);
+}
+
+.hover\:bg-purple-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-purple-500\/0:hover {
+  background-color: rgb(168 85 247 / 0);
+}
+
+.hover\:bg-purple-500\/10:hover {
+  background-color: rgb(168 85 247 / 0.1);
+}
+
+.hover\:bg-purple-500\/100:hover {
+  background-color: rgb(168 85 247 / 1);
+}
+
+.hover\:bg-purple-500\/15:hover {
+  background-color: rgb(168 85 247 / 0.15);
+}
+
+.hover\:bg-purple-500\/20:hover {
+  background-color: rgb(168 85 247 / 0.2);
+}
+
+.hover\:bg-purple-500\/25:hover {
+  background-color: rgb(168 85 247 / 0.25);
+}
+
+.hover\:bg-purple-500\/30:hover {
+  background-color: rgb(168 85 247 / 0.3);
+}
+
+.hover\:bg-purple-500\/35:hover {
+  background-color: rgb(168 85 247 / 0.35);
+}
+
+.hover\:bg-purple-500\/40:hover {
+  background-color: rgb(168 85 247 / 0.4);
+}
+
+.hover\:bg-purple-500\/45:hover {
+  background-color: rgb(168 85 247 / 0.45);
+}
+
+.hover\:bg-purple-500\/5:hover {
+  background-color: rgb(168 85 247 / 0.05);
+}
+
+.hover\:bg-purple-500\/50:hover {
+  background-color: rgb(168 85 247 / 0.5);
+}
+
+.hover\:bg-purple-500\/55:hover {
+  background-color: rgb(168 85 247 / 0.55);
+}
+
+.hover\:bg-purple-500\/60:hover {
+  background-color: rgb(168 85 247 / 0.6);
+}
+
+.hover\:bg-purple-500\/65:hover {
+  background-color: rgb(168 85 247 / 0.65);
+}
+
+.hover\:bg-purple-500\/70:hover {
+  background-color: rgb(168 85 247 / 0.7);
+}
+
+.hover\:bg-purple-500\/75:hover {
+  background-color: rgb(168 85 247 / 0.75);
+}
+
+.hover\:bg-purple-500\/80:hover {
+  background-color: rgb(168 85 247 / 0.8);
+}
+
+.hover\:bg-purple-500\/85:hover {
+  background-color: rgb(168 85 247 / 0.85);
+}
+
+.hover\:bg-purple-500\/90:hover {
+  background-color: rgb(168 85 247 / 0.9);
+}
+
+.hover\:bg-purple-500\/95:hover {
+  background-color: rgb(168 85 247 / 0.95);
+}
+
+.hover\:bg-red-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-100\/0:hover {
+  background-color: rgb(254 226 226 / 0);
+}
+
+.hover\:bg-red-100\/10:hover {
+  background-color: rgb(254 226 226 / 0.1);
+}
+
+.hover\:bg-red-100\/100:hover {
+  background-color: rgb(254 226 226 / 1);
+}
+
+.hover\:bg-red-100\/15:hover {
+  background-color: rgb(254 226 226 / 0.15);
+}
+
+.hover\:bg-red-100\/20:hover {
+  background-color: rgb(254 226 226 / 0.2);
+}
+
+.hover\:bg-red-100\/25:hover {
+  background-color: rgb(254 226 226 / 0.25);
+}
+
+.hover\:bg-red-100\/30:hover {
+  background-color: rgb(254 226 226 / 0.3);
+}
+
+.hover\:bg-red-100\/35:hover {
+  background-color: rgb(254 226 226 / 0.35);
+}
+
+.hover\:bg-red-100\/40:hover {
+  background-color: rgb(254 226 226 / 0.4);
+}
+
+.hover\:bg-red-100\/45:hover {
+  background-color: rgb(254 226 226 / 0.45);
+}
+
+.hover\:bg-red-100\/5:hover {
+  background-color: rgb(254 226 226 / 0.05);
+}
+
+.hover\:bg-red-100\/50:hover {
+  background-color: rgb(254 226 226 / 0.5);
+}
+
+.hover\:bg-red-100\/55:hover {
+  background-color: rgb(254 226 226 / 0.55);
+}
+
+.hover\:bg-red-100\/60:hover {
+  background-color: rgb(254 226 226 / 0.6);
+}
+
+.hover\:bg-red-100\/65:hover {
+  background-color: rgb(254 226 226 / 0.65);
+}
+
+.hover\:bg-red-100\/70:hover {
+  background-color: rgb(254 226 226 / 0.7);
+}
+
+.hover\:bg-red-100\/75:hover {
+  background-color: rgb(254 226 226 / 0.75);
+}
+
+.hover\:bg-red-100\/80:hover {
+  background-color: rgb(254 226 226 / 0.8);
+}
+
+.hover\:bg-red-100\/85:hover {
+  background-color: rgb(254 226 226 / 0.85);
+}
+
+.hover\:bg-red-100\/90:hover {
+  background-color: rgb(254 226 226 / 0.9);
+}
+
+.hover\:bg-red-100\/95:hover {
+  background-color: rgb(254 226 226 / 0.95);
+}
+
+.hover\:bg-red-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-400\/0:hover {
+  background-color: rgb(248 113 113 / 0);
+}
+
+.hover\:bg-red-400\/10:hover {
+  background-color: rgb(248 113 113 / 0.1);
+}
+
+.hover\:bg-red-400\/100:hover {
+  background-color: rgb(248 113 113 / 1);
+}
+
+.hover\:bg-red-400\/15:hover {
+  background-color: rgb(248 113 113 / 0.15);
+}
+
+.hover\:bg-red-400\/20:hover {
+  background-color: rgb(248 113 113 / 0.2);
+}
+
+.hover\:bg-red-400\/25:hover {
+  background-color: rgb(248 113 113 / 0.25);
+}
+
+.hover\:bg-red-400\/30:hover {
+  background-color: rgb(248 113 113 / 0.3);
+}
+
+.hover\:bg-red-400\/35:hover {
+  background-color: rgb(248 113 113 / 0.35);
+}
+
+.hover\:bg-red-400\/40:hover {
+  background-color: rgb(248 113 113 / 0.4);
+}
+
+.hover\:bg-red-400\/45:hover {
+  background-color: rgb(248 113 113 / 0.45);
+}
+
+.hover\:bg-red-400\/5:hover {
+  background-color: rgb(248 113 113 / 0.05);
+}
+
+.hover\:bg-red-400\/50:hover {
+  background-color: rgb(248 113 113 / 0.5);
+}
+
+.hover\:bg-red-400\/55:hover {
+  background-color: rgb(248 113 113 / 0.55);
+}
+
+.hover\:bg-red-400\/60:hover {
+  background-color: rgb(248 113 113 / 0.6);
+}
+
+.hover\:bg-red-400\/65:hover {
+  background-color: rgb(248 113 113 / 0.65);
+}
+
+.hover\:bg-red-400\/70:hover {
+  background-color: rgb(248 113 113 / 0.7);
+}
+
+.hover\:bg-red-400\/75:hover {
+  background-color: rgb(248 113 113 / 0.75);
+}
+
+.hover\:bg-red-400\/80:hover {
+  background-color: rgb(248 113 113 / 0.8);
+}
+
+.hover\:bg-red-400\/85:hover {
+  background-color: rgb(248 113 113 / 0.85);
+}
+
+.hover\:bg-red-400\/90:hover {
+  background-color: rgb(248 113 113 / 0.9);
+}
+
+.hover\:bg-red-400\/95:hover {
+  background-color: rgb(248 113 113 / 0.95);
+}
+
+.hover\:bg-red-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-50\/0:hover {
+  background-color: rgb(254 242 242 / 0);
+}
+
+.hover\:bg-red-50\/10:hover {
+  background-color: rgb(254 242 242 / 0.1);
+}
+
+.hover\:bg-red-50\/100:hover {
+  background-color: rgb(254 242 242 / 1);
+}
+
+.hover\:bg-red-50\/15:hover {
+  background-color: rgb(254 242 242 / 0.15);
+}
+
+.hover\:bg-red-50\/20:hover {
+  background-color: rgb(254 242 242 / 0.2);
+}
+
+.hover\:bg-red-50\/25:hover {
+  background-color: rgb(254 242 242 / 0.25);
+}
+
+.hover\:bg-red-50\/30:hover {
+  background-color: rgb(254 242 242 / 0.3);
+}
+
+.hover\:bg-red-50\/35:hover {
+  background-color: rgb(254 242 242 / 0.35);
+}
+
+.hover\:bg-red-50\/40:hover {
+  background-color: rgb(254 242 242 / 0.4);
+}
+
+.hover\:bg-red-50\/45:hover {
+  background-color: rgb(254 242 242 / 0.45);
+}
+
+.hover\:bg-red-50\/5:hover {
+  background-color: rgb(254 242 242 / 0.05);
+}
+
+.hover\:bg-red-50\/50:hover {
+  background-color: rgb(254 242 242 / 0.5);
+}
+
+.hover\:bg-red-50\/55:hover {
+  background-color: rgb(254 242 242 / 0.55);
+}
+
+.hover\:bg-red-50\/60:hover {
+  background-color: rgb(254 242 242 / 0.6);
+}
+
+.hover\:bg-red-50\/65:hover {
+  background-color: rgb(254 242 242 / 0.65);
+}
+
+.hover\:bg-red-50\/70:hover {
+  background-color: rgb(254 242 242 / 0.7);
+}
+
+.hover\:bg-red-50\/75:hover {
+  background-color: rgb(254 242 242 / 0.75);
+}
+
+.hover\:bg-red-50\/80:hover {
+  background-color: rgb(254 242 242 / 0.8);
+}
+
+.hover\:bg-red-50\/85:hover {
+  background-color: rgb(254 242 242 / 0.85);
+}
+
+.hover\:bg-red-50\/90:hover {
+  background-color: rgb(254 242 242 / 0.9);
+}
+
+.hover\:bg-red-50\/95:hover {
+  background-color: rgb(254 242 242 / 0.95);
+}
+
+.hover\:bg-red-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-red-500\/0:hover {
+  background-color: rgb(239 68 68 / 0);
+}
+
+.hover\:bg-red-500\/10:hover {
+  background-color: rgb(239 68 68 / 0.1);
+}
+
+.hover\:bg-red-500\/100:hover {
+  background-color: rgb(239 68 68 / 1);
+}
+
+.hover\:bg-red-500\/15:hover {
+  background-color: rgb(239 68 68 / 0.15);
+}
+
+.hover\:bg-red-500\/20:hover {
+  background-color: rgb(239 68 68 / 0.2);
+}
+
+.hover\:bg-red-500\/25:hover {
+  background-color: rgb(239 68 68 / 0.25);
+}
+
+.hover\:bg-red-500\/30:hover {
+  background-color: rgb(239 68 68 / 0.3);
+}
+
+.hover\:bg-red-500\/35:hover {
+  background-color: rgb(239 68 68 / 0.35);
+}
+
+.hover\:bg-red-500\/40:hover {
+  background-color: rgb(239 68 68 / 0.4);
+}
+
+.hover\:bg-red-500\/45:hover {
+  background-color: rgb(239 68 68 / 0.45);
+}
+
+.hover\:bg-red-500\/5:hover {
+  background-color: rgb(239 68 68 / 0.05);
+}
+
+.hover\:bg-red-500\/50:hover {
+  background-color: rgb(239 68 68 / 0.5);
+}
+
+.hover\:bg-red-500\/55:hover {
+  background-color: rgb(239 68 68 / 0.55);
+}
+
+.hover\:bg-red-500\/60:hover {
+  background-color: rgb(239 68 68 / 0.6);
+}
+
+.hover\:bg-red-500\/65:hover {
+  background-color: rgb(239 68 68 / 0.65);
+}
+
+.hover\:bg-red-500\/70:hover {
+  background-color: rgb(239 68 68 / 0.7);
+}
+
+.hover\:bg-red-500\/75:hover {
+  background-color: rgb(239 68 68 / 0.75);
+}
+
+.hover\:bg-red-500\/80:hover {
+  background-color: rgb(239 68 68 / 0.8);
+}
+
+.hover\:bg-red-500\/85:hover {
+  background-color: rgb(239 68 68 / 0.85);
+}
+
+.hover\:bg-red-500\/90:hover {
+  background-color: rgb(239 68 68 / 0.9);
+}
+
+.hover\:bg-red-500\/95:hover {
+  background-color: rgb(239 68 68 / 0.95);
+}
+
+.hover\:bg-teal-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 251 241 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-teal-100\/0:hover {
+  background-color: rgb(204 251 241 / 0);
+}
+
+.hover\:bg-teal-100\/10:hover {
+  background-color: rgb(204 251 241 / 0.1);
+}
+
+.hover\:bg-teal-100\/100:hover {
+  background-color: rgb(204 251 241 / 1);
+}
+
+.hover\:bg-teal-100\/15:hover {
+  background-color: rgb(204 251 241 / 0.15);
+}
+
+.hover\:bg-teal-100\/20:hover {
+  background-color: rgb(204 251 241 / 0.2);
+}
+
+.hover\:bg-teal-100\/25:hover {
+  background-color: rgb(204 251 241 / 0.25);
+}
+
+.hover\:bg-teal-100\/30:hover {
+  background-color: rgb(204 251 241 / 0.3);
+}
+
+.hover\:bg-teal-100\/35:hover {
+  background-color: rgb(204 251 241 / 0.35);
+}
+
+.hover\:bg-teal-100\/40:hover {
+  background-color: rgb(204 251 241 / 0.4);
+}
+
+.hover\:bg-teal-100\/45:hover {
+  background-color: rgb(204 251 241 / 0.45);
+}
+
+.hover\:bg-teal-100\/5:hover {
+  background-color: rgb(204 251 241 / 0.05);
+}
+
+.hover\:bg-teal-100\/50:hover {
+  background-color: rgb(204 251 241 / 0.5);
+}
+
+.hover\:bg-teal-100\/55:hover {
+  background-color: rgb(204 251 241 / 0.55);
+}
+
+.hover\:bg-teal-100\/60:hover {
+  background-color: rgb(204 251 241 / 0.6);
+}
+
+.hover\:bg-teal-100\/65:hover {
+  background-color: rgb(204 251 241 / 0.65);
+}
+
+.hover\:bg-teal-100\/70:hover {
+  background-color: rgb(204 251 241 / 0.7);
+}
+
+.hover\:bg-teal-100\/75:hover {
+  background-color: rgb(204 251 241 / 0.75);
+}
+
+.hover\:bg-teal-100\/80:hover {
+  background-color: rgb(204 251 241 / 0.8);
+}
+
+.hover\:bg-teal-100\/85:hover {
+  background-color: rgb(204 251 241 / 0.85);
+}
+
+.hover\:bg-teal-100\/90:hover {
+  background-color: rgb(204 251 241 / 0.9);
+}
+
+.hover\:bg-teal-100\/95:hover {
+  background-color: rgb(204 251 241 / 0.95);
+}
+
+.hover\:bg-teal-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 212 191 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-teal-400\/0:hover {
+  background-color: rgb(45 212 191 / 0);
+}
+
+.hover\:bg-teal-400\/10:hover {
+  background-color: rgb(45 212 191 / 0.1);
+}
+
+.hover\:bg-teal-400\/100:hover {
+  background-color: rgb(45 212 191 / 1);
+}
+
+.hover\:bg-teal-400\/15:hover {
+  background-color: rgb(45 212 191 / 0.15);
+}
+
+.hover\:bg-teal-400\/20:hover {
+  background-color: rgb(45 212 191 / 0.2);
+}
+
+.hover\:bg-teal-400\/25:hover {
+  background-color: rgb(45 212 191 / 0.25);
+}
+
+.hover\:bg-teal-400\/30:hover {
+  background-color: rgb(45 212 191 / 0.3);
+}
+
+.hover\:bg-teal-400\/35:hover {
+  background-color: rgb(45 212 191 / 0.35);
+}
+
+.hover\:bg-teal-400\/40:hover {
+  background-color: rgb(45 212 191 / 0.4);
+}
+
+.hover\:bg-teal-400\/45:hover {
+  background-color: rgb(45 212 191 / 0.45);
+}
+
+.hover\:bg-teal-400\/5:hover {
+  background-color: rgb(45 212 191 / 0.05);
+}
+
+.hover\:bg-teal-400\/50:hover {
+  background-color: rgb(45 212 191 / 0.5);
+}
+
+.hover\:bg-teal-400\/55:hover {
+  background-color: rgb(45 212 191 / 0.55);
+}
+
+.hover\:bg-teal-400\/60:hover {
+  background-color: rgb(45 212 191 / 0.6);
+}
+
+.hover\:bg-teal-400\/65:hover {
+  background-color: rgb(45 212 191 / 0.65);
+}
+
+.hover\:bg-teal-400\/70:hover {
+  background-color: rgb(45 212 191 / 0.7);
+}
+
+.hover\:bg-teal-400\/75:hover {
+  background-color: rgb(45 212 191 / 0.75);
+}
+
+.hover\:bg-teal-400\/80:hover {
+  background-color: rgb(45 212 191 / 0.8);
+}
+
+.hover\:bg-teal-400\/85:hover {
+  background-color: rgb(45 212 191 / 0.85);
+}
+
+.hover\:bg-teal-400\/90:hover {
+  background-color: rgb(45 212 191 / 0.9);
+}
+
+.hover\:bg-teal-400\/95:hover {
+  background-color: rgb(45 212 191 / 0.95);
+}
+
+.hover\:bg-teal-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 253 250 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-teal-50\/0:hover {
+  background-color: rgb(240 253 250 / 0);
+}
+
+.hover\:bg-teal-50\/10:hover {
+  background-color: rgb(240 253 250 / 0.1);
+}
+
+.hover\:bg-teal-50\/100:hover {
+  background-color: rgb(240 253 250 / 1);
+}
+
+.hover\:bg-teal-50\/15:hover {
+  background-color: rgb(240 253 250 / 0.15);
+}
+
+.hover\:bg-teal-50\/20:hover {
+  background-color: rgb(240 253 250 / 0.2);
+}
+
+.hover\:bg-teal-50\/25:hover {
+  background-color: rgb(240 253 250 / 0.25);
+}
+
+.hover\:bg-teal-50\/30:hover {
+  background-color: rgb(240 253 250 / 0.3);
+}
+
+.hover\:bg-teal-50\/35:hover {
+  background-color: rgb(240 253 250 / 0.35);
+}
+
+.hover\:bg-teal-50\/40:hover {
+  background-color: rgb(240 253 250 / 0.4);
+}
+
+.hover\:bg-teal-50\/45:hover {
+  background-color: rgb(240 253 250 / 0.45);
+}
+
+.hover\:bg-teal-50\/5:hover {
+  background-color: rgb(240 253 250 / 0.05);
+}
+
+.hover\:bg-teal-50\/50:hover {
+  background-color: rgb(240 253 250 / 0.5);
+}
+
+.hover\:bg-teal-50\/55:hover {
+  background-color: rgb(240 253 250 / 0.55);
+}
+
+.hover\:bg-teal-50\/60:hover {
+  background-color: rgb(240 253 250 / 0.6);
+}
+
+.hover\:bg-teal-50\/65:hover {
+  background-color: rgb(240 253 250 / 0.65);
+}
+
+.hover\:bg-teal-50\/70:hover {
+  background-color: rgb(240 253 250 / 0.7);
+}
+
+.hover\:bg-teal-50\/75:hover {
+  background-color: rgb(240 253 250 / 0.75);
+}
+
+.hover\:bg-teal-50\/80:hover {
+  background-color: rgb(240 253 250 / 0.8);
+}
+
+.hover\:bg-teal-50\/85:hover {
+  background-color: rgb(240 253 250 / 0.85);
+}
+
+.hover\:bg-teal-50\/90:hover {
+  background-color: rgb(240 253 250 / 0.9);
+}
+
+.hover\:bg-teal-50\/95:hover {
+  background-color: rgb(240 253 250 / 0.95);
+}
+
+.hover\:bg-teal-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-teal-500\/0:hover {
+  background-color: rgb(20 184 166 / 0);
+}
+
+.hover\:bg-teal-500\/10:hover {
+  background-color: rgb(20 184 166 / 0.1);
+}
+
+.hover\:bg-teal-500\/100:hover {
+  background-color: rgb(20 184 166 / 1);
+}
+
+.hover\:bg-teal-500\/15:hover {
+  background-color: rgb(20 184 166 / 0.15);
+}
+
+.hover\:bg-teal-500\/20:hover {
+  background-color: rgb(20 184 166 / 0.2);
+}
+
+.hover\:bg-teal-500\/25:hover {
+  background-color: rgb(20 184 166 / 0.25);
+}
+
+.hover\:bg-teal-500\/30:hover {
+  background-color: rgb(20 184 166 / 0.3);
+}
+
+.hover\:bg-teal-500\/35:hover {
+  background-color: rgb(20 184 166 / 0.35);
+}
+
+.hover\:bg-teal-500\/40:hover {
+  background-color: rgb(20 184 166 / 0.4);
+}
+
+.hover\:bg-teal-500\/45:hover {
+  background-color: rgb(20 184 166 / 0.45);
+}
+
+.hover\:bg-teal-500\/5:hover {
+  background-color: rgb(20 184 166 / 0.05);
+}
+
+.hover\:bg-teal-500\/50:hover {
+  background-color: rgb(20 184 166 / 0.5);
+}
+
+.hover\:bg-teal-500\/55:hover {
+  background-color: rgb(20 184 166 / 0.55);
+}
+
+.hover\:bg-teal-500\/60:hover {
+  background-color: rgb(20 184 166 / 0.6);
+}
+
+.hover\:bg-teal-500\/65:hover {
+  background-color: rgb(20 184 166 / 0.65);
+}
+
+.hover\:bg-teal-500\/70:hover {
+  background-color: rgb(20 184 166 / 0.7);
+}
+
+.hover\:bg-teal-500\/75:hover {
+  background-color: rgb(20 184 166 / 0.75);
+}
+
+.hover\:bg-teal-500\/80:hover {
+  background-color: rgb(20 184 166 / 0.8);
+}
+
+.hover\:bg-teal-500\/85:hover {
+  background-color: rgb(20 184 166 / 0.85);
+}
+
+.hover\:bg-teal-500\/90:hover {
+  background-color: rgb(20 184 166 / 0.9);
+}
+
+.hover\:bg-teal-500\/95:hover {
+  background-color: rgb(20 184 166 / 0.95);
+}
+
+.hover\:bg-yellow-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-yellow-100\/0:hover {
+  background-color: rgb(254 249 195 / 0);
+}
+
+.hover\:bg-yellow-100\/10:hover {
+  background-color: rgb(254 249 195 / 0.1);
+}
+
+.hover\:bg-yellow-100\/100:hover {
+  background-color: rgb(254 249 195 / 1);
+}
+
+.hover\:bg-yellow-100\/15:hover {
+  background-color: rgb(254 249 195 / 0.15);
+}
+
+.hover\:bg-yellow-100\/20:hover {
+  background-color: rgb(254 249 195 / 0.2);
+}
+
+.hover\:bg-yellow-100\/25:hover {
+  background-color: rgb(254 249 195 / 0.25);
+}
+
+.hover\:bg-yellow-100\/30:hover {
+  background-color: rgb(254 249 195 / 0.3);
+}
+
+.hover\:bg-yellow-100\/35:hover {
+  background-color: rgb(254 249 195 / 0.35);
+}
+
+.hover\:bg-yellow-100\/40:hover {
+  background-color: rgb(254 249 195 / 0.4);
+}
+
+.hover\:bg-yellow-100\/45:hover {
+  background-color: rgb(254 249 195 / 0.45);
+}
+
+.hover\:bg-yellow-100\/5:hover {
+  background-color: rgb(254 249 195 / 0.05);
+}
+
+.hover\:bg-yellow-100\/50:hover {
+  background-color: rgb(254 249 195 / 0.5);
+}
+
+.hover\:bg-yellow-100\/55:hover {
+  background-color: rgb(254 249 195 / 0.55);
+}
+
+.hover\:bg-yellow-100\/60:hover {
+  background-color: rgb(254 249 195 / 0.6);
+}
+
+.hover\:bg-yellow-100\/65:hover {
+  background-color: rgb(254 249 195 / 0.65);
+}
+
+.hover\:bg-yellow-100\/70:hover {
+  background-color: rgb(254 249 195 / 0.7);
+}
+
+.hover\:bg-yellow-100\/75:hover {
+  background-color: rgb(254 249 195 / 0.75);
+}
+
+.hover\:bg-yellow-100\/80:hover {
+  background-color: rgb(254 249 195 / 0.8);
+}
+
+.hover\:bg-yellow-100\/85:hover {
+  background-color: rgb(254 249 195 / 0.85);
+}
+
+.hover\:bg-yellow-100\/90:hover {
+  background-color: rgb(254 249 195 / 0.9);
+}
+
+.hover\:bg-yellow-100\/95:hover {
+  background-color: rgb(254 249 195 / 0.95);
+}
+
+.hover\:bg-yellow-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-yellow-400\/0:hover {
+  background-color: rgb(250 204 21 / 0);
+}
+
+.hover\:bg-yellow-400\/10:hover {
+  background-color: rgb(250 204 21 / 0.1);
+}
+
+.hover\:bg-yellow-400\/100:hover {
+  background-color: rgb(250 204 21 / 1);
+}
+
+.hover\:bg-yellow-400\/15:hover {
+  background-color: rgb(250 204 21 / 0.15);
+}
+
+.hover\:bg-yellow-400\/20:hover {
+  background-color: rgb(250 204 21 / 0.2);
+}
+
+.hover\:bg-yellow-400\/25:hover {
+  background-color: rgb(250 204 21 / 0.25);
+}
+
+.hover\:bg-yellow-400\/30:hover {
+  background-color: rgb(250 204 21 / 0.3);
+}
+
+.hover\:bg-yellow-400\/35:hover {
+  background-color: rgb(250 204 21 / 0.35);
+}
+
+.hover\:bg-yellow-400\/40:hover {
+  background-color: rgb(250 204 21 / 0.4);
+}
+
+.hover\:bg-yellow-400\/45:hover {
+  background-color: rgb(250 204 21 / 0.45);
+}
+
+.hover\:bg-yellow-400\/5:hover {
+  background-color: rgb(250 204 21 / 0.05);
+}
+
+.hover\:bg-yellow-400\/50:hover {
+  background-color: rgb(250 204 21 / 0.5);
+}
+
+.hover\:bg-yellow-400\/55:hover {
+  background-color: rgb(250 204 21 / 0.55);
+}
+
+.hover\:bg-yellow-400\/60:hover {
+  background-color: rgb(250 204 21 / 0.6);
+}
+
+.hover\:bg-yellow-400\/65:hover {
+  background-color: rgb(250 204 21 / 0.65);
+}
+
+.hover\:bg-yellow-400\/70:hover {
+  background-color: rgb(250 204 21 / 0.7);
+}
+
+.hover\:bg-yellow-400\/75:hover {
+  background-color: rgb(250 204 21 / 0.75);
+}
+
+.hover\:bg-yellow-400\/80:hover {
+  background-color: rgb(250 204 21 / 0.8);
+}
+
+.hover\:bg-yellow-400\/85:hover {
+  background-color: rgb(250 204 21 / 0.85);
+}
+
+.hover\:bg-yellow-400\/90:hover {
+  background-color: rgb(250 204 21 / 0.9);
+}
+
+.hover\:bg-yellow-400\/95:hover {
+  background-color: rgb(250 204 21 / 0.95);
+}
+
+.hover\:bg-yellow-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-yellow-50\/0:hover {
+  background-color: rgb(254 252 232 / 0);
+}
+
+.hover\:bg-yellow-50\/10:hover {
+  background-color: rgb(254 252 232 / 0.1);
+}
+
+.hover\:bg-yellow-50\/100:hover {
+  background-color: rgb(254 252 232 / 1);
+}
+
+.hover\:bg-yellow-50\/15:hover {
+  background-color: rgb(254 252 232 / 0.15);
+}
+
+.hover\:bg-yellow-50\/20:hover {
+  background-color: rgb(254 252 232 / 0.2);
+}
+
+.hover\:bg-yellow-50\/25:hover {
+  background-color: rgb(254 252 232 / 0.25);
+}
+
+.hover\:bg-yellow-50\/30:hover {
+  background-color: rgb(254 252 232 / 0.3);
+}
+
+.hover\:bg-yellow-50\/35:hover {
+  background-color: rgb(254 252 232 / 0.35);
+}
+
+.hover\:bg-yellow-50\/40:hover {
+  background-color: rgb(254 252 232 / 0.4);
+}
+
+.hover\:bg-yellow-50\/45:hover {
+  background-color: rgb(254 252 232 / 0.45);
+}
+
+.hover\:bg-yellow-50\/5:hover {
+  background-color: rgb(254 252 232 / 0.05);
+}
+
+.hover\:bg-yellow-50\/50:hover {
+  background-color: rgb(254 252 232 / 0.5);
+}
+
+.hover\:bg-yellow-50\/55:hover {
+  background-color: rgb(254 252 232 / 0.55);
+}
+
+.hover\:bg-yellow-50\/60:hover {
+  background-color: rgb(254 252 232 / 0.6);
+}
+
+.hover\:bg-yellow-50\/65:hover {
+  background-color: rgb(254 252 232 / 0.65);
+}
+
+.hover\:bg-yellow-50\/70:hover {
+  background-color: rgb(254 252 232 / 0.7);
+}
+
+.hover\:bg-yellow-50\/75:hover {
+  background-color: rgb(254 252 232 / 0.75);
+}
+
+.hover\:bg-yellow-50\/80:hover {
+  background-color: rgb(254 252 232 / 0.8);
+}
+
+.hover\:bg-yellow-50\/85:hover {
+  background-color: rgb(254 252 232 / 0.85);
+}
+
+.hover\:bg-yellow-50\/90:hover {
+  background-color: rgb(254 252 232 / 0.9);
+}
+
+.hover\:bg-yellow-50\/95:hover {
+  background-color: rgb(254 252 232 / 0.95);
+}
+
+.hover\:bg-yellow-500:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-yellow-500\/0:hover {
+  background-color: rgb(234 179 8 / 0);
+}
+
+.hover\:bg-yellow-500\/10:hover {
+  background-color: rgb(234 179 8 / 0.1);
+}
+
+.hover\:bg-yellow-500\/100:hover {
+  background-color: rgb(234 179 8 / 1);
+}
+
+.hover\:bg-yellow-500\/15:hover {
+  background-color: rgb(234 179 8 / 0.15);
+}
+
+.hover\:bg-yellow-500\/20:hover {
+  background-color: rgb(234 179 8 / 0.2);
+}
+
+.hover\:bg-yellow-500\/25:hover {
+  background-color: rgb(234 179 8 / 0.25);
+}
+
+.hover\:bg-yellow-500\/30:hover {
+  background-color: rgb(234 179 8 / 0.3);
+}
+
+.hover\:bg-yellow-500\/35:hover {
+  background-color: rgb(234 179 8 / 0.35);
+}
+
+.hover\:bg-yellow-500\/40:hover {
+  background-color: rgb(234 179 8 / 0.4);
+}
+
+.hover\:bg-yellow-500\/45:hover {
+  background-color: rgb(234 179 8 / 0.45);
+}
+
+.hover\:bg-yellow-500\/5:hover {
+  background-color: rgb(234 179 8 / 0.05);
+}
+
+.hover\:bg-yellow-500\/50:hover {
+  background-color: rgb(234 179 8 / 0.5);
+}
+
+.hover\:bg-yellow-500\/55:hover {
+  background-color: rgb(234 179 8 / 0.55);
+}
+
+.hover\:bg-yellow-500\/60:hover {
+  background-color: rgb(234 179 8 / 0.6);
+}
+
+.hover\:bg-yellow-500\/65:hover {
+  background-color: rgb(234 179 8 / 0.65);
+}
+
+.hover\:bg-yellow-500\/70:hover {
+  background-color: rgb(234 179 8 / 0.7);
+}
+
+.hover\:bg-yellow-500\/75:hover {
+  background-color: rgb(234 179 8 / 0.75);
+}
+
+.hover\:bg-yellow-500\/80:hover {
+  background-color: rgb(234 179 8 / 0.8);
+}
+
+.hover\:bg-yellow-500\/85:hover {
+  background-color: rgb(234 179 8 / 0.85);
+}
+
+.hover\:bg-yellow-500\/90:hover {
+  background-color: rgb(234 179 8 / 0.9);
+}
+
+.hover\:bg-yellow-500\/95:hover {
+  background-color: rgb(234 179 8 / 0.95);
 }
 
 @media (min-width: 640px) {
@@ -947,11 +7984,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:my-20 {
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-  }
-
   .lg\:mt-20 {
     margin-top: 5rem;
   }
@@ -964,16 +7996,16 @@ video {
     margin-top: 2rem;
   }
 
+  .lg\:mt-12 {
+    margin-top: 3rem;
+  }
+
   .lg\:h-24 {
     height: 6rem;
   }
 
-  .lg\:max-h-28 {
-    max-height: 7rem;
-  }
-
-  .lg\:max-h-80 {
-    max-height: 20rem;
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:w-1\/3 {
@@ -984,31 +8016,27 @@ video {
     width: 25%;
   }
 
-  .lg\:w-80 {
-    width: 20rem;
+  .lg\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .lg\:w-3\/5 {
     width: 60%;
   }
 
-  .lg\:w-1\/2 {
-    width: 50%;
+  .lg\:w-80 {
+    width: 20rem;
   }
 
-  .lg\:w-2\/3 {
-    width: 66.666667%;
+  .lg\:w-1\/12 {
+    width: 8.333333%;
   }
 
   .lg\:flex-row {
     flex-direction: row;
   }
 
-  .lg\:p-4 {
-    padding: 1rem;
-  }
-
-  .lg\:p-8 {
-    padding: 2rem;
+  .lg\:p-2 {
+    padding: 0.5rem;
   }
 }

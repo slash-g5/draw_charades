@@ -1,9 +1,10 @@
 import rough from "https://cdn.jsdelivr.net/npm/roughjs@4.3.1/bundled/rough.esm.js";
 import { draw } from "./roughjsHelper/RoughCanvasDraw.js";
+import { wsHost, httpHost } from "./config/uiConfig.js";
+import { loadThemeRecursive, loadTheme } from "./theme/theme.js";
+import { loadPlayerByConnectionId, reloadGameStateFromServer } from "./gameRefresher/gameResourceLoader.js";
 
-const host = "192.168.0.126"
-const wsHost = "ws://" + host + ":8080/ws";
-const httpHost = "http://" + host + ":8081" 
+let theme = "purple"
 
 const ws = new WebSocket(wsHost);
 const urlParams = new URLSearchParams(window.location.search);
@@ -14,33 +15,47 @@ let gameId = urlParams.get("gameId");
 const imgElementClass = "h-16 lg:h-24 w:4d";
 const nameElemClass = "text-xl font-bold p-2";
 const scoreElemClass = "px-2 pb-2 font-bold";
-const indvScoreBaseClass = "flex flex-row border-2 border-purple-400 bg-purple-50 rounded-lg p-2 max-h-20 lg:max-h-28 truncate w-52 lg:w-80";
+
+const indvScoreBaseClass = `flex flex-row border-2 border-` + theme + `-400` +  ` bg-` + theme + `-100 mt-4 lg:mt-8 rounded-lg lg:p-2 truncate w-52 lg:w-80`;
 
 if(mode == null || !(mode === "create" || mode === "join") ||
    name == null || name === "" || 
    (mode === "join" && (gameId == null || gameId === ""))){
-  window.location.href = "http://" + host + ":8081/welcome"
+  window.location.href = httpHost + "/welcome?err=unable to join"
 }
 
 const avatar = urlParams.get("avatar");
-let fellowGamersMap = {}
+let conId = null
 
 //gameId display
 let gameIdDisplay = document.getElementById("game_id_display");
 
+//Full game state
+let gameState = null
+
 //Chat window
 const msgList = document.getElementById("msg_list");
+const chatButton = document.getElementById("chat_button");
+const chatInput = document.getElementById("chat_input");
 
 //Score List
 const scoreSheet = document.getElementById("score_sheet");
-let score = []
+const playerNameScrHtmlElemMap = {}
+const playerConIdNameMap = {}
+
+//Title element
+const titleElement = document.getElementById("title");
+
+//Theme related
+const themePicker = document.getElementById("theme_picker");
+const themes = document.getElementById("themes");
 
 //Canvas related
-let drawer = true;
+let drawer = false;
 let isDrawing = false;
 let drawItem = "pencil";
-let drawColor = "#8B5CF6";
-let canvaColor = "#F3E8FF";
+let drawColor = "black";
+let canvaColor = "#FFFFFF";
 let drawing = [];
 let undoWindow = [];
 let currentShape = [];
@@ -58,6 +73,8 @@ const redoTool = document.getElementById("redo_tool");
 const gameCanvas = document.getElementById("game_canvas");
 const roughCanvas = rough.canvas(gameCanvas);
 const canvasContext = gameCanvas.getContext("2d");
+
+updateTheme()
 
 gameCanvas.setAttribute(
   "width",
@@ -194,17 +211,88 @@ gameIdDisplay.addEventListener("click", () => {
   copyGameIdToClipboard();
 })
 
+//Theme Button Event Listeners
+redTheme.addEventListener("click", () => {
+  theme = 'red';
+  updateTheme();
+})
+
+yellowTheme.addEventListener("click", () => {
+  theme = 'yellow';
+  updateTheme();
+})
+
+blueTheme.addEventListener("click", () => {
+  theme = 'blue';
+  updateTheme();
+})
+
+greenTheme.addEventListener("click", () => {
+  theme = 'green';
+  updateTheme();
+})
+
+cyanTheme.addEventListener("click", () => {
+  theme = 'cyan';
+  updateTheme();
+})
+
+tealTheme.addEventListener("click", () => {
+  theme = 'teal';
+  updateTheme();
+})
+
+pinkTheme.addEventListener("click", () => {
+  theme = 'pink';
+  updateTheme();
+})
+
+purpleTheme.addEventListener("click", () => {
+  theme = 'purple';
+  updateTheme();
+})
+
+//Chat Event Listeners
+chatButton.addEventListener("click", () => {
+  if(!chatInput.value || chatInput.value.length > 25){
+    return;
+  }
+  ws.send(JSON.stringify({
+    Action: "chat",
+    ClientId: conId,
+    GameId: gameId,
+    ChatText: chatInput.value
+  }))
+})
+
 //websocket message Actions
 {
   ws.onmessage = (message) => {
     console.log(message.data);
     const response = JSON.parse(message.data);
-    if (response.Action === "connect"){
+    if (response.Action === "connect") {
+      conId = response.ConnectionId;
       createGameIfNeeded();
       joinGameIfNeeded();
     }
-    else if (response.Action === "create"){
+    else if (response.Action === "create") {
+      drawer = true
       handleCreateMsg(response);
+    }
+    else if (response.Action === "join") {
+      reloadScoreSheet();
+    }
+    else if (response.Action === "chat") {
+      if(response.Data && response.Data.length < 26 
+        && response.Chatter && response.Chatter in playerConIdNameMap) {
+        updateMessages(playerConIdNameMap[response.Chatter] + ":  " + response.Data);
+      }
+    }
+    else if (response.Action === "draw") {
+      handleDrawMsg(response);
+    }
+    else if (response.Action === "disconnect") {
+      reloadScoreSheet();
     }
   };
 }
@@ -213,21 +301,42 @@ function createGameIfNeeded() {
   console.log("connection established");
   if (mode === "create") {
     ws.send(JSON.stringify({
-      Action: "create"
+      Action: "create",
+      Name: name,
+      AvatarId: avatar
     }));
   };
 }
 
-function handleCreateMsg(response) {
+async function handleCreateMsg(response) {
   gameId = response.GameId;
-  displayGameId();
+  await reloadScoreSheet()
 }
 
 function joinGameIfNeeded() {
-  displayGameId();
+  if (mode === "join") {
+    ws.send(JSON.stringify({
+      Action: "join",
+      GameId: gameId,
+      Name: name,
+      AvatarId: avatar
+    }));
+  };
 }
 
-function displayGameId(){
+function handleDrawMsg(response) {
+  if(drawer || !response.Data) {
+    return;
+  }
+  const img = new Image();
+  const elementSrc = `data:image/png;base64,${response.Data}`;
+  img.src = elementSrc;
+  img.onload = () => {
+    clearCanvas();
+    canvasContext.drawImage(img, 0, 0, 
+      canvasWidth*canvasTopLeft.scaleX, 
+      canvasHeight*canvasTopLeft.scaleY);
+  }
 }
 
 function updateCanvasCordinates() {
@@ -306,7 +415,7 @@ function clearCanvas() {
 function updateMessages(msg) {
   const listElement = document.createElement("div");
   listElement.className =
-    "text-violet-500 rounded-lg p-2 shadow mx-2 mb-2 mt-2 max-w-sm";
+    "text-" + theme + "-500" + " rounded-lg p-2 shadow mx-2 mb-2 mt-2 max-w-sm";
   listElement.textContent = msg;
   if(msgList.childElementCount < 150){
     msgList.appendChild(listElement);
@@ -318,8 +427,8 @@ function updateMessages(msg) {
   msgList.scrollTop = msgList.scrollHeight;
 }
 
-async function displaySelfScoreCard(){
-  const response = await fetch(`${httpHost}/avatar?key=${avatar}`);
+async function displayPlayerScoreCard(playerName, avatarId){
+  const response = await fetch(`${httpHost}/avatar?key=${avatarId}`);
   let base64Response = '';
   if(!response.ok){
     console.log("Unexpected Errors: ", response);
@@ -346,7 +455,7 @@ async function displaySelfScoreCard(){
     const nameScoreElem = document.createElement("div");
 
     const nameElem = document.createElement("div");
-    nameElem.textContent = getNameForScore(name);
+    nameElem.textContent = getNameForScore(playerName);
     nameElem.className = nameElemClass;
 
     const scoreElem = document.createElement("div");
@@ -360,6 +469,7 @@ async function displaySelfScoreCard(){
 
   }
 
+  playerNameScrHtmlElemMap[playerName] = scrElement;
   scoreSheet.appendChild(scrElement);
 
 }
@@ -380,19 +490,90 @@ function copyGameIdToClipboard(){
   
   let removedClasses = [];
   gameIdDisplay.classList.forEach( classname => {
-    if(classname.startsWith("hover:")){
+    if(classname.startsWith("hover:") || (classname.startsWith("bg-"))){
       gameIdDisplay.classList.remove(classname);
       removedClasses.push(classname);
     }
   });
 
+  gameIdDisplay.textContent = "Copied " + gameId;
   gameIdDisplay.classList.add("bg-green-100");
   setTimeout(() => {
     gameIdDisplay.classList.remove("bg-green-100");
     removedClasses.forEach((className) => {
       gameIdDisplay.classList.add(className);
     })
+    gameIdDisplay.textContent = "Click To Copy GameId";
   }, 1000)
 }
 
-displaySelfScoreCard();
+async function reloadScoreSheet() {
+  let toRemove = [];
+  let toAdd = [];
+  const newGameState = await reloadGameStateFromServer(gameId);
+  for(const conId of newGameState.ActivePlayers){
+    if(gameState?.ActivePlayers.includes(conId))
+      continue;
+    toAdd.push(conId);
+  }
+  if(newGameState.InactivePlayers?.length > 0) {
+  for(const conId of newGameState.InactivePlayers){
+      if(gameState?.InactivePlayers?.length > 0 && 
+          gameState?.InactivePlayers.includes(conId)
+        )
+        continue;
+      toRemove.push(conId);
+    }
+  }
+  gameState = newGameState;
+  if(toAdd?.length >0){
+    for(const conId of toAdd){
+      const currPlayer = await loadPlayerByConnectionId(conId);
+      playerConIdNameMap[conId] = currPlayer.Name
+      displayPlayerScoreCard(currPlayer.Name, currPlayer.AvatarId);
+    }
+  }
+
+  if(toRemove?.length > 0){
+    for(const conId of toRemove){
+      if(!(conId in playerConIdNameMap))
+        continue
+      if(!(playerConIdNameMap[conId]) in playerNameScrHtmlElemMap)
+        continue
+      scoreSheet.removeChild(playerNameScrHtmlElemMap[playerConIdNameMap[conId]])
+    }
+  }
+}
+
+function broadcastDrawing() {
+  if(!drawer) {
+    return;
+  }
+  ws.send(JSON.stringify({
+    Action: "draw",
+    GameId: gameId,
+    Data: getDrawingData()
+  }))
+}
+
+function getDrawingData(){
+  const base64Data = gameCanvas.toDataURL('image/png').split(',')[1];
+  return base64Data;
+}
+
+sendDrawUpdates();
+
+function sendDrawUpdates() {
+  broadcastDrawing();
+  setTimeout(sendDrawUpdates, 1500);
+}
+
+function updateTheme() {
+  //loadTheme(document.body, theme)
+  loadThemeRecursive(gameCanvas, theme);
+  loadThemeRecursive(chatButton, theme);
+  loadThemeRecursive(chatInput, theme);
+  loadThemeRecursive(gameIdDisplay, theme);
+  loadThemeRecursive(titleElement, theme);
+  loadThemeRecursive(scoreSheet, theme);
+}

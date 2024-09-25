@@ -2,7 +2,9 @@ package websocketserver
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
+	"multiplayer_game/dao"
 	"multiplayer_game/dto"
 	"multiplayer_game/exceptionhandler"
 	"multiplayer_game/service/common/gamedata"
@@ -25,7 +27,7 @@ var (
 func Initialize() {
 
 	log.Println("Initialising WS Server")
-	go redispubsub.SubscribeToRedisChannel(gamedata.RedisClient, GameIdConnectionIdMap, ConnectionIdConnectionMap)
+	go redispubsub.SubscribeToRedisChannel(gamedata.RedisClient, ConnectionIdConnectionMap)
 
 	http.HandleFunc("/ws", HandleConnections)
 	log.Println("HTTP server started on :8080")
@@ -57,8 +59,20 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			log.Printf("Error reading message Will Close Socket: %v", err)
 			gamedata.Mu.Lock()
 			delete(ConnectionIdConnectionMap, connectionId)
-			delete(GameIdConnectionIdMap, gameId)
 			gamedata.Mu.Unlock()
+
+			if gameId != "" {
+				err := dao.MakeConnectionIdIncactive(gameId, connectionId, gamedata.RedisClient)
+				if err != nil {
+					log.Printf("Error while making connectionId inactive %+v", err)
+				}
+			}
+
+			message := dto.MessageToClient{
+				Action: "disconnect",
+				GameId: gameId,
+			}
+			redispubsub.NotifyChannel(&message, gamedata.RedisClient)
 			break
 		}
 		var payload dto.MessageFromClient
@@ -68,102 +82,105 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 			ws.Close()
 			return
 		}
+		payload.ClientId = connectionId
 
 		if payload.Action == "create" {
 			gameId = util.GenerateGuid()
-			gamedata.Mu.Lock()
-			GameIdConnectionIdMap[gameId] = []string{connectionId}
-			GameIdGameStateMap[gameId] = &dto.GameState{TotalRounds: 5, CurrRound: 0, RoundTime: 45, AlreadyDrawn: []string{}, InactivePlayers: []string{},
-				TotalPlayers: 1, PlayerScoreMap: make(map[string]uint16), CurrPlayerScoreMap: make(map[string]uint16)}
-			ws.WriteJSON(&dto.MessageToClient{
+			player := dto.Player{Name: payload.Name, AvatarId: payload.AvatarId}
+			err = ws.WriteJSON(&dto.MessageToClient{
 				Action: "create",
 				GameId: gameId,
 			})
-			gamedata.Mu.Unlock()
-			payload.GameId = gameId
+			if err != nil {
+				log.Printf("%+v", err)
+				return
+			}
+			err = dao.AddPlayerByConnectionId(&player, connectionId, gamedata.RedisClient)
+			if err != nil {
+				log.Printf("%+v", err)
+				return
+			}
+			err = dao.AddPlayerByGameId(&player, gameId, connectionId, gamedata.RedisClient, false)
+			if err != nil {
+				log.Printf("%+v", err)
+				return
+			}
 			continue
 		}
 
 		if payload.Action == "join" {
 			gameId = payload.GameId
-			gamedata.Mu.Lock()
-			if !isValidJoin(gameId, connectionId) {
-				ws.WriteMessage(websocket.TextMessage, []byte("Unable To Join "+gameId))
-				gamedata.Mu.Unlock()
-				continue
-			}
-			GameIdConnectionIdMap[gameId] = append(GameIdConnectionIdMap[gameId], connectionId)
+			player := dto.Player{Name: payload.Name, AvatarId: payload.AvatarId}
 
-			gameState, ok := GameIdGameStateMap[gameId]
-			if !ok {
-				log.Printf("invalid message %+v game %s not found", payload, gameId)
-				gamedata.Mu.Unlock()
-				continue
-			}
-
-			gameState.TotalPlayers += 1
-
-			gamedata.Mu.Unlock()
-
-			payload.ClientId = connectionId
-			payloadBytes, err := json.Marshal(payload)
+			err = dao.AddPlayerByConnectionId(&player, connectionId, gamedata.RedisClient)
 			if err != nil {
-				log.Printf("Error while marshaling message %+v %+v \n", payload, err)
-				continue
+				fmt.Printf("%+v", err)
+				return
 			}
-			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
+			err = dao.AddPlayerByGameId(&player, gameId, connectionId, gamedata.RedisClient, true)
+			if err != nil {
+				fmt.Printf("%+v", err)
+				return
+			}
+			message := dto.MessageToClient{
+				Action:       "join",
+				ConnectionId: connectionId,
+				GameId:       gameId,
+				Name:         player.Name,
+			}
+			err := redispubsub.NotifyChannel(&message, gamedata.RedisClient)
+			if err != nil {
+				fmt.Printf("%+v", err)
+				return
+			}
 			continue
 		}
 
 		if payload.Action == "chat" {
 			gameId = payload.GameId
-			gamedata.Mu.Lock()
-			if !isValidMessage(gameId, connectionId) {
-				log.Printf("Invalid message for chat %v", payload)
-				gamedata.Mu.Unlock()
-				continue
-			}
-			payload.ClientId = connectionId
-			payloadBytes, err := json.Marshal(payload)
+			gameState, err := dao.GetGameByGameId(gameId, gamedata.RedisClient)
 			if err != nil {
-				log.Printf("Error while marshalling message %v %v \n", payload, err)
-			}
-			gameState, ok := GameIdGameStateMap[gameId]
-			if !ok {
 				log.Printf("Unable to obtain gamestate for gameId %v", gameId)
-				gamedata.Mu.Unlock()
 				continue
 			}
 			if gameState.CurrDrawer == payload.ClientId {
-				gamedata.Mu.Unlock()
 				continue
 			}
 			if payload.ChatText == gameState.CurrWord {
 				log.Printf("Successfull guess gameId %s Chat %s", gameId, payload.ChatText)
-				gamedata.Mu.Unlock()
 				gamedata.SuccessChatChan <- &dto.SuccessChatEvent{GameId: gameId, ChatterId: payload.ClientId}
 				continue
 			}
-			gamedata.Mu.Unlock()
-			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
+
+			message := dto.MessageToClient{
+				Action:       "chat",
+				ConnectionId: connectionId,
+				GameId:       gameId,
+				Chatter:      connectionId,
+				Data:         payload.ChatText,
+			}
+
+			redispubsub.NotifyChannel(&message, gamedata.RedisClient)
 			continue
 		}
 
 		if payload.Action == "draw" {
 			gameId = payload.GameId
-			gamedata.Mu.Lock()
-			if !isValidMessage(gameId, connectionId) {
-				log.Printf("Invalid message for chat %v", payload)
-				gamedata.Mu.Unlock()
+			gameState, err := dao.GetGameByGameId(gameId, gamedata.RedisClient)
+			if err != nil {
+				log.Printf("Unable to obtain gamestate for gameId %v", gameId)
 				continue
 			}
-			payload.ClientId = connectionId
-			payloadBytes, err := json.Marshal(payload)
-			if err != nil {
-				log.Printf("Error while marshalling message %v %v \n", payload, err)
+			if gameState.Start && gameState.CurrDrawer != payload.ClientId {
+				log.Printf("Not a drawer hence ignoring message")
+				continue
 			}
-			redispubsub.PublishToRedisChannel(gamedata.RedisClient, payloadBytes)
-			gamedata.Mu.Unlock()
+			message := dto.MessageToClient{
+				Action: "draw",
+				Data:   payload.Data,
+				GameId: gameId,
+			}
+			redispubsub.NotifyChannel(&message, gamedata.RedisClient)
 			continue
 		}
 
@@ -188,33 +205,4 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-}
-
-func isValidJoin(gameId string, connectionId string) bool {
-	connectionIds, ok := GameIdConnectionIdMap[gameId]
-	if !ok {
-		log.Printf("gameId %v does not exist", gameId)
-		return false
-	}
-	for _, v := range connectionIds {
-		if v == connectionId {
-			log.Printf("connection %v already exists in game %v", v, gameId)
-			return false
-		}
-	}
-	return true
-}
-
-func isValidMessage(gameId string, connectionId string) bool {
-	connectionIds, ok := GameIdConnectionIdMap[gameId]
-	if !ok {
-		return false
-	}
-	for _, v := range connectionIds {
-		if v == connectionId {
-			return true
-		}
-	}
-
-	return false
 }

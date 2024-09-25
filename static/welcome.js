@@ -1,7 +1,7 @@
 import { draw } from "./roughjsHelper/RoughCanvasDraw.js";
 import rough from "https://cdn.jsdelivr.net/npm/roughjs@4.3.1/bundled/rough.esm.js";
+import { httpHost } from "./config/uiConfig.js";
 
-const host = "http://192.168.0.126";
 const cButton = document.getElementById("create_button");
 const jButton = document.getElementById("join_button");
 const name = document.getElementById("name");
@@ -38,7 +38,7 @@ cButton.addEventListener("click", () => {
     return;
   }
   getAvatarImageId().then(imageId => {
-    window.location.href = host + ":8081?mode=create&name=" + name.value.slice(0,10) + "&avatar="+imageId;
+    window.location.href = httpHost + "?mode=create&name=" + name.value.slice(0,10) + "&avatar="+imageId;
   }).catch(e => console.error("Error:", e));
 });
 
@@ -52,7 +52,7 @@ jButton.addEventListener("click", () => {
     return;
   }
   getAvatarImageId().then(imageId => {
-      window.location.href = host + ":8081?mode=join&name=" + name.value.slice(0,15) +
+      window.location.href = httpHost + "?mode=join&name=" + name.value.slice(0,15) +
     "&gameId=" + gameId.value + "&avatar="+imageId;
   }).catch(e => console.error("Error:", e)) 
 });
@@ -155,7 +155,7 @@ function getAvatarString(){
 }
 
 function getAvatarImageId(){
-  const requestUrl = host + ":8081/avatar";
+  const requestUrl = httpHost + "/avatar";
   return fetch(requestUrl, {
     method : "POST",
     headers : {

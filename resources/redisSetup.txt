@@ -1,0 +1,3 @@
+This files contains queries to setup redis
+
+1. To start redis, ./redis-server &

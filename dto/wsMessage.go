@@ -1,11 +1,16 @@
 package dto
 
+import "encoding/json"
+
 type MessageFromClient struct {
 	Action   string
 	GameId   string
 	ChatText string
 	ClientId string
 	Drawing  Drawing
+	Name     string
+	AvatarId string
+	Data     string
 }
 
 type Point struct {
@@ -33,4 +38,9 @@ type MessageToClient struct {
 	Word          string
 	ConnectionId  string
 	GameId        string
+	Name          string
+}
+
+func (mtc *MessageToClient) MarshalBinary() ([]byte, error) {
+	return json.Marshal(mtc)
 }
