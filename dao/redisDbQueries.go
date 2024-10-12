@@ -53,7 +53,8 @@ func AddPlayerByGameId(player *dto.Player, gameId string, connectionId string, r
 			return err
 		}
 		game = &dto.GameState{
-			TotalRounds:        5,
+			TotalRounds:        1,
+			DrawTime:           5,
 			CurrRound:          0,
 			Complete:           false,
 			Start:              false,
@@ -147,5 +148,27 @@ func MakeConnectionIdIncactive(gameId string, conId string, redisClient *redis.C
 	game.ActivePlayers = newActive
 	game.InactivePlayers = append(game.InactivePlayers, conId)
 
+	return redisClient.Set("GAME_"+gameId, game, time.Hour).Err()
+}
+
+func StartGame(gameId string, redisClient *redis.Client) error {
+	game, err := GetGameByGameId(gameId, redisClient)
+	if err != nil {
+		return err
+	}
+	if game.Start || game.CurrRound > 0 {
+		return fmt.Errorf("game already started")
+	}
+	if len(game.ActivePlayers) < 3 {
+		return fmt.Errorf("not enough players")
+	}
+	game.Start = true
+	game.CurrRound = 0
+	game.GameStartTime = time.Now()
+
+	return redisClient.Set("GAME_"+gameId, game, time.Hour).Err()
+}
+
+func UpdateGame(gameId string, game *dto.GameState, redisClient *redis.Client) error {
 	return redisClient.Set("GAME_"+gameId, game, time.Hour).Err()
 }

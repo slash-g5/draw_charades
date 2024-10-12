@@ -45,9 +45,9 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	connectionId := util.GenerateGuid()
-	gamedata.Mu.Lock()
+	gamedata.WsConnLock.Lock()
 	ConnectionIdConnectionMap[connectionId] = ws
-	gamedata.Mu.Unlock()
+	gamedata.WsConnLock.Unlock()
 	//Send connectionId to clinet
 	var messageToClient = &dto.MessageToClient{Action: "connect", ConnectionId: connectionId}
 	ws.WriteJSON(messageToClient)
@@ -57,12 +57,17 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 		_, msg, err := ws.ReadMessage()
 		if err != nil {
 			log.Printf("Error reading message Will Close Socket: %v", err)
-			gamedata.Mu.Lock()
+			gamedata.WsConnLock.Lock()
 			delete(ConnectionIdConnectionMap, connectionId)
-			gamedata.Mu.Unlock()
+			gamedata.WsConnLock.Unlock()
 
 			if gameId != "" {
-				err := dao.MakeConnectionIdIncactive(gameId, connectionId, gamedata.RedisClient)
+				game, err := dao.GetGameByGameId(gameId, gamedata.RedisClient)
+				if err != nil && game.Complete {
+					log.Printf("game completed hence not removing active player")
+					break
+				}
+				err = dao.MakeConnectionIdIncactive(gameId, connectionId, gamedata.RedisClient)
 				if err != nil {
 					log.Printf("Error while making connectionId inactive %+v", err)
 				}
@@ -186,21 +191,17 @@ func HandleConnections(w http.ResponseWriter, r *http.Request) {
 
 		if payload.Action == "start" {
 			gameId = payload.GameId
-			gamedata.Mu.Lock()
-			gameState, ok := GameIdGameStateMap[gameId]
-			if !ok {
-				log.Printf("Invalid message received %+v, invalid game id %+v", payload, gameId)
-				gamedata.Mu.Unlock()
+			gameState, err := dao.GetGameByGameId(gameId, gamedata.RedisClient)
+			if err != nil {
+				log.Printf("Invalid message received %+v, invalid game id %+v, error %+v", payload, gameId, err)
 				continue
 			}
 			if gameState.CurrRound > 0 {
 				log.Printf("Invalid message received %+v, game already started %s", payload, gameId)
-				gamedata.Mu.Unlock()
 				continue
 			}
-			var event = &dto.GameStartEvent{GameId: gameId}
+			var event = dto.GameStartEvent{GameId: gameId}
 			gamedata.GameStartChan <- event
-			gamedata.Mu.Unlock()
 			continue
 		}
 	}

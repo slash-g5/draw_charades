@@ -34,7 +34,6 @@ var (
 // Tests message flow with different testcases in different order
 func TestWebsocketMessageFlow(t *testing.T) {
 	go redispubsub.SubscribeToRedisChannel(gamedata.RedisClient,
-		websocketserver.GameIdConnectionIdMap,
 		websocketserver.ConnectionIdConnectionMap)
 	s := httptest.NewServer(http.HandlerFunc(websocketserver.HandleConnections))
 	u := "ws" + strings.TrimPrefix(s.URL, "http")
@@ -108,7 +107,7 @@ func TestWebsocketMessageFlow(t *testing.T) {
 	wg.Wait()
 
 	go gamemanager.FillWordList()
-	go gamemanager.HandleGameStart()
+	// go gamemanager.HandleGameStart()
 	go gamemanager.HandleGameChatSuccess()
 
 	log.Printf("--------TESTING-----START----")

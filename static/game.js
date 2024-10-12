@@ -1,9 +1,11 @@
 import rough from "https://cdn.jsdelivr.net/npm/roughjs@4.3.1/bundled/rough.esm.js";
 import { draw } from "./roughjsHelper/RoughCanvasDraw.js";
 import { wsHost, httpHost } from "./config/uiConfig.js";
-import { loadThemeRecursive, loadTheme } from "./theme/theme.js";
+import { loadThemeRecursive} from "./theme/theme.js";
 import { loadPlayerByConnectionId, reloadGameStateFromServer } from "./gameRefresher/gameResourceLoader.js";
+import { hideOverlayElement, generateWaitOverlay, generateStartOverlay, generateGameCompleteOverlay} from "./overlay/overlayGenerator.js";
 
+// Default theme
 let theme = "purple"
 
 const ws = new WebSocket(wsHost);
@@ -14,7 +16,7 @@ let gameId = urlParams.get("gameId");
 
 const imgElementClass = "h-16 lg:h-24 w:4d";
 const nameElemClass = "text-xl font-bold p-2";
-const scoreElemClass = "px-2 pb-2 font-bold";
+const scoreElemClass = "screlem px-2 pb-2 font-bold";
 
 const indvScoreBaseClass = `flex flex-row border-2 border-` + theme + `-400` +  ` bg-` + theme + `-100 mt-4 lg:mt-8 rounded-lg lg:p-2 truncate w-52 lg:w-80`;
 
@@ -42,13 +44,13 @@ const chatInput = document.getElementById("chat_input");
 const scoreSheet = document.getElementById("score_sheet");
 const playerNameScrHtmlElemMap = {}
 const playerConIdNameMap = {}
+const rankingNames = []
 
 //Title element
 const titleElement = document.getElementById("title");
 
-//Theme related
-const themePicker = document.getElementById("theme_picker");
-const themes = document.getElementById("themes");
+//Overlay element
+const overlay = document.getElementById("overlay");
 
 //Canvas related
 let drawer = false;
@@ -212,45 +214,47 @@ gameIdDisplay.addEventListener("click", () => {
 })
 
 //Theme Button Event Listeners
-redTheme.addEventListener("click", () => {
-  theme = 'red';
-  updateTheme();
-})
+{
+  redTheme.addEventListener("click", () => {
+    theme = 'red';
+    updateTheme();
+  })
 
-yellowTheme.addEventListener("click", () => {
-  theme = 'yellow';
-  updateTheme();
-})
+  yellowTheme.addEventListener("click", () => {
+    theme = 'yellow';
+    updateTheme();
+  })
 
-blueTheme.addEventListener("click", () => {
-  theme = 'blue';
-  updateTheme();
-})
+  blueTheme.addEventListener("click", () => {
+    theme = 'blue';
+    updateTheme();
+  })
 
-greenTheme.addEventListener("click", () => {
-  theme = 'green';
-  updateTheme();
-})
+  greenTheme.addEventListener("click", () => {
+    theme = 'green';
+    updateTheme();
+  })
 
-cyanTheme.addEventListener("click", () => {
-  theme = 'cyan';
-  updateTheme();
-})
+  cyanTheme.addEventListener("click", () => {
+    theme = 'cyan';
+    updateTheme();
+  })
 
-tealTheme.addEventListener("click", () => {
-  theme = 'teal';
-  updateTheme();
-})
+  tealTheme.addEventListener("click", () => {
+    theme = 'teal';
+    updateTheme();
+  })
 
-pinkTheme.addEventListener("click", () => {
-  theme = 'pink';
-  updateTheme();
-})
+  pinkTheme.addEventListener("click", () => {
+    theme = 'pink';
+    updateTheme();
+  })
 
-purpleTheme.addEventListener("click", () => {
-  theme = 'purple';
-  updateTheme();
-})
+  purpleTheme.addEventListener("click", () => {
+    theme = 'purple';
+    updateTheme();
+  })
+}
 
 //Chat Event Listeners
 chatButton.addEventListener("click", () => {
@@ -276,11 +280,14 @@ chatButton.addEventListener("click", () => {
       joinGameIfNeeded();
     }
     else if (response.Action === "create") {
-      drawer = true
       handleCreateMsg(response);
+      generateStartOverlay(overlay, ws, gameId);      
     }
     else if (response.Action === "join") {
       reloadScoreSheet();
+      if(mode == "join") {
+        generateWaitOverlay(overlay, gameId);
+      }
     }
     else if (response.Action === "chat") {
       if(response.Data && response.Data.length < 26 
@@ -293,6 +300,35 @@ chatButton.addEventListener("click", () => {
     }
     else if (response.Action === "disconnect") {
       reloadScoreSheet();
+    }
+    else if (response.Action === "start") {
+      hideOverlayElement(overlay);
+    }
+    else if (response.Action === "roundsame") {
+      clearCanvas()
+      currentShape = []
+      drawing = []
+      drawer = (response.Drawer === conId)
+      reloadScoreSheet();
+      if(drawer) {
+        alert("You are drawer!")
+      }
+    }
+    else if (response.Action == "roundchange") {
+      clearCanvas()
+      currentShape = []
+      drawing = []
+      drawer = (response.Drawer === conId);
+      reloadScoreSheet();
+      if(drawer) {
+        alert("You are drawer!")
+      }
+    }
+    else if (response.Action === "complete") {
+      drawer = false;
+      clearCanvas();
+      reloadScoreSheet();
+      generateGameCompleteOverlay(overlay, playerNameScrHtmlElemMap);
     }
   };
 }
@@ -512,8 +548,10 @@ async function reloadScoreSheet() {
   let toAdd = [];
   const newGameState = await reloadGameStateFromServer(gameId);
   for(const conId of newGameState.ActivePlayers){
-    if(gameState?.ActivePlayers.includes(conId))
+    if(gameState?.ActivePlayers.includes(conId)) {
+      updateScore(conId, newGameState)
       continue;
+    }
     toAdd.push(conId);
   }
   if(newGameState.InactivePlayers?.length > 0) {
@@ -543,6 +581,19 @@ async function reloadScoreSheet() {
       scoreSheet.removeChild(playerNameScrHtmlElemMap[playerConIdNameMap[conId]])
     }
   }
+}
+
+function updateScore(conId, gs={}) {
+    if (!(conId in playerConIdNameMap) || !playerConIdNameMap[conId] in playerNameScrHtmlElemMap) {
+          return
+        }
+    let targetElem = playerNameScrHtmlElemMap[playerConIdNameMap[conId]]
+    let scr = targetElem.querySelector(".screlem")
+    let eScr = 0
+    if (conId in gs.PlayerScoreMap) {
+      eScr = gs.PlayerScoreMap[conId]
+    }
+    scr.textContent = "score: " + eScr;
 }
 
 function broadcastDrawing() {

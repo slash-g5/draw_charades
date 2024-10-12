@@ -51,8 +51,8 @@ func PublishToRedisChannel(redisClient *redis.Client, msg []byte) {
 }
 
 func sendMessageToWS(connectionId string, connectionIdConnectionMap map[string]*websocket.Conn, message dto.MessageToClient) {
-	defer gamedata.Mu.Unlock()
-	gamedata.Mu.Lock()
+	defer gamedata.WsConnLock.Unlock()
+	gamedata.WsConnLock.Lock()
 	conn, ok := connectionIdConnectionMap[connectionId]
 	if !ok {
 		log.Printf("Invalid ConnectionId %v", connectionId)
@@ -67,8 +67,8 @@ func sendMessageToWS(connectionId string, connectionIdConnectionMap map[string]*
 
 func NotifyGameStart(gameId string, redisClient *redis.Client, gameIdConnectionIdMap map[string][]string, connectionIdConnectionMap map[string]*websocket.Conn) {
 	log.Printf("Notifying game %s start", gameId)
-	defer gamedata.Mu.Unlock()
-	gamedata.Mu.Lock()
+	defer gamedata.WsConnLock.Unlock()
+	gamedata.WsConnLock.Lock()
 	connectionIds, ok := gameIdConnectionIdMap[gameId]
 	if !ok {
 		fmt.Printf("Got no connection id for game %s", gameId)

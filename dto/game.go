@@ -13,8 +13,8 @@ type GameState struct {
 	AlreadyDrawn       []string
 	GameStartTime      time.Time
 	Start              bool
-	RoundStartTime     time.Time
-	RoundTime          uint8
+	DrawStartTime      time.Time
+	DrawTime           uint8
 	CurrTime           uint
 	ActivePlayers      []string
 	InactivePlayers    []string
@@ -47,6 +47,10 @@ type GameErrorEvent struct {
 }
 
 type GameStartEvent struct {
+	GameId string
+}
+
+type GameScheduledEvent struct {
 	GameId string
 }
 
